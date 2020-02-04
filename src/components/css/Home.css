@@ -1,3 +1,7 @@
+.home {
+    text-align: center;
+}
+
 .home .logostart {
     height: 10rem;
     -webkit-filter: blur(2px);
@@ -113,10 +117,15 @@
     transition: width 0.3s ease 0s, left 0.3s ease 0s;
     width: 0;
 }
+/* 
+.home .navbar-item-underline:active {
+    text-shadow: grey 1px 2px 3px;
+} */
 
 .home .navbar-item-underline:hover:after {
     width: 100%;
     left: 0;
+    
 }
 
 @-webkit-keyframes shine {
