@@ -4,17 +4,37 @@
     filter: blur(2px);
 }
 
-.header-container {
-    margin-top: 50vh;
-    transform: translateY(-50%);
-    position: relative;
+.home .header {
+    position: fixed;
+    top: 2%;
+    display: flex;
+    right: 2%;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 35vw;
+    visibility: visible;
+    overflow: hidden;
 }
 
-.header {
-    position: absolute;
-    z-index: 10;
-    left: 0;
-    right: 0;
+.home .header2 {
+    position: fixed;
+    top: 2%;
+    display: flex;
+    right: 2%;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 35vw;
+    visibility: hidden;
+}
+
+.home .header-visible {
+    filter: opacity(1);
+    transition: ease 350ms;
+}
+
+.home .header-invisible {
+    filter: opacity(0);
+    transition: ease-in 100ms;
 }
 
 .home .logofull {
@@ -39,6 +59,8 @@
     left: 0;
     right: 0;
     margin-top: 0;
+    background-image: linear-gradient(to top, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 12%);
+    cursor: pointer;
 }
 
 .home .logo-container img, .home .logo-container2 img {
@@ -69,6 +91,34 @@
     animation: shine 4s;
 }
 
+.home .navbar-item-underline {
+    color: black;
+    text-decoration: none;
+    letter-spacing: 0.15em;
+    display: inline-block;
+    padding: 15px 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.home .navbar-item-underline:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    background: black;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.home .navbar-item-underline:hover:after {
+    width: 100%;
+    left: 0;
+}
+
 @-webkit-keyframes shine {
     100% {
         left: 125%;
@@ -78,5 +128,43 @@
 @keyframes shine {
     100% {
         left: 125%;
+    }
+}
+
+/* @mediaquery : menu burger @ 1076 */
+
+@media screen and (min-width: 600px) and (max-width: 1076px) {
+    .home .header {
+        position: fixed;
+        top: 0;
+        display: flex;
+        right: 8%;
+        flex-direction: column;
+        width: 20vw;
+        visibility: visible;
+        overflow: hidden;
+        align-items: center;
+    }
+
+    .home .header2 {
+        position: fixed;
+        top: 0;
+        display: flex;
+        right: 8%;
+        flex-direction: column;
+        width: 20vw;
+        visibility: hidden;
+        overflow: hidden;
+        align-items: center;
+    }
+
+    .home .navbar-item-underline {
+        color: black;
+        text-decoration: none;
+        letter-spacing: 0.15em;
+        display: inline-block;
+        padding: 8px 20px;
+        position: relative;
+        cursor: pointer;
     }
 }
