@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import './css/Carousel.css'
 
-const Carousel = () => {
+const Carousel = props => {
     const [active, setActive] = useState(0)
     const [direction, setDirection] = useState('')
 
@@ -33,10 +33,10 @@ const Carousel = () => {
         setActive((newActive + 1) % items.length)
         setDirection('right')
     }
-    const items = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    const items = ['', '', '', '', '', '', '', '', '', '']
 
     return (
-            <div id="carousel" className="carousel carousel-noselect">
+            <div id="carousel" className={`carousel carousel-noselect ${props.content ? 'visible-content' : 'hidden-content'} ${props.isTop ? 'delete-margin' : 'add-margin'}`}>
                 <div className="arrow arrow-left" onClick={moveLeft}><i className="fi-arrow-left"></i></div>
                 <ReactCSSTransitionGroup
                     transitionName={direction}>
