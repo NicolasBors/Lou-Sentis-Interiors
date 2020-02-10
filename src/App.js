@@ -3,18 +3,21 @@ import './App.css'
 import Home from './components/Home'
 import Test from './components/Test'
 import Carousel from './components/Carousel'
+import Mobilier from './components/Mobilier'
+import MenuBurger from './components/MenuBurger'
+
 
 const App = () => {
 
   const [content, setContent] = useState(false)
   const [isTop, setIsTop] = useState(true)
+  const [view, setView] = useState('carousel')  
 
   return (<div className="App">
-    <Home setContent={setContent} isTop={isTop} setIsTop={setIsTop}/>
-    {/* <Test /> */}
-    <Carousel content={content} isTop={isTop}/>
+    <Home setContent={setContent} isTop={isTop} setIsTop={setIsTop} setView={setView} />
+    {view === 'carousel' ? <Carousel content={content} isTop={isTop} /> : null}
+    {view === 'mobilier' ? <Mobilier content={content} /> : null}
   </div>)
 }
-
 
 export default App
