@@ -61,7 +61,7 @@ const Home = props => {
 
     const setCarousel = () => {
         window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-        setTimeout(() => props.setView('carousel'), 300)
+        setTimeout(() => props.setView('carousel'), 500)
     }
 
     const setMobilier = () => {

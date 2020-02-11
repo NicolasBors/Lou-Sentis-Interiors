@@ -18,9 +18,8 @@
     flex-direction: row;
     width: 35vw;
     visibility: visible;
-    overflow: hidden;
     /* background-color: white; */
-    z-index: 100;
+    z-index: 101;
 }
 
 .home .header2 {
@@ -37,12 +36,11 @@
 
 .home .header-visible {
     filter: opacity(1);
-    transition: ease 350ms;
 }
 
 .home .header-invisible {
     filter: opacity(0);
-    transition: ease-in 100ms;
+    transition: ease-in 200ms;
 }
 
 .home .logofull {
@@ -112,6 +110,10 @@
     cursor: pointer;
 }
 
+.navbar-item-container1 {
+    position: relative;
+}
+
 .navbar-item-container1:hover .navbar-main-item, .navbar-item-container2:hover .navbar-main-item, .navbar-item-container3:hover .navbar-main-item {
     color: white;
 }
@@ -133,14 +135,9 @@
     background: black;
 }
 
-/* 
-.home .navbar-item-underline:active {
-    text-shadow: grey 1px 2px 3px;
-} */
-
 .navbar-item-sub:hover {
     transform: scale(1.2);
-    transition-duration: 300ms;
+    transition: ease 200ms;
 }
 
 .navbar-item-sub {
@@ -151,19 +148,29 @@
     cursor: pointer;
 }
 
-.navbar-item-sub-container1, .navbar-item-sub-container2, .navbar-item-sub-container3 {
-    transform: scale(0);
+.navbar-item-sub {
+    filter: opacity(0);
+    transform: scale(1);
     height: 0px;
 }
 
 .navbar-item-sub-container1, .navbar-item-sub-container2 {
-    margin-top: 20px;
+    position: absolute;
+    z-index: 121;
+    /* background: white; */
+    display: none;
+        left: 0;
+    right: 0;
+    }
+
+.navbar-item-container1:hover .navbar-item-sub-container1 .navbar-item-sub, .navbar-item-container2:hover .navbar-item-sub-container2 .navbar-item-sub {
+    filter: opacity(1);
+    height: auto;
+    transition: ease-in 200ms;
 }
 
 .navbar-item-container1:hover .navbar-item-sub-container1, .navbar-item-container2:hover .navbar-item-sub-container2 {
-    transform: scale(1);
-    height: auto;
-    transition: ease-in 320ms;
+    display: block;
 }
 
 .navbar-main-item {
@@ -193,7 +200,6 @@
         flex-direction: column;
         width: 20vw;
         visibility: visible;
-        overflow: hidden;
         align-items: center;
     }
     .home .header2 {
@@ -204,7 +210,6 @@
         flex-direction: column;
         width: 20vw;
         visibility: hidden;
-        overflow: hidden;
         align-items: center;
     }
     .home .navbar-item-underline {

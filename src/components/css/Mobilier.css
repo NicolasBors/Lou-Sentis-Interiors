@@ -50,12 +50,6 @@
     margin-bottom: 20px;
 }
 
-.mobilier-title p {
-    border-top: 1px solid black;
-    margin: 0;
-    padding-top: 15px;
-}
-
 .test5 {
     grid-column-start: 1;
     grid-column-end: 3;
@@ -76,4 +70,69 @@
     transform: rotate(45deg);
     left: 122px;
     border-right: solid 30px white;
+}
+
+.mobilier-title p {
+    margin: 0;
+}
+
+.mobilier-filters {
+    display: flex;
+    padding-top: 15px;
+    border-top: 1px solid black;
+    cursor: pointer;
+    position: relative;
+}
+
+.mobilier-down-arrow {
+    height: 1.2rem;
+    padding-left: 7px;
+    transition: ease 300ms;
+}
+
+.mobilier-top-arrow {
+    height: 1.2rem;
+    padding-left: 7px;
+    transform: rotateX(180deg);
+    transition: ease 300ms;
+}
+
+.mobilier-close-filters {
+    position: absolute;
+    height: 0px;
+    z-index: 100;
+    top: 3rem;
+    left: -20px;
+    background-color: white;
+    transition: ease 0.5s;
+    overflow-x: hidden;
+    width: max-content;
+    padding: 0px 20px -20px 20px;
+}
+
+.mobilier-open-filters {
+    position: absolute;
+    height: auto;
+    z-index: 90;
+    top: 3rem;
+    left: -20px;
+    background-color: white;
+    transition: ease 0.5s;
+    overflow-x: hidden;
+    width: max-content;
+    box-shadow: 9px 10px 9px 0px grey;
+    padding: 20px 20px 0px 20px;
+    transition: ease 400ms;
+}
+
+.mobilier-select-filter {
+    padding-bottom: 20px;
+}
+
+.mobilier-select-filter:hover {
+    text-shadow: grey 1px 2px 3px;
+}
+
+.mobilier-select-filter:active {
+    transform: scale(1.05)
 }
