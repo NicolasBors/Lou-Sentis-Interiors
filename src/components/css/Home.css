@@ -1,6 +1,13 @@
+@font-face {
+    font-family: 'Avenir';
+    src: url('../../assets/fonts/AvenirLTStd-Medium.otf')
+}
+
 .home {
     text-align: center;
     z-index: 10;
+    font-family: 'Avenir';
+    letter-spacing: 0.15em;
 }
 
 .home .logostart {
@@ -98,6 +105,32 @@
     animation: shine 4s;
 }
 
+@keyframes wink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.arrow-container {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.scoll-arrow {
+    height: 30px;
+    animation: wink 1300ms infinite;
+}
+
 .navbar-main-item {
     padding: 10px;
     position: relative;
@@ -108,10 +141,7 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     cursor: pointer;
-}
-
-.navbar-item-container1 {
-    position: relative;
+    background: linear-gradient(white, transparent);
 }
 
 .navbar-item-container1:hover .navbar-main-item, .navbar-item-container2:hover .navbar-main-item, .navbar-item-container3:hover .navbar-main-item {
@@ -141,11 +171,11 @@
 }
 
 .navbar-item-sub {
-    padding-bottom: 8px;
-    margin-bottom: 0;
-    letter-spacing: 0.15em;
+    padding: 5px 0px 5px 0px;
     font-size: 13px;
     cursor: pointer;
+    background: radial-gradient(white, transparent 75%);
+    border-radius: 100%;
 }
 
 .navbar-item-sub {
@@ -154,14 +184,18 @@
     height: 0px;
 }
 
-.navbar-item-sub-container1, .navbar-item-sub-container2 {
+.navbar-item-sub-container1 {
     position: absolute;
     z-index: 121;
-    /* background: white; */
     display: none;
-        left: 0;
-    right: 0;
-    }
+    left: 0;
+}
+
+.navbar-item-sub-container2 {
+    position: absolute;
+    z-index: 121;
+    display: none;
+}
 
 .navbar-item-container1:hover .navbar-item-sub-container1 .navbar-item-sub, .navbar-item-container2:hover .navbar-item-sub-container2 .navbar-item-sub {
     filter: opacity(1);
@@ -170,11 +204,15 @@
 }
 
 .navbar-item-container1:hover .navbar-item-sub-container1, .navbar-item-container2:hover .navbar-item-sub-container2 {
-    display: block;
+    display: contents;
 }
 
 .navbar-main-item {
     margin-bottom: 5px;
+}
+
+.navbar-item-container1 {
+    max-width: 106px;
 }
 
 @-webkit-keyframes shine {
@@ -212,13 +250,24 @@
         visibility: hidden;
         align-items: center;
     }
-    .home .navbar-item-underline {
-        color: black;
-        text-decoration: none;
-        letter-spacing: 0.15em;
-        display: inline-block;
-        padding: 0px 20px 8px 20px;
-        position: relative;
-        cursor: pointer;
+    .navbar-item-sub-container1 {
+        position: absolute;
+        z-index: 121;
+        display: none;
+        left: 0;
+        right: 0;
+    }
+    .navbar-item-sub-container2 {
+        position: absolute;
+        z-index: 121;
+        display: none;
+        left: 0;
+        right: 0;
+    }
+    .navbar-item-container1:hover~.navbar-item-container2, .navbar-item-container1:hover~.navbar-item-container3 {
+        visibility: hidden;
+    }
+    .navbar-item-container2:hover~.navbar-item-container3 {
+        visibility: hidden;
     }
 }

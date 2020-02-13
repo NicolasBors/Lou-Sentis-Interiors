@@ -3,6 +3,7 @@ import './css/Home.css'
 // import louCardRB from '../assets/louCard.png'
 import louCardWB from '../assets/LOGO BLANC.png'
 import MenuBurger from './MenuBurger'
+import scrollArrow from '../assets/scrollArrow.png'
 // import louCardTop from '../assets/LOGO BLANC haut.png'
 // import louCardBottom from '../assets/LOGO BLANC bas.png'
 
@@ -12,16 +13,20 @@ const Home = props => {
     const [shine, setShine] = useState('')
     const [headHeight, setHeadHeight] = useState(484)
     const [seeMenu, setSeeMenu] = useState(false)
+    const [arrow, setArrow] = useState(false)
 
     useEffect(() => {
-        window.scrollTo(0, 0)
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0)
+        })
     }, [])
 
     useEffect(() => {
         setTimeout(() => setStart('logofull'), 100)
         setTimeout(() => setShine('shine'), 100)
         setTimeout(() => props.setContent(true), 600)
-    })
+        setTimeout(() => setArrow(true), 1800)
+    }, [])
 
     useEffect(() => {
         const logo = document.getElementById('logoId');
@@ -37,13 +42,17 @@ const Home = props => {
     useEffect(() => {
         window.addEventListener('scroll', () => {
             const headerTop = window.scrollY < headHeight
-            headerTop !== props.isTop
-                ?
-                props.setIsTop(false)
-                :
+            headerTop !== props.isTop ?
+                props.setIsTop(false) :
                 props.setIsTop(true)
         })
     }, [])
+
+    useEffect(() => {
+        window.addEventListener('scroll', () => {
+            setArrow(false)
+        })
+    })
 
     useEffect(() => {
         window.addEventListener('resize', () => {
@@ -54,8 +63,7 @@ const Home = props => {
     const resize = () => {
         let currentWidth = (window.innerWidth < 600);
         currentWidth ?
-            setSeeMenu(true)
-            :
+            setSeeMenu(true) :
             setSeeMenu(false)
     }
 
@@ -68,41 +76,53 @@ const Home = props => {
         props.setView('mobilier')
     }
 
-    return (
-        <div className='home'>
-            <div onClick={props.isTop ? null : setCarousel} id='logoId' className={props.isTop ? 'logo-container' : 'logo-container2'}>
-                <figure className={`logo-figure ${shine}`} >
-                    <img className={start} src={louCardWB} alt='logo' />
-                </figure>
+    const setContact = () => {
+        props.setView('contact')
+    }
 
-            </div>
-            {seeMenu ?
-                <MenuBurger />
-                :
-                <div className={`${props.isTop || (window.innerHeight + window.scrollY) < document.body.offsetHeight ? 'header2 header-invisible' : 'header header-visible'}`} >
-                    <div className='navbar-item-container1'>
-                        <p className='navbar-main-item'>PROJETS</p>
-                        <div className='navbar-item-sub-container1'>
-                            <p className='navbar-item-sub'>PROJETS ÉTUDIANTS</p>
-                            <p className='navbar-item-sub'>PROJETS PARTICULIERS</p>
-                            <p className='navbar-item-sub'>PROJETS HÔTELIERS</p>
+    return (
+        <div className='home' >
+            <div onClick={props.isTop ? null : setCarousel} id='logoId' className={props.isTop ? 'logo-container' : 'logo-container2'} >
+                <figure className={`logo-figure ${shine}`} >
+                    <img className={start}
+                        src={louCardWB}
+                        alt='logo' />
+                </figure> </div> {
+                arrow && window.scrollY === 0 ?
+                    <div className='arrow-container' >
+                        <img className='scoll-arrow'
+                            src={scrollArrow}
+                            alt='Scroll down' />
+                    </div> : null
+            }
+            {
+                seeMenu ?
+                    < MenuBurger />
+                    :
+                    <div className={`${props.isTop || (window.innerHeight + window.scrollY) < document.body.offsetHeight ? 'header2 header-invisible' : 'header header-visible'}`} >
+                        <div className='navbar-item-container1' >
+                            <p className='navbar-main-item' > PROJETS </p>
+                            <div className='navbar-item-sub-container1' >
+                                < p className='navbar-item-sub' > PROJETS ÉTUDIANTS </p>
+                                <p className='navbar-item-sub' > PROJETS PARTICULIERS </p>
+                                <p className='navbar-item-sub' > PROJETS HÔTELIERS </p>
+                            </div>
                         </div>
-                    </div>
-                    <div className='navbar-item-container2'>
-                        <p className='navbar-main-item'>COLLECTION</p>
-                        <div className='navbar-item-sub-container2'>
-                            <p className='navbar-item-sub'>LUMINAIRE</p>
-                            <p className='navbar-item-sub' onClick={setMobilier}>MOBILIER</p>
-                            <p className='navbar-item-sub'>ACCESSOIRES</p>
-                            <p className='navbar-item-sub'>TENDANCES</p>
+                        <div className='navbar-item-container2' >
+                            <p className='navbar-main-item' > COLLECTION </p>
+                            <div className='navbar-item-sub-container2' >
+                                <p className='navbar-item-sub' > LUMINAIRE </p>
+                                <p className='navbar-item-sub' onClick={setMobilier} > MOBILIER </p>
+                                <p className='navbar-item-sub' > ACCESSOIRES </p>
+                                <p className='navbar-item-sub' > TENDANCES </p>
+                            </div>
                         </div>
-                    </div>
-                    <div className='navbar-item-container3'>
-                        <p className='navbar-main-item'>CONTACT</p>
-                        <div className='navbar-item-sub-container3'>
+                        <div className='navbar-item-container3' >
+                            <p onClick={setContact} className='navbar-main-item' > CONTACT </p>
+                            <div className='navbar-item-sub-container3' >
+                            </div>
                         </div>
-                    </div>
-                </div >}
+                    </div >}
 
         </div>
     )

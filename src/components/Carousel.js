@@ -36,14 +36,14 @@ const Carousel = props => {
     const items = ['', '', '', '', '', '', '', '', '', '']
 
     return (
-            <div id="carousel" className={`carousel carousel-noselect ${props.content ? 'visible-content' : 'hidden-content'} ${props.isTop ? 'delete-margin' : 'add-margin'}`}>
-                <div className="arrow arrow-left" onClick={moveLeft}><i className="fi-arrow-left"></i></div>
-                <ReactCSSTransitionGroup
-                    transitionName={direction}>
-                    {generateItems()}
-                </ReactCSSTransitionGroup>
-                <div className="arrow arrow-right" onClick={moveRight}><i className="fi-arrow-right"></i></div>
-            </div>
+        <div id="carousel" className={`carousel carousel-noselect ${props.content ? 'visible-content' : 'hidden-content'} ${props.isTop ? 'delete-margin' : 'add-margin'}`}>
+            <div className="arrow arrow-left" onClick={moveLeft}><i className="fi-arrow-left"></i></div>
+            <ReactCSSTransitionGroup
+                transitionName={direction}>
+                {generateItems()}
+            </ReactCSSTransitionGroup>
+            <div className="arrow arrow-right" onClick={moveRight}><i className="fi-arrow-right"></i></div>
+        </div>
     )
 }
 
