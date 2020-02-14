@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import './css/Home.css'
-// import louCardRB from '../assets/louCard.png'
 import louCardWB from '../assets/LOGO BLANC.png'
 import MenuBurger from './MenuBurger'
 import scrollArrow from '../assets/scrollArrow.png'
 // import louCardTop from '../assets/LOGO BLANC haut.png'
 // import louCardBottom from '../assets/LOGO BLANC bas.png'
+// import louCardRB from '../assets/louCard.png'
 
 const Home = props => {
 
     const [start, setStart] = useState('logostart')
     const [shine, setShine] = useState('')
-    const [headHeight, setHeadHeight] = useState(484)
     const [seeMenu, setSeeMenu] = useState(false)
     const [arrow, setArrow] = useState(false)
 
@@ -22,6 +21,7 @@ const Home = props => {
     }, [])
 
     useEffect(() => {
+        setSize()
         setTimeout(() => setStart('logofull'), 100)
         setTimeout(() => setShine('shine'), 100)
         setTimeout(() => props.setContent(true), 600)
@@ -36,12 +36,12 @@ const Home = props => {
         const heightPx = logoStyle.getPropertyValue('height')
         const heightInt = (parseInt(heightPx, 10)) * (620 / 842)
         const fullHeight = marginTopInt + heightInt
-        setHeadHeight(fullHeight)
+        props.setHeadHeight(fullHeight)
     }, [])
 
     useEffect(() => {
         window.addEventListener('scroll', () => {
-            const headerTop = window.scrollY < headHeight
+            const headerTop = window.scrollY < props.headHeight
             headerTop !== props.isTop ?
                 props.setIsTop(false) :
                 props.setIsTop(true)
@@ -56,11 +56,11 @@ const Home = props => {
 
     useEffect(() => {
         window.addEventListener('resize', () => {
-            resize()
+            setSize()
         })
     }, [])
 
-    const resize = () => {
+    const setSize = () => {
         let currentWidth = (window.innerWidth < 600);
         currentWidth ?
             setSeeMenu(true) :
@@ -97,7 +97,10 @@ const Home = props => {
             }
             {
                 seeMenu ?
-                    < MenuBurger />
+                    props.isTop || (window.innerHeight + window.scrollY) < document.body.offsetHeight ?
+                        null
+                        :
+                        < MenuBurger {...props} />
                     :
                     <div className={`${props.isTop || (window.innerHeight + window.scrollY) < document.body.offsetHeight ? 'header2 header-invisible' : 'header header-visible'}`} >
                         <div className='navbar-item-container1' >

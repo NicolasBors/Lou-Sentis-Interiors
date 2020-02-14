@@ -5,14 +5,14 @@
     height:65vh;
     z-index:100;
     top:0;
-    left:0;
+    right: 0;
     width:0;
-    background-color:#262626;
+    background-color:black;
     transition: ease 0.5s;
     overflow-x:hidden;
     padding:70px 0;
-   
   }
+
   .menu-burger a{
     opacity:100%;
     padding:10px 0px;
@@ -23,17 +23,18 @@
     text-decoration:none;
     white-space:nowrap;
   }
-  .slider.menu-burger{
+  .open-menu-burger{
     width:80vw;
     box-shadow:0px 0px 15px black;
   }
   
   .menu-container{
-    position:relative;
-    left:10px;
+    position:fixed;
+    right:20px;
     top:20px;
     cursor:pointer;
     display:inline-block;
+    z-index: 200;
   }
   
   .bar1, .bar3{
@@ -42,7 +43,7 @@
     position:relative;
     width:35px;
     height:2px;
-    background-color:#262626;
+    background-color:black;
     transition:0.2s;
   }
   
@@ -60,7 +61,7 @@
     position:absolute;
     width:35px;
     height:2px;
-    background-color:#262626;
+    background-color:black;
     transition:0.5s;
   }
   
@@ -79,45 +80,9 @@
     opacity:0;
   }
 
-
-  .burgerProfilePicParent {
-      text-align: center;
-      margin:0px 10px;
-  }
-
-  .burgerProfilePic {
-    height: 120px;
-
-  }
-
   .burgerUserName {
     text-align: center;
     font-size:30px;
     margin:0px 10px;
     color : white;
-  }
-
-  .burgerJob {
-    text-align: center;
-    font-size:20px;
-    margin:0px 10px;
-    color : grey;
-  }
-
-  .burgerContact {
-    border-bottom: solid 1px white;
-    font-size:24px;
-    margin: 50px 10px 0px;
-  }
-
-  .burgerParametres {
-    border-bottom: solid 1px white;
-    font-size:24px;    
-    margin:0px 10px;
-  }
-
-  .burgerDeconnexion {
-    font-size:24px;
-    margin:0px 10px;
-    color : grey;
   }

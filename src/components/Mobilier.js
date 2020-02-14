@@ -7,8 +7,12 @@ const Mobilier = props => {
     const [filters, setFilters] = useState('FILTRER')
     const [active, setActive] = useState(false)
 
+    useEffect(() => {
+        window.scrollTo(0, props.headHeight)
+    }, [])
+
     return (
-        <div className={`mobilier ${props.content ? 'visible-content' : 'hidden-content'}`} onClick={active ? () => setActive(false) : null}>
+        <div className={`mobilier ${props.content ? 'visible-content' : 'hidden-content'}`} onClick={active ? () => setActive(false) : null, props.menu ? props.setMenu(false) : null}>
             <div className='mobilier-wrapper'>
 
                 <div className='mobilier-item mobilier-title'>
