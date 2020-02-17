@@ -100,7 +100,7 @@ const Home = props => {
                     props.isTop || (window.innerHeight + window.scrollY) < document.body.offsetHeight ?
                         null
                         :
-                        < MenuBurger {...props} />
+                        < MenuBurger {...props} setMobilier={setMobilier} setContact={setContact} />
                     :
                     <div className={`${props.isTop || (window.innerHeight + window.scrollY) < document.body.offsetHeight ? 'header2 header-invisible' : 'header header-visible'}`} >
                         <div className='navbar-item-container1' >

@@ -2,7 +2,7 @@ import React from 'react'
 import './css/MenuBurger.css'
 
 const MenuBurger = props => {
-    
+
     const toggleMenu = () => {
         props.setMenu(!props.menu)
     }
@@ -17,9 +17,16 @@ const MenuBurger = props => {
                 <div className="bar3"></div>
             </div>
             <div className={props.menu ? "open-menu-burger menu-burger" : "menu-burger"}>
-                <p className="burgerUserName">PROJETS</p>
-                <p className="burgerUserName">COLLECTION</p>
-                <p className="burgerUserName">CONTACT</p>
+                <h1>PROJETS</h1>
+                <p> PROJETS ÉTUDIANTS </p>
+                <p> PROJETS PARTICULIERS </p>
+                <p> PROJETS HÔTELIERS </p>
+                <h1>COLLECTION</h1>
+                <p> LUMINAIRE </p>
+                <p onClick={() => { props.setMobilier(); toggleMenu() }}> MOBILIER </p>
+                <p> ACCESSOIRES </p>
+                <p> TENDANCES </p>
+                <h1 className='burger-contact' onClick={() => { props.setContact(); toggleMenu() }}>CONTACT</h1>
             </div>
         </>
     )
