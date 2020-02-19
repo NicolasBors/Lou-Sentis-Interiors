@@ -145,3 +145,15 @@
 .mobilier-select-filter:active {
     transform: scale(1.05)
 }
+
+@media all and (min-width: 600px) and (max-width: 1152px) {
+    .mobilier-wrapper {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media all and (max-width: 600px) {
+    .mobilier-wrapper {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}

@@ -14,7 +14,7 @@ const App = () => {
   const [menu, setMenu] = useState(false)
 
   return (<div className="App">
-    <Home setContent={setContent} isTop={isTop} setIsTop={setIsTop} setView={setView} headHeight={headHeight} setHeadHeight={setHeadHeight} menu={menu} setMenu={setMenu}/>
+    <Home setContent={setContent} isTop={isTop} setIsTop={setIsTop} setView={setView} headHeight={headHeight} setHeadHeight={setHeadHeight} menu={menu} setMenu={setMenu} />
     {view === 'carousel' ? <Carousel content={content} isTop={isTop} /> : null}
     {view === 'mobilier' ? <Mobilier content={content} headHeight={headHeight} /> : null}
     {view === 'contact' ? <ContactForm content={content} headHeight={headHeight} /> : null}

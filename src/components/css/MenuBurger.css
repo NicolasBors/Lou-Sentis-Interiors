@@ -23,7 +23,7 @@
 }
 
 .open-menu-burger {
-  width: 80vw;
+  width: 60vw;
   box-shadow: 0px 0px 15px black;
 }
 
@@ -108,4 +108,13 @@
 .burger-contact:hover {
   text-shadow: white 1px 2px 3px;
   cursor: pointer;
+}
+
+.burger-background {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  height: 100vh;
+  z-index: 150;
+  background: rgba(0, 0, 0, 0.2);
 }

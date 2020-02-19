@@ -197,3 +197,62 @@
 .carousel .fi-arrow-right:before {
     content: "•";
 }
+
+.carousel .arrow-left {
+    left: 0px;
+}
+
+@media all and (max-width: 810px) {
+    .level2 {
+        left: 0px;
+    }
+    .level1 {
+        left: 5px;
+    }
+    .level0 {
+        left: 10px;
+    }
+    .level-1 {
+        left: 255px;
+    }
+    .level-2 {
+        left: 320px;
+    }
+    .carousel .arrow-left {
+        left: 10px;
+    }
+    .carousel .arrow-right {
+        left: 380px;
+    }
+    .left-enter {
+        left: -10px;
+    }
+    .left-enter.left-enter-active {
+        left: 0px;
+    }
+    .left-leave {
+        left: 320px;
+    }
+    .left-leave.left-leave-active {
+        left: 370px;
+    }
+    .right-enter {
+        left: 370px;
+    }
+    .right-enter.right-enter-active {
+        left: 320px;
+    }
+    .right-leave {
+        left: 0px;
+    }
+    .right-leave.right-leave-active {
+        left: -10px;
+    }
+    #carousel {
+        width: 420px;
+    }
+    .carousel .arrow {
+        background-color: white;
+        color: black;
+    }
+}

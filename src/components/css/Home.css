@@ -229,7 +229,7 @@
 
 /* @mediaquery : menu burger @ 1076 */
 
-@media screen and (min-width: 600px) and (max-width: 1152px) {
+@media all and (min-width: 600px) and (max-width: 1152px) {
     .home .header {
         position: fixed;
         top: 0;

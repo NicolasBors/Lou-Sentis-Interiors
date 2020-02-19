@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './css/MenuBurger.css'
 
 const MenuBurger = props => {
@@ -6,6 +6,13 @@ const MenuBurger = props => {
     const toggleMenu = () => {
         props.setMenu(!props.menu)
     }
+
+    useEffect(() => {
+        window.addEventListener('resize', () => {
+            props.setMenu(false)
+        })
+    }, [])
+
     return (
         <>
             <div className={props.menu ? "open-menu-container menu-container" : "menu-container"} onClick={toggleMenu}>
@@ -16,17 +23,19 @@ const MenuBurger = props => {
                 </div>
                 <div className="bar3"></div>
             </div>
-            <div className={props.menu ? "open-menu-burger menu-burger" : "menu-burger"}>
-                <h1>PROJETS</h1>
-                <p> PROJETS ÉTUDIANTS </p>
-                <p> PROJETS PARTICULIERS </p>
-                <p> PROJETS HÔTELIERS </p>
-                <h1>COLLECTION</h1>
-                <p> LUMINAIRE </p>
-                <p onClick={() => { props.setMobilier(); toggleMenu() }}> MOBILIER </p>
-                <p> ACCESSOIRES </p>
-                <p> TENDANCES </p>
-                <h1 className='burger-contact' onClick={() => { props.setContact(); toggleMenu() }}>CONTACT</h1>
+            <div onClick={() => toggleMenu()} className={props.menu ? 'burger-background' : ''}>
+                <div className={props.menu ? "open-menu-burger menu-burger" : "menu-burger"}>
+                    <h1>PROJETS</h1>
+                    <p> PROJETS ÉTUDIANTS </p>
+                    <p> PROJETS PARTICULIERS </p>
+                    <p> PROJETS HÔTELIERS </p>
+                    <h1>COLLECTION</h1>
+                    <p> LUMINAIRE </p>
+                    <p onClick={() => { props.setMobilier(); toggleMenu() }}> MOBILIER </p>
+                    <p> ACCESSOIRES </p>
+                    <p> TENDANCES </p>
+                    <h1 className='burger-contact' onClick={() => { props.setContact(); toggleMenu() }}>CONTACT</h1>
+                </div>
             </div>
         </>
     )
