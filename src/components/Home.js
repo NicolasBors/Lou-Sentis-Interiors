@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
-import Intreatl from './Projects/Intreatl'
+import Intreatl from './projects/Intreatl'
 import './css/Home.css'
 
 const Home = props => {
 
-    const images = Intreatl
+    const images = Intreatl.image
 
     return (
         <div className={props.opacity ? 'home' : 'all-before'}>
@@ -15,7 +15,7 @@ const Home = props => {
                 </div>
                 <div className='recent-work'>
                     <h2>
-                        RECENT WORK
+                        CRÉATIONS RÉCENTES
                     </h2>
                     {images.map((image, i) =>
                         <div className='image-container' key={i} >
@@ -26,10 +26,10 @@ const Home = props => {
                                     <div 
                                     // onClick={() => props.setContent(image.title)}
                                     >
-                                        <img className='image-thumbnail' src={image.src} alt={image.title} />
+                                        <img className='image-thumbnail' src={image.src} alt={image.caption} />
                                         <div className='image-title-container'>
 
-                                            <span className='image-title'>{image.title}</span>
+                                            <span className='image-title'>{image.caption}</span>
                                         </div>
                                     </div>
 

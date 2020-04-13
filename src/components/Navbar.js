@@ -1,11 +1,7 @@
 import React, { useState, useEffect } from 'react'
-
 import './css/Navbar.css'
-
 import MenuBurger from './MenuBurger'
-
-
-import louCardTop from '../assets/LOGO BLANC haut.png'
+import louCardTop from '../assets/logos/LOGO BLANC haut.png'
 
 const Navbar = props => {
 
@@ -22,22 +18,38 @@ const Navbar = props => {
     }, [])
 
     const setSize = () => {
-        let currentWidth = (window.innerWidth < 600);
+        let currentWidth = (window.innerWidth < 800);
         currentWidth ?
             setSeeMenu(true) :
             setSeeMenu(false)
     }
 
     const setMobilier = () => {
-        props.setView('mobilier')
+        props.setView('MOBILIER')
+    }
+
+    const setLuminaire = () => {
+        props.setView('LUMINAIRE')
+    }
+
+    const setAccessoires = () => {
+        props.setView('ACCESSOIRES')
+    }
+
+    const setTendances = () => {
+        props.setView('TENDANCES')
     }
 
     const setContact = () => {
-        props.setView('contact')
+        props.setView('CONTACT')
     }
 
     const setHome = () => {
-        props.setView('home')
+        props.setView('HOME')
+    }
+
+    const setCollection = () => {
+        props.setView('COLLECTION')
     }
 
     return (
@@ -57,31 +69,29 @@ const Navbar = props => {
                             <img src={louCardTop} alt='Lou Sentis' />
                         </div>
                         <div className='navbar'>
-                            {/* <div className='navbar-item-container1' >
+                            <div className='navbar-item-container1' >
                                 <p className='navbar-main-item' > PROJETS </p>
                                 <div className='navbar-item-sub-container1' >
-                                    < p className='navbar-item-sub' > PROJETS ÉTUDIANTS </p>
-                                    <p className='navbar-item-sub' > PROJETS PARTICULIERS </p>
-                                    <p className='navbar-item-sub' > PROJETS HÔTELIERS </p>
+                                    <p className='navbar-item-sub' > HÔTELS </p>
+                                    <p className='navbar-item-sub' > PARTICULIERS </p>
+                                    <p className='navbar-item-sub' > PROJETS ÉTUDIANTS </p>
                                 </div>
                             </div>
                             <div className='navbar-item-container2' >
-                                <p className='navbar-main-item' > COLLECTION </p>
+                                <p className='navbar-main-item' onClick={setCollection} > COLLECTION </p>
                                 <div className='navbar-item-sub-container2' >
-                                    <p className='navbar-item-sub' > LUMINAIRE </p>
+                                    <p className='navbar-item-sub' onClick={setAccessoires}> ACCESSOIRES </p>
+                                    <p className='navbar-item-sub' onClick={setLuminaire}> LUMINAIRE </p>
                                     <p className='navbar-item-sub' onClick={setMobilier} > MOBILIER </p>
-                                    <p className='navbar-item-sub' > ACCESSOIRES </p>
-                                    <p className='navbar-item-sub' > TENDANCES </p>
+                                    <p className='navbar-item-sub' onClick={setTendances}> TENDANCES </p>
                                 </div>
                             </div>
                             <div className='navbar-item-container3' >
-                                <p onClick={setContact} className='navbar-main-item' > CONTACT </p>
+                                <p className='navbar-main-item' onClick={setContact} > CONTACT </p>
                                 <div className='navbar-item-sub-container3' >
                                 </div>
-                            </div> */}
+                            </div>
                         </div>
-                    </div>
-                    <div className='header-fondu'>
                     </div>
                 </div >
 

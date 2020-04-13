@@ -30,11 +30,11 @@ const ContactForm = props => {
     }
 
     useEffect(() => {
-        window.scrollTo(0, props.headHeight)
+        window.scrollTo(0, 0)
     }, [])
 
     return (
-        <div id="contact-form-main" className={`${props.content ? 'visible-content' : 'hidden-content'}`}>
+        <div id="contact-form-main">
             <div id="contact-form-div">
                 <h1 className='contact-title'>CONTACT</h1>
                 <div className='contact-border-container'>

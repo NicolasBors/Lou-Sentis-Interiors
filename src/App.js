@@ -3,8 +3,8 @@ import './App.css'
 import Start from './components/Start'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import Carousel from './components/Carousel'
-import Mobilier from './components/Mobilier'
+import DisplayMain from './components/DisplayMain'
+import Collection from './components/Collection'
 import ContactForm from './components/ContactForm'
 
 const App = () => {
@@ -14,9 +14,12 @@ const App = () => {
 
   const [content, setContent] = useState(false)
   const [isTop, setIsTop] = useState(true)
-  const [view, setView] = useState('home')
+  const [view, setView] = useState('HOME')
   const [headHeight, setHeadHeight] = useState(484)
   const [menu, setMenu] = useState(false)
+
+  console.log(view);
+  
 
   return (<div className="App">
     {start ?
@@ -29,13 +32,13 @@ const App = () => {
 null
 :
 
-    view === 'home' ?  <Home opacity={opacity} />
+    view === 'HOME' ?  <Home opacity={opacity} />
     :
-    view === 'carousel' ? <Carousel content={content} isTop={isTop} />
+    view === 'COLLECTION' ?  <DisplayMain view={view} setView={setView} />
     :
-    view === 'mobilier' ? <Mobilier content={content} headHeight={headHeight} />
+    view === 'LUMINAIRE' || view === 'MOBILIER' || view === 'ACCESSOIRES' || view === 'TENDANCES' ? <Collection view={view} />
     :
-    view === 'contact' ? <ContactForm content={content} headHeight={headHeight} />
+    view === 'CONTACT' ? <ContactForm />
     : null
 }
   </div>)

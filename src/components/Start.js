@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import './css/Start.css'
-import louCardWB from '../assets/LOGO BLANC.png'
+import louCardWB from '../assets/logos/LOGO BLANC.png'
 
 const Start = props => {
 
