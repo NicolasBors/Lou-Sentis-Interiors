@@ -3,27 +3,50 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import closeBtn from '../assets/icons/close.png'
 import slideArrow from '../assets/icons/slideArrow.png'
 
-import './css/Collection.css'
+import './css/DisplayContent.css'
 import downArrow from '../assets/downArrow.png'
 import Intreatl from './projects/Intreatl'
 
-const Collection = props => {
+const DisplayContent = props => {
     // const images = props.brand.image
     const images = Intreatl.image
 
-    const [fullImages, setFullImages] = useState(images.slice())
+    const filtersTitle =
+        props.view === 'HÔTELS' || props.view === 'PARTICULIERS' || props.view === 'PROJETS ÉTUDIANTS' ?
+            'PAR PROJET'
+            : props.view === 'ACCESSOIRES' || props.view === 'LUMINAIRE' || props.view === 'MOBILIER' || props.view === 'TENDANCES' ?
+                'PAR CATÉGORIE'
+                : ''
+
+
+    // A TESTER
+    const [filteredImages, setFilteredImages] = useState(images.slice())
+    const [fullImages, setFullImages] = useState(filteredImages.slice())
     const [selectedImage, setSelectedImage] = useState(0)
     const [fullConcatImages, setFullConcatImages] = useState(fullImages)
     const [showSingleBox, setShowSingleBox] = useState(false)
     const [showMultipleBox, setShowMultipleBox] = useState(false)
     const [active, setActive] = useState(0)
     const [direction, setDirection] = useState('')
-    const [filters, setFilters] = useState('FILTRER')
+    const [filters, setFilters] = useState(filtersTitle)
     const [openFilters, setOpenFilters] = useState(false)
 
-    // useEffect(() => {
-    //     window.scrollTo(0, props.headHeight)
-    // }, [])
+    const categories =
+        props.view === 'HÔTELS' ? ['']
+            : props.view === 'PARTICULIERS' ? ['']
+                : props.view === 'PROJETS ÉTUDIANTS' ? ['']
+                    : props.view === 'ACESSOIRES' ? ['']
+                        : props.view === 'LUMINAIRE' ? ['']
+                            : props.view === 'MOBILIER' ? ['CHAISES', 'CANAPÉS', 'LAMPES', 'TABLES']
+                                : props.view === 'TENDANCES' ? ['']
+                                    : ['']
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [props.view])
+
+    useEffect(() => {
+        setFilters(filtersTitle)
+    }, [filtersTitle])
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
@@ -33,22 +56,56 @@ const Collection = props => {
     })
 
     useEffect(() => {
+        filters !== 'PAR CATÉGORIE' && filters !== 'PAR PROJET' ?
+            setFilteredImages(images.filter(image => image.categorie === filters))
+
+            :
+            setFilteredImages(images)
+    }, [filters])
+
+
+
+    // const filteredImages = filters !== 'PAR CATÉGORIE' && filters !== 'PAR PROJET' ? images.filter(image => image.categorie === filters) : images
+
+
+
+    useEffect(() => {
+        console.log('filteredImages', filteredImages);
+
+
+        console.log('FULL IMG', fullImages);
+
         for (let i = 1; i <= selectedImage; i++) {
             let movedImage = fullImages.shift()
             fullImages.push(movedImage)
         }
-        images.length === 1 ? setFullConcatImages(fullImages) :
-            images.length === 2 ? setFullConcatImages(fullImages.concat(fullImages).concat(fullImages).concat(fullImages)) :
-                images.length === 3 ? setFullConcatImages(fullImages.concat(fullImages).concat(fullImages)) :
-                    images.length >= 7 ? setFullConcatImages(fullImages) :
+        filteredImages.length === 1 ? setFullConcatImages(fullImages) :
+            filteredImages.length === 2 ? setFullConcatImages(fullImages.concat(fullImages).concat(fullImages).concat(fullImages)) :
+                filteredImages.length === 3 ? setFullConcatImages(fullImages.concat(fullImages).concat(fullImages)) :
+                    filteredImages.length >= 7 ? setFullConcatImages(fullImages) :
                         setFullConcatImages(fullImages.concat(fullImages))
         return () => {
         }
-    }, [fullImages, images.length, selectedImage])
+    }, [fullImages, images.length, selectedImage, filteredImages])
+
+
+    // useEffect(() => {
+    //     for (let i = 1; i <= selectedImage; i++) {
+    //         let movedImage = fullImages.shift()
+    //         fullImages.push(movedImage)
+    //     }
+    //     images.length === 1 ? setFullConcatImages(fullImages) :
+    //         images.length === 2 ? setFullConcatImages(fullImages.concat(fullImages).concat(fullImages).concat(fullImages)) :
+    //             images.length === 3 ? setFullConcatImages(fullImages.concat(fullImages).concat(fullImages)) :
+    //                 images.length >= 7 ? setFullConcatImages(fullImages) :
+    //                     setFullConcatImages(fullImages.concat(fullImages))
+    //     return () => {
+    //     }
+    // }, [fullImages, images.length, selectedImage])
 
     const selectImage = (image) => {
-        setFullImages(images.slice())
-        setSelectedImage(images.indexOf(image))
+        setFullImages(filteredImages.slice())
+        setSelectedImage(filteredImages.indexOf(image))
     }
 
     const generateItems = () => {
@@ -103,55 +160,43 @@ const Collection = props => {
                 : console.log('key not allowed')
     }
 
+
+
     return (
-        <div className={'collection'} onClick={openFilters ? () => setOpenFilters(false) : null, props.menu ? props.setMenu(false) : null}>
-            <div className='collection-content'>
-                <div className='collection-container'>
+        <div className={'displaycontent'} onClick={openFilters ? () => setOpenFilters(false) : null, props.menu ? props.setMenu(false) : null}>
+            <div className='displaycontent-content'>
+                <div className='displaycontent-container'>
 
 
-                    <div className='collection-gallery'>
-                        <div className='collection-title'>
+                    <div className='displaycontent-gallery'>
+                        <div className='displaycontent-title'>
                             <h1>
                                 {props.view}
                             </h1>
-                            <div className='collection-filters' onClick={() => setOpenFilters(!openFilters)}>
+                            <div className='displaycontent-filters' onClick={() => setOpenFilters(!openFilters)}>
                                 <p>
                                     {filters}
                                 </p>
-                                <img className={openFilters ? 'collection-top-arrow' : 'collection-down-arrow'} src={downArrow} alt='' />
-                                {props.view === 'MOBILIER' ?
+                                <img className={openFilters ? 'displaycontent-top-arrow' : 'displaycontent-down-arrow'} src={downArrow} alt='' />
 
-                                    <div className={openFilters ? 'collection-open-filters' : 'collection-close-filters'}>
+                                <div className={openFilters ? 'displaycontent-open-filters' : 'displaycontent-close-filters'}>
+                                    <p className='displaycontent-select-filter' onClick={() => setFilters(filtersTitle)}>TOUT AFFICHER</p>
+                                    {categories.map((categorie, i) => (
+                                        <p className='displaycontent-select-filter' onClick={() => setFilters(categorie)}>{categorie}</p>
+                                    ))}
+                                </div>
 
-                                        <p className='collection-select-filter' onClick={() => setFilters('FILTRER')}>
-                                            TOUT AFFICHER
-                            </p>
-                                        <p className='collection-select-filter' onClick={() => setFilters('CHAISES')}>
-                                            CHAISES
-                            </p>
-                                        <p className='collection-select-filter' onClick={() => setFilters('CANAPÉS')}>
-                                            CANAPÉS
-                            </p>
-                                        <p className='collection-select-filter' onClick={() => setFilters('LAMPES')}>
-                                            LAMPES
-                            </p>
-                                        <p className='collection-select-filter' onClick={() => setFilters('TABLES')}>
-                                            TABLES
-                            </p>
-
-                                    </div>
-                                    : null}
                             </div>
                         </div>
-                        {images.map((image, i) =>
-                            <div className='collection-image-container' key={i} >
-                                <div className='collection-inner-image-container'>
-                                    <div className='collection-image-holder' >
+                        {filteredImages.map((image, i) =>
+                            <div className='displaycontent-image-container' key={i} >
+                                <div className='displaycontent-inner-image-container'>
+                                    <div className='displaycontent-image-holder' >
                                         <div onClick={() => {
                                             selectImage(image)
-                                            images.length > 1 ? setShowMultipleBox(true) : setShowSingleBox(true)
+                                            filteredImages.length > 1 ? setShowMultipleBox(true) : setShowSingleBox(true)
                                         }}>
-                                            <img className='collection-image-thumbnail' src={image.src} alt={image.caption} />
+                                            <img className='displaycontent-image-thumbnail' src={image.src} alt={image.caption} />
                                         </div>
 
                                     </div>
@@ -229,4 +274,4 @@ const Caption = props => {
     )
 }
 
-export default Collection
+export default DisplayContent

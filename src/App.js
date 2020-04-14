@@ -4,7 +4,7 @@ import Start from './components/Start'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import DisplayMain from './components/DisplayMain'
-import Collection from './components/Collection'
+import DisplayContent from './components/DisplayContent'
 import ContactForm from './components/ContactForm'
 
 const App = () => {
@@ -16,10 +16,7 @@ const App = () => {
   const [isTop, setIsTop] = useState(true)
   const [view, setView] = useState('HOME')
   const [headHeight, setHeadHeight] = useState(484)
-  const [menu, setMenu] = useState(false)
-
-  console.log(view);
-  
+  const [menu, setMenu] = useState(false)  
 
   return (<div className="App">
     {start ?
@@ -34,9 +31,9 @@ null
 
     view === 'HOME' ?  <Home opacity={opacity} />
     :
-    view === 'COLLECTION' ?  <DisplayMain view={view} setView={setView} />
+    view === 'COLLECTION' || view === 'PROJETS' ?  <DisplayMain view={view} setView={setView} />
     :
-    view === 'LUMINAIRE' || view === 'MOBILIER' || view === 'ACCESSOIRES' || view === 'TENDANCES' ? <Collection view={view} />
+    view === 'LUMINAIRE' || view === 'MOBILIER' || view === 'ACCESSOIRES' || view === 'TENDANCES' || view === 'HÔTELS' || view === 'PARTICULIERS' || view === 'PROJETS ÉTUDIANTS' ? <DisplayContent view={view} />
     :
     view === 'CONTACT' ? <ContactForm />
     : null

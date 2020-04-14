@@ -1,10 +1,14 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import Intreatl from './projects/Intreatl'
 import './css/Home.css'
 
 const Home = props => {
 
     const images = Intreatl.image
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [props.view])
 
     return (
         <div className={props.opacity ? 'home' : 'all-before'}>

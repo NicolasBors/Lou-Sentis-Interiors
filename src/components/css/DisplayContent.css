@@ -3,7 +3,7 @@
     src: url('../../assets/fonts/AvenirLTStd-Medium.otf')
 }
 
-.collection {
+.displaycontent {
     margin: 150px auto;
     font-family: 'Avenir';
     letter-spacing: 0.15em;
@@ -22,7 +22,8 @@
     table-layout: fixed;
 }
 
-.collection-title {
+.displaycontent-title {
+    font-family: 'Avenir';
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,16 +35,16 @@
     line-height: 0px;
 }
 
-.collection-title h1 {
+.displaycontent-title h1 {
     font-size: 4.5rem;
     margin-bottom: 50px;
 }
 
-.collection-title p {
+.displaycontent-title p {
     margin: auto;
 }
 
-.collection-filters {
+.displaycontent-filters {
     display: flex;
     padding-top: 15px;
     border-top: 1px solid black;
@@ -53,20 +54,20 @@
     justify-content: center;
 }
 
-.collection-down-arrow {
+.displaycontent-down-arrow {
     height: 1.2rem;
     padding-left: 7px;
     transition: ease 300ms;
 }
 
-.collection-top-arrow {
+.displaycontent-top-arrow {
     height: 1.2rem;
     padding-left: 7px;
     transform: rotateX(180deg);
     transition: ease 300ms;
 }
 
-.collection-close-filters {
+.displaycontent-close-filters {
     position: absolute;
     height: 0px;
     z-index: 100;
@@ -76,11 +77,10 @@
     overflow-x: hidden;
     width: max-content;
     font-size: 14px;
-
     padding: 0px 20px -20px 20px;
 }
 
-.collection-open-filters {
+.displaycontent-open-filters {
     font-size: 14px;
     position: absolute;
     height: auto;
@@ -96,15 +96,15 @@
     transition: ease 400ms;
 }
 
-.collection-select-filter {
+.displaycontent-select-filter {
     padding-bottom: 30px;
 }
 
-.collection-select-filter:hover {
+.displaycontent-select-filter:hover {
     text-shadow: grey 1px 2px 3px;
 }
 
-.collection-content {
+.displaycontent-content {
     height: 400px;
     vertical-align: top;
     display: table-cell;
@@ -112,23 +112,23 @@
     font-family: 'Avenir', sans-serif;
 }
 
-.collection-container {
+.displaycontent-container {
     padding: 0px 20px 40px 20px;
     box-sizing: border-box;
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.collection-gallery {
+.displaycontent-gallery {
     line-height: 0px;
     padding: 0;
     margin: 50px 0;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
-.collection-image-container {
+.displaycontent-image-container {
     float: left;
     width: 30%;
     margin: 0;
@@ -136,19 +136,19 @@
     line-height: 0px;
 }
 
-.collection-inner-image-container {
+.displaycontent-inner-image-container {
     margin: 5px;
     position: relative;
 }
 
-.collection-image-holder {
+.displaycontent-image-holder {
     position: relative;
     width: 100%;
     padding: 0 0 75%;
     overflow: hidden;
 }
 
-.collection-image-thumbnail {
+.displaycontent-image-thumbnail {
     max-width: 600px;
     position: absolute;
     border: 0;
@@ -178,7 +178,7 @@
     z-index: 110;
 }
 
-.collection-image-box {
+.displaycontent-image-box {
     padding: 10px;
     background-color: transparent;
     border-radius: 4px;
@@ -196,7 +196,7 @@
     /* align-self: center; */
 }
 
-.collection-image-caption {
+.displaycontent-image-caption {
     text-align: center;
     font-size: 16px;
     padding-top: 15px;
@@ -205,27 +205,6 @@
     letter-spacing: 0.7px;
     display: block;
     white-space: nowrap;
-}
-
-@media all and (max-width: 767px) {
-    .collection {
-        background-size: initial;
-        background-position: top center;
-        background-attachment: inherit;
-    }
-    .collection-content {
-        height: 400px;
-        vertical-align: top;
-        display: table-cell;
-        width: 100%;
-    }
-    .collection-container {
-        max-width: 768px;
-        overflow-wrap: break-word;
-    }
-    .collection-image-container {
-        width: 50%;
-    }
 }
 
 /* TESTS CAROUSELS */
@@ -534,4 +513,45 @@
 
 .levelx-2, .levelx-1, .levelx1, .levelx2 {
     display: none;
+}
+
+@media all and (max-width: 1000px) {
+    .displaycontent {
+        background-size: initial;
+        background-position: top center;
+        background-attachment: inherit;
+    }
+    .displaycontent-content {
+        vertical-align: top;
+    }
+    .displaycontent-container {
+        max-width: 768px;
+        overflow-wrap: break-word;
+        overflow: hidden;
+    }
+    .displaycontent-title {
+        float: unset;
+        width: 100%;
+        margin: 0;
+        padding: 70px 2% 50px 2%;
+        line-height: 0px;
+    }
+    .displaycontent-image-container {
+        width: 48%;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .displaycontent-image-container {
+        width: 85%;
+        float: unset;
+        margin: 15px auto;
+        min-width: 300px;
+    }
+    .displaycontent-title {
+        min-width: 320px;
+    }
+    .displaycontent-title h1 {
+        font-size: 3.5rem;
+    }
 }

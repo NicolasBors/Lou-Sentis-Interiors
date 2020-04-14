@@ -4,33 +4,49 @@ import Intreatl from './projects/Intreatl'
 
 const DisplayMain = props => {
     // const images = props.brand.image
-    const images = Intreatl.image
 
-    const links =
+    const links = props.view === 'PROJETS' ?
         [
             {
-                title: 'ACCESSOIRES',
+                title: 'HÔTELS',
                 image: Intreatl.image[0].src,
             },
             {
-                title: 'LUMINAIRE',
+                title: 'PARTICULIERS',
                 image: Intreatl.image[1].src,
             },
             {
-                title: 'MOBILIER',
+                title: 'PROJETS ÉTUDIANTS',
                 image: Intreatl.image[2].src,
-            },
-            {
-                title: 'TENDANCES',
-                image: Intreatl.image[3].src,
-            },
+            }
         ]
+        :
+        props.view === 'COLLECTION' ?
+            [
+                {
+                    title: 'ACCESSOIRES',
+                    image: Intreatl.image[0].src,
+                },
+                {
+                    title: 'LUMINAIRE',
+                    image: Intreatl.image[1].src,
+                },
+                {
+                    title: 'MOBILIER',
+                    image: Intreatl.image[2].src,
+                },
+                {
+                    title: 'TENDANCES',
+                    image: Intreatl.image[3].src,
+                }
+            ]
+            : []
 
-        
 
-    // useEffect(() => {
-    //     window.scrollTo(0, props.headHeight)
-    // }, [])
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [props.view])
 
     return (
         <div className='displaymain' onClick={props.menu ? props.setMenu(false) : null}>
@@ -45,13 +61,14 @@ const DisplayMain = props => {
                                     {`${props.view} —`}
                                 </h1>
                                 <div className='displaymain-description'>
-                                    <p>
-                                        This is a collection of bla bla bla bla bla bla bla bla bla bla.
-                                    </p>
-                                    {props.view === 'MOBILIER' ?
-
-                                        <div></div>
-                                        : null}
+                                    {props.view === 'COLLECTION' ?
+                                        <p>This is a collection of bla bla bla bla bla bla bla bla bla bla.</p>
+                                        :
+                                        props.view === 'PROJETS' ?
+                                            <p>This is the projects of bla bla bla bla bla bla bla bla bla bla.</p>
+                                            :
+                                            null
+                                    }
                                 </div>
                             </div>
                         </div>

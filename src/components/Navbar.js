@@ -24,6 +24,22 @@ const Navbar = props => {
             setSeeMenu(false)
     }
 
+    const setProjets = () => {
+        props.setView('PROJETS')
+    }
+
+    const setHotels = () => {
+        props.setView('HÔTELS')
+    }
+
+    const setParticuliers = () => {
+        props.setView('PARTICULIERS')
+    }
+
+    const setEtudiants = () => {
+        props.setView('PROJETS ÉTUDIANTS')
+    }
+
     const setMobilier = () => {
         props.setView('MOBILIER')
     }
@@ -57,24 +73,25 @@ const Navbar = props => {
 
 
 
-            {seeMenu ?
-                props.isTop || (window.innerHeight + window.scrollY) < document.body.offsetHeight ?
-                    null
-                    :
-                    < MenuBurger {...props} setMobilier={setMobilier} setContact={setContact} />
-                :
+            
+                
+                    
+                
                 <div className={props.opacity ? 'header' : 'all-before'} >
                     <div className='header-container'>
                         <div className='header-logo' onClick={setHome}>
                             <img src={louCardTop} alt='Lou Sentis' />
                         </div>
+                        {seeMenu ?
+                        < MenuBurger {...props} setMobilier={setMobilier} setContact={setContact} />
+                        :
                         <div className='navbar'>
                             <div className='navbar-item-container1' >
-                                <p className='navbar-main-item' > PROJETS </p>
+                                <p className='navbar-main-item' onClick={setProjets} > PROJETS </p>
                                 <div className='navbar-item-sub-container1' >
-                                    <p className='navbar-item-sub' > HÔTELS </p>
-                                    <p className='navbar-item-sub' > PARTICULIERS </p>
-                                    <p className='navbar-item-sub' > PROJETS ÉTUDIANTS </p>
+                                    <p className='navbar-item-sub' onClick={setHotels}> HÔTELS </p>
+                                    <p className='navbar-item-sub' onClick={setParticuliers}> PARTICULIERS </p>
+                                    <p className='navbar-item-sub' onClick={setEtudiants}> PROJETS ÉTUDIANTS </p>
                                 </div>
                             </div>
                             <div className='navbar-item-container2' >
@@ -91,7 +108,7 @@ const Navbar = props => {
                                 <div className='navbar-item-sub-container3' >
                                 </div>
                             </div>
-                        </div>
+                        </div>}
                     </div>
                 </div >
 

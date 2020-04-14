@@ -8,22 +8,32 @@ const Intreatl = {
     title: 'INTREATL',
     image: [
         {
+            categorie: 'CHAISES',
             caption: 'Identity Design for Intreatl, a second aproach of the brand Intreatl Magazine, an independently published, experimental literary arts magazine.',
             src: intreatl1pic
         },
         {
+            categorie: 'LAMPES',
             caption: 'Identity Design for Intreatl, a second aproach of the brand Intreatl Magazine, an independently published, experimental literary arts magazine.',
             src: intreatl2pic
         },
         {
+            categorie: 'CANAPÉS',
             caption: 'Identity Design for Intreatl, a second aproach of the brand Intreatl Magazine, an independently published, experimental literary arts magazine.',
             src: intreatl3pic
         },
         {
+            categorie: 'TABLES',
             caption: 'Identity Design for Intreatl, a second aproach of the brand Intreatl Magazine, an independently published, experimental literary arts magazine.',
             src: intreatl4pic
         },
         {
+            categorie: 'TABLES',
+            caption: 'Identity Design for Intreatl, a second aproach of the brand Intreatl Magazine, an independently published, experimental literary arts magazine.',
+            src: intreatl5pic
+        },
+        {
+            categorie: 'TABLES',
             caption: 'Identity Design for Intreatl, a second aproach of the brand Intreatl Magazine, an independently published, experimental literary arts magazine.',
             src: intreatl5pic
         }

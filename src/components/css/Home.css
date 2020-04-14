@@ -21,12 +21,11 @@
 
 .home-presentation {
     height: 68vh;
-    padding: 0;
+    padding: 0 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     border-bottom: 1px solid black;
     border-left: 1px solid black;
 }
@@ -53,6 +52,7 @@
     margin: 5px;
     position: relative;
 }
+
 .recent-work .image-holder {
     position: relative;
     width: 100%;
@@ -110,4 +110,31 @@
     color: black;
     font-weight: bold;
     font-size: 1.1rem;
+}
+
+@media all and (max-width: 1000px) {
+    .home {
+        background-size: initial;
+        background-position: top center;
+        background-attachment: inherit;
+    }
+    .home-container {
+        vertical-align: top;
+    }
+    .recent-work {
+        max-width: 768px;
+        overflow-wrap: break-word;
+    }
+    .recent-work .image-container {
+        width: 50%;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .recent-work .image-container {
+        width: 85%;
+        float: unset;
+        margin: 15px auto;
+        min-width: 300px;
+    }
 }
