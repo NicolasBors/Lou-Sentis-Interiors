@@ -70,11 +70,6 @@ const DisplayContent = props => {
 
 
     useEffect(() => {
-        console.log('filteredImages', filteredImages);
-
-
-        console.log('FULL IMG', fullImages);
-
         for (let i = 1; i <= selectedImage; i++) {
             let movedImage = fullImages.shift()
             fullImages.push(movedImage)
@@ -170,7 +165,7 @@ const DisplayContent = props => {
 
                     <div className='displaycontent-gallery'>
                         <div className='displaycontent-title'>
-                            <h1>
+                            <h1 className={props.view === 'PROJETS ÉTUDIANTS' ? 'student-title' : ''}>
                                 {props.view}
                             </h1>
                             <div className='displaycontent-filters' onClick={() => setOpenFilters(!openFilters)}>

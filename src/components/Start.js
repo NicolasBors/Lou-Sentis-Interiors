@@ -50,6 +50,7 @@ const Start = props => {
     // }
 
 
+console.log(props);
 
     return (
         props.start ?

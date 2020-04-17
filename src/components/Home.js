@@ -11,7 +11,7 @@ const Home = props => {
     }, [props.view])
 
     return (
-        <div className={props.opacity ? 'home' : 'all-before'}>
+        <div className='home'>
             <div className='home-container'>
                 <div className='home-presentation'>
                     <h2>{'Short description of your work'.toUpperCase()}</h2>

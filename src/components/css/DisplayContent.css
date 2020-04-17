@@ -38,6 +38,13 @@
 .displaycontent-title h1 {
     font-size: 4.5rem;
     margin-bottom: 50px;
+    white-space: nowrap;
+}
+
+.student-title {
+    font-size: 3.5rem !important;
+    margin-bottom: 50px;
+    white-space: nowrap;
 }
 
 .displaycontent-title p {
@@ -539,6 +546,11 @@
     .displaycontent-image-container {
         width: 48%;
     }
+    .student-title {
+        font-size: 3rem !important;
+        margin-bottom: 50px;
+        white-space: nowrap;
+    }
 }
 
 @media all and (max-width: 600px) {
@@ -551,7 +563,7 @@
     .displaycontent-title {
         min-width: 320px;
     }
-    .displaycontent-title h1 {
-        font-size: 3.5rem;
+    .student-title {
+        font-size: 2.2rem !important;
     }
 }

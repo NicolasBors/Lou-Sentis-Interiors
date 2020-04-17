@@ -5,12 +5,6 @@
 
 .home {
     font-family: 'Avenir';
-    opacity: 1;
-    transition: opacity 300ms;
-}
-
-.all-before {
-    opacity: 0;
 }
 
 .home-container {

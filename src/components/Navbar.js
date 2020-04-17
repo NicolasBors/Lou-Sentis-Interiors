@@ -1,11 +1,77 @@
 import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
+
 import './css/Navbar.css'
+
 import MenuBurger from './MenuBurger'
 import louCardTop from '../assets/logos/LOGO BLANC haut.png'
 
-const Navbar = props => {
+const Navbar = ({menu, setMenu, match, history}) => {
 
     const [seeMenu, setSeeMenu] = useState(false)
+
+    const [sections, setSections] = useState([
+        {
+            title: 'PROJETS',
+            id: 1,
+            linkUrl: 'projets'
+        },
+        {
+            title: 'COLLECTION',
+            id: 2,
+            linkUrl: 'collection'
+        },
+        {
+            title: 'CONTACT',
+            id: 3,
+            linkUrl: 'contact'
+        }
+    ])
+    const [subSections, setSubsections] = useState([
+        {
+            title: 'HÔTELS',
+            id: 1,
+            section: 'PROJETS',
+            linkUrl: 'projets/hôtels'
+        },
+        {
+            title: 'PARTICULIERS',
+            id: 2,
+            section: 'PROJETS',
+            linkUrl: 'projets/particuliers'
+        },
+        {
+            title: 'PROJETS ÉTUDIANTS',
+            id: 3,
+            section: 'PROJETS',
+            linkUrl: 'projets/projets étudiants'
+        },
+        {
+            title: 'ACCESSOIRES',
+            id: 4,
+            section: 'COLLECTION',
+            linkUrl: 'collection/accessoires'
+        },
+        {
+            title: 'LUMINAIRE',
+            id: 5,
+            section: 'COLLECTION',
+            linkUrl: 'collection/luminaire'
+        },
+        {
+            title: 'MOBILIER',
+            id: 6,
+            section: 'COLLECTION',
+            linkUrl: 'collection/mobilier'
+        },
+        {
+            title: 'TENDANCES',
+            id: 7,
+            section: 'COLLECTION',
+            linkUrl: 'collection/tendances'
+        }
+    ])    
+
 
     useEffect(() => {
         window.addEventListener('resize', () => {
@@ -24,97 +90,46 @@ const Navbar = props => {
             setSeeMenu(false)
     }
 
-    const setProjets = () => {
-        props.setView('PROJETS')
-    }
-
-    const setHotels = () => {
-        props.setView('HÔTELS')
-    }
-
-    const setParticuliers = () => {
-        props.setView('PARTICULIERS')
-    }
-
-    const setEtudiants = () => {
-        props.setView('PROJETS ÉTUDIANTS')
-    }
-
-    const setMobilier = () => {
-        props.setView('MOBILIER')
-    }
-
-    const setLuminaire = () => {
-        props.setView('LUMINAIRE')
-    }
-
-    const setAccessoires = () => {
-        props.setView('ACCESSOIRES')
-    }
-
-    const setTendances = () => {
-        props.setView('TENDANCES')
-    }
-
-    const setContact = () => {
-        props.setView('CONTACT')
-    }
-
-    const setHome = () => {
-        props.setView('HOME')
-    }
-
-    const setCollection = () => {
-        props.setView('COLLECTION')
-    }
-
     return (
         <div>
-
-
-
-            
-                
-                    
-                
-                <div className={props.opacity ? 'header' : 'all-before'} >
-                    <div className='header-container'>
-                        <div className='header-logo' onClick={setHome}>
-                            <img src={louCardTop} alt='Lou Sentis' />
-                        </div>
-                        {seeMenu ?
-                        < MenuBurger {...props} setMobilier={setMobilier} setContact={setContact} />
+            <div className='header' >
+                <div className='header-container'>
+                    <div className='header-logo' onClick={() => history.push(`${match.url}`)}>
+                        <img src={louCardTop} alt='Lou Sentis' />
+                    </div>
+                    {seeMenu ?
+                        < MenuBurger 
+                        menu={menu}
+                        setMenu={setMenu}
+                        />
                         :
                         <div className='navbar'>
-                            <div className='navbar-item-container1' >
-                                <p className='navbar-main-item' onClick={setProjets} > PROJETS </p>
-                                <div className='navbar-item-sub-container1' >
-                                    <p className='navbar-item-sub' onClick={setHotels}> HÔTELS </p>
-                                    <p className='navbar-item-sub' onClick={setParticuliers}> PARTICULIERS </p>
-                                    <p className='navbar-item-sub' onClick={setEtudiants}> PROJETS ÉTUDIANTS </p>
-                                </div>
-                            </div>
-                            <div className='navbar-item-container2' >
-                                <p className='navbar-main-item' onClick={setCollection} > COLLECTION </p>
-                                <div className='navbar-item-sub-container2' >
-                                    <p className='navbar-item-sub' onClick={setAccessoires}> ACCESSOIRES </p>
-                                    <p className='navbar-item-sub' onClick={setLuminaire}> LUMINAIRE </p>
-                                    <p className='navbar-item-sub' onClick={setMobilier} > MOBILIER </p>
-                                    <p className='navbar-item-sub' onClick={setTendances}> TENDANCES </p>
-                                </div>
-                            </div>
-                            <div className='navbar-item-container3' >
-                                <p className='navbar-main-item' onClick={setContact} > CONTACT </p>
-                                <div className='navbar-item-sub-container3' >
-                                </div>
-                            </div>
-                        </div>}
-                    </div>
-                </div >
+                            {sections.map(({ id, ...sectionProps }) =>
+                                (
+                                    <div className={`navbar-item-container${id}`}>
+                                        <p className='navbar-main-item'
+                                            onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
+                                        >{sectionProps.title}</p>
+                                        <div className={`navbar-item-sub-container${id}`} >
+                                            {subSections.filter(subSection => subSection.section === sectionProps.title).map(
+                                                ({ id, ...subSectionProps }) => (
+                                                    <p className='navbar-item-sub'
+                                                        onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
 
-            }
+                                                    >{subSectionProps.title}</p>)
+                                            )}
+                                        </div>
+                                    </div>
+                                )
+                            )
+                            }
+                        </div>}
+                </div>
+            </div >
+
+            
         </div>
     )
 }
 
-export default Navbar
+export default withRouter(Navbar)

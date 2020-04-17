@@ -4,7 +4,7 @@ import Intreatl from './projects/Intreatl'
 
 const DisplayMain = props => {
     // const images = props.brand.image
-
+    
     const links = props.view === 'PROJETS' ?
         [
             {

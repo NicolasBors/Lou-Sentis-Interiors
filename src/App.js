@@ -1,5 +1,8 @@
 import React, { useState } from 'react'
+import { Switch, Route } from 'react-router-dom';
+
 import './App.css'
+
 import Start from './components/Start'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
@@ -11,33 +14,31 @@ const App = () => {
 
   const [start, setStart] = useState(true)
   const [opacity, setOpacity] = useState(false)
-
-  const [content, setContent] = useState(false)
-  const [isTop, setIsTop] = useState(true)
-  const [view, setView] = useState('HOME')
-  const [headHeight, setHeadHeight] = useState(484)
   const [menu, setMenu] = useState(false)  
 
   return (<div className="App">
     {start ?
-      <Start start={start} setStart={setStart} setOpacity={setOpacity}  />
-    :
-    <Navbar opacity={opacity} setView={setView} menu={menu} setMenu={setMenu} />
-    
-}
-{start ?
-null
-:
-
-    view === 'HOME' ?  <Home opacity={opacity} />
-    :
-    view === 'COLLECTION' || view === 'PROJETS' ?  <DisplayMain view={view} setView={setView} />
-    :
-    view === 'LUMINAIRE' || view === 'MOBILIER' || view === 'ACCESSOIRES' || view === 'TENDANCES' || view === 'HÔTELS' || view === 'PARTICULIERS' || view === 'PROJETS ÉTUDIANTS' ? <DisplayContent view={view} />
-    :
-    view === 'CONTACT' ? <ContactForm />
-    : null
-}
+      <Start 
+      start={start} setStart={setStart} setOpacity={setOpacity} 
+      />
+      :
+      <div className={opacity ? 'after-start' : 'before-start'}>
+        <Navbar menu={menu} setMenu={setMenu}/>
+        <Switch>
+          <Route exact path='/' render={(props) => <Home opacity={opacity} view={'HOME'} />} />
+          <Route exact path='/collection' render={(props) => <DisplayMain view={'COLLECTION'} />} />
+          <Route exact path='/projets' render={(props) => <DisplayMain view={'PROJETS'} />} />
+          <Route path='/collection/accessoires' render={(props) => <DisplayContent view={'ACCESSOIRES'} />} />
+          <Route path='/collection/luminaire' render={(props) => <DisplayContent view={'LUMINAIRE'} />} />
+          <Route path='/collection/mobilier' render={(props) => <DisplayContent view={'MOBILIER'} />} />
+          <Route path='/collection/tendances' render={(props) => <DisplayContent view={'TENDANCES'} />} />
+          <Route path='/projets/hôtels' render={(props) => <DisplayContent view={'HÔTELS'} />} />
+          <Route path='/projets/particuliers' render={(props) => <DisplayContent view={'PARTICULIERS'} />} />
+          <Route path='/projets/projets étudiants' render={(props) => <DisplayContent view={'PROJETS ÉTUDIANTS'} />} />
+          <Route path='/contact' render={(props) => <ContactForm {...props} view={'CONTACT'} />} />
+        </Switch>
+      </div>
+    }
   </div>)
 }
 
