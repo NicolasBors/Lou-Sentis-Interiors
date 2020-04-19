@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import './css/Start.css'
 import louCardWB from '../assets/logos/LOGO BLANC.png'
+import { withRouter } from 'react-router-dom'
 
 const Start = props => {
 
-    const [logo, setLogo] = useState('logostart')
+    const [logo, setLogo] = useState('')
     const [shine, setShine] = useState('')
 
     useEffect(() => {
@@ -14,58 +15,25 @@ const Start = props => {
     }, [])
 
     useEffect(() => {
-        setTimeout(() => setLogo('logofull'), 100)
-        setTimeout(() => setShine('shine'), 400)
+        setTimeout(() => setShine('shine'), 200)
+        setTimeout(() => setLogo('-after'), 1000)
         setTimeout(() => props.setStart(false), 1200)
         setTimeout(() => props.setOpacity(true), 1300)
-        // setTimeout(() => props.setContent(true), 600)
     }, [])
 
-    // useEffect(() => {
-    //     const logo = document.getElementById('logoId');
-    //     const logoStyle = window.getComputedStyle(logo);
-    //     const marginTopPx = logoStyle.getPropertyValue('margin-top')
-    //     const marginTopInt = parseInt(marginTopPx, 10)
-    //     const heightPx = logoStyle.getPropertyValue('height')
-    //     const heightInt = (parseInt(heightPx, 10)) * (620 / 842)
-    //     const fullHeight = marginTopInt + heightInt
-    //     props.setHeadHeight(fullHeight)
-    // }, [])
-
-    // useEffect(() => {
-    //     window.addEventListener('scroll', () => {
-    //         const headerTop = window.scrollY < props.headHeight
-    //         headerTop !== props.isTop ?
-    //             props.setIsTop(false) :
-    //             props.setIsTop(true)
-    //     })
-    // }, [])
-
-
-
-
-    // const setCarousel = () => {
-    //     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-    //     setTimeout(() => props.setView('carousel'), 500)
-    // }
-
-
-console.log(props);
-
     return (
-        props.start ?
         <div className='start' >
-            <div id='logoId' className={'logo-container'} >
+            <div id='logoId' className={`logo-container${logo}`} >
                 <figure className={`logo-figure ${shine}`} >
-                    <img className={logo}
+                    <img className={`logo${logo}`}
                         src={louCardWB}
-                        alt='logo' />
+                        alt='logo'
+                        onClick={() => props.history.push(`${props.match.url}`)} />
                 </figure>
             </div>
         </div>
-        :
-        null
+        
     )
 }
 
-export default Start
+export default withRouter(Start)

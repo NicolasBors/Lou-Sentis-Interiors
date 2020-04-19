@@ -4,73 +4,95 @@ import { withRouter } from 'react-router-dom'
 import './css/Navbar.css'
 
 import MenuBurger from './MenuBurger'
-import louCardTop from '../assets/logos/LOGO BLANC haut.png'
 
-const Navbar = ({menu, setMenu, match, history}) => {
+const Navbar = ({ menu, setMenu, match, history }) => {
 
     const [seeMenu, setSeeMenu] = useState(false)
 
     const [sections, setSections] = useState([
         {
-            title: 'PROJETS',
+            title: 'RÉALISATION',
             id: 1,
-            linkUrl: 'projets'
+            linkUrl: 'réalisation'
         },
         {
-            title: 'COLLECTION',
+            title: 'MOBILIER',
             id: 2,
-            linkUrl: 'collection'
+            linkUrl: 'mobilier'
+        },
+        {
+            title: 'INFORMATION',
+            id: 3,
+            linkUrl: 'information'
         },
         {
             title: 'CONTACT',
-            id: 3,
+            id: 4,
             linkUrl: 'contact'
         }
     ])
     const [subSections, setSubsections] = useState([
         {
-            title: 'HÔTELS',
+            title: 'Duquesne',
             id: 1,
-            section: 'PROJETS',
-            linkUrl: 'projets/hôtels'
+            section: 'RÉALISATION',
+            linkUrl: 'réalisation/duquesne'
         },
         {
-            title: 'PARTICULIERS',
+            title: 'Hôtel Sacha',
             id: 2,
-            section: 'PROJETS',
-            linkUrl: 'projets/particuliers'
+            section: 'RÉALISATION',
+            linkUrl: 'réalisation/hôtel-sacha'
         },
         {
-            title: 'PROJETS ÉTUDIANTS',
+            title: 'Île de La Réunion',
             id: 3,
-            section: 'PROJETS',
-            linkUrl: 'projets/projets étudiants'
+            section: 'RÉALISATION',
+            linkUrl: 'réalisation/île-de-la-réunion'
         },
         {
-            title: 'ACCESSOIRES',
+            title: 'La Coupole',
             id: 4,
-            section: 'COLLECTION',
-            linkUrl: 'collection/accessoires'
+            section: 'RÉALISATION',
+            linkUrl: 'réalisation/la-coupole'
         },
         {
-            title: 'LUMINAIRE',
+            title: 'Le Relais du Louvre',
             id: 5,
-            section: 'COLLECTION',
-            linkUrl: 'collection/luminaire'
+            section: 'RÉALISATION',
+            linkUrl: 'réalisation/le-relais-du-louvre'
         },
         {
-            title: 'MOBILIER',
+            title: 'Showroom Digital',
             id: 6,
-            section: 'COLLECTION',
-            linkUrl: 'collection/mobilier'
+            section: 'RÉALISATION',
+            linkUrl: 'réalisation/showroom-digital'
         },
         {
-            title: 'TENDANCES',
+            title: 'Accessoires',
             id: 7,
-            section: 'COLLECTION',
-            linkUrl: 'collection/tendances'
+            section: 'MOBILIER',
+            linkUrl: 'mobilier/accessoires'
+        },
+        {
+            title: 'Assises',
+            id: 8,
+            section: 'MOBILIER',
+            linkUrl: 'mobilier/assises'
+        },
+        {
+            title: 'Luminaire',
+            id: 9,
+            section: 'MOBILIER',
+            linkUrl: 'mobilier/luminaire'
+        },
+        {
+            title: 'Meubles',
+            id: 10,
+            section: 'MOBILIER',
+            linkUrl: 'mobilier/meubles'
         }
-    ])    
+    ])
 
 
     useEffect(() => {
@@ -93,42 +115,42 @@ const Navbar = ({menu, setMenu, match, history}) => {
     return (
         <div>
             <div className='header' >
-                <div className='header-container'>
-                    <div className='header-logo' onClick={() => history.push(`${match.url}`)}>
+                {/* <div className='header-logo' onClick={() => history.push(`${match.url}`)}>
                         <img src={louCardTop} alt='Lou Sentis' />
-                    </div>
-                    {seeMenu ?
-                        < MenuBurger 
+                    </div> */}
+                {seeMenu ?
+                    < MenuBurger
                         menu={menu}
                         setMenu={setMenu}
-                        />
-                        :
-                        <div className='navbar'>
-                            {sections.map(({ id, ...sectionProps }) =>
-                                (
-                                    <div className={`navbar-item-container${id}`}>
-                                        <p className='navbar-main-item'
-                                            onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
-                                        >{sectionProps.title}</p>
-                                        <div className={`navbar-item-sub-container${id}`} >
-                                            {subSections.filter(subSection => subSection.section === sectionProps.title).map(
-                                                ({ id, ...subSectionProps }) => (
-                                                    <p className='navbar-item-sub'
-                                                        onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
+                    />
+                    :
+                    <div className='navbar'>
+                        {sections.map(({ id, ...sectionProps }) =>
+                            (
+                                <div className='navbar-item-sub-container'>
+                                <div className={`navbar-item-container${id}`}>
+                                    <p className='navbar-main-item'
+                                        onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
+                                    >{sectionProps.title}</p>
+                                    <div className={`navbar-item-sub-container${id}`} >
+                                        {subSections.filter(subSection => subSection.section === sectionProps.title).map(
+                                            ({ id, ...subSectionProps }) => (
+                                                <p className='navbar-item-sub'
+                                                    onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
 
-                                                    >{subSectionProps.title}</p>)
-                                            )}
-                                        </div>
+                                                >{subSectionProps.title}</p>)
+                                        )}
                                     </div>
-                                )
+                                </div>
+                                </div>
                             )
-                            }
-                        </div>}
-                </div>
-            </div >
+                        )
+                        }
+                    </div>}
+            </div>
+        </div >
 
-            
-        </div>
+
     )
 }
 

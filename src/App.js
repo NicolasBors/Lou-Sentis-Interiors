@@ -10,26 +10,38 @@ import DisplayMain from './components/DisplayMain'
 import DisplayContent from './components/DisplayContent'
 import ContactForm from './components/ContactForm'
 
+import Duquesne from './components/projects/Duquesne'
+import LaCoupole from './components/projects/LaCoupole'
+import IleDeLaReunion from './components/projects/IleDeLaReunion'
+import ShowroomDigital from './components/projects/ShowroomDigital'
+
 const App = () => {
 
+  const [view, setView] = useState('HOME')
   const [start, setStart] = useState(true)
   const [opacity, setOpacity] = useState(false)
-  const [menu, setMenu] = useState(false)  
+  const [menu, setMenu] = useState(false)
 
   return (<div className="App">
+
+    <Start
+      start={start} setStart={setStart} setOpacity={setOpacity}
+    />
     {start ?
-      <Start 
-      start={start} setStart={setStart} setOpacity={setOpacity} 
-      />
+      null
       :
       <div className={opacity ? 'after-start' : 'before-start'}>
-        <Navbar menu={menu} setMenu={setMenu}/>
+        <Navbar menu={menu} setMenu={setMenu} />
         <Switch>
-          <Route exact path='/' render={(props) => <Home opacity={opacity} view={'HOME'} />} />
-          <Route exact path='/collection' render={(props) => <DisplayMain view={'COLLECTION'} />} />
-          <Route exact path='/projets' render={(props) => <DisplayMain view={'PROJETS'} />} />
-          <Route path='/collection/accessoires' render={(props) => <DisplayContent view={'ACCESSOIRES'} />} />
-          <Route path='/collection/luminaire' render={(props) => <DisplayContent view={'LUMINAIRE'} />} />
+          <Route exact path='/' render={(props) => <Home view={'HOME'} />} />
+          <Route exact path='/réalisation' render={(props) => <DisplayMain view={'RÉALISATION'} setView={setView} />} />
+          <Route exact path='/mobilier' render={(props) => <DisplayMain view={'MOBILIER'} setView={setView} />} />
+          <Route path='/réalisation/duquesne' render={(props) => <DisplayContent view={'Duquesne'} content={Duquesne} />} />
+          <Route path='/réalisation/la-coupole' render={(props) => <DisplayContent view={'La Coupole'} content={LaCoupole} />} />
+          <Route path='/réalisation/île-de-la-réunion' render={(props) => <DisplayContent view={'Île de la Réunion'} content={IleDeLaReunion} />} />
+          <Route path='/réalisation/showroom-digital' render={(props) => <DisplayContent view={'Showroom Digital'} content={ShowroomDigital} />} />
+
+
           <Route path='/collection/mobilier' render={(props) => <DisplayContent view={'MOBILIER'} />} />
           <Route path='/collection/tendances' render={(props) => <DisplayContent view={'TENDANCES'} />} />
           <Route path='/projets/hôtels' render={(props) => <DisplayContent view={'HÔTELS'} />} />

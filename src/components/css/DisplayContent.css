@@ -4,7 +4,7 @@
 }
 
 .displaycontent {
-    margin: 150px auto;
+    margin: 200px auto;
     font-family: 'Avenir';
     letter-spacing: 0.15em;
     width: 100%;
@@ -29,14 +29,14 @@
     justify-content: center;
     align-items: center;
     float: left;
-    width: 60%;
+    width: 45%;
     margin: 0;
     padding: 70px 2% 1% 2%;
     line-height: 0px;
 }
 
 .displaycontent-title h1 {
-    font-size: 4.5rem;
+    font-size: 3rem;
     margin-bottom: 50px;
     white-space: nowrap;
 }
@@ -133,6 +133,10 @@
     padding: 0;
     margin: 50px 0;
     /* overflow: hidden; */
+}
+
+.displaycontent-image-container:first-of-type {
+    width: 45% !important;
 }
 
 .displaycontent-image-container {
@@ -546,8 +550,16 @@
     .displaycontent-image-container {
         width: 48%;
     }
+    .displaycontent-image-container:first-of-type {
+        width: 98% !important;
+    }
+
+    .displaycontent-image-container:first-of-type .displaycontent-image-thumbnail {
+        max-width: none ;
+    }
+
     .student-title {
-        font-size: 3rem !important;
+        font-size: 2.8rem ;
         margin-bottom: 50px;
         white-space: nowrap;
     }
@@ -555,15 +567,20 @@
 
 @media all and (max-width: 600px) {
     .displaycontent-image-container {
-        width: 85%;
+        width: 85% !important;
         float: unset;
         margin: 15px auto;
         min-width: 300px;
     }
+
+    .displaycontent-image-container:first-of-type {
+        width: 85% !important;
+    }
+
     .displaycontent-title {
         min-width: 320px;
     }
     .student-title {
-        font-size: 2.2rem !important;
+        font-size: 2rem !important;
     }
 }

@@ -5,11 +5,9 @@ import slideArrow from '../assets/icons/slideArrow.png'
 
 import './css/DisplayContent.css'
 import downArrow from '../assets/downArrow.png'
-import Intreatl from './projects/Intreatl'
 
 const DisplayContent = props => {
-    // const images = props.brand.image
-    const images = Intreatl.image
+    const images = props.content.image
 
     const filtersTitle =
         props.view === 'HÔTELS' || props.view === 'PARTICULIERS' || props.view === 'PROJETS ÉTUDIANTS' ?
@@ -18,8 +16,6 @@ const DisplayContent = props => {
                 'PAR CATÉGORIE'
                 : ''
 
-
-    // A TESTER
     const [filteredImages, setFilteredImages] = useState(images.slice())
     const [fullImages, setFullImages] = useState(filteredImages.slice())
     const [selectedImage, setSelectedImage] = useState(0)
@@ -32,7 +28,7 @@ const DisplayContent = props => {
     const [openFilters, setOpenFilters] = useState(false)
 
     const categories =
-        props.view === 'HÔTELS' ? ['']
+        props.view === 'DUQUESNE' ? ['']
             : props.view === 'PARTICULIERS' ? ['']
                 : props.view === 'PROJETS ÉTUDIANTS' ? ['']
                     : props.view === 'ACESSOIRES' ? ['']
@@ -58,10 +54,9 @@ const DisplayContent = props => {
     useEffect(() => {
         filters !== 'PAR CATÉGORIE' && filters !== 'PAR PROJET' ?
             setFilteredImages(images.filter(image => image.categorie === filters))
-
             :
             setFilteredImages(images)
-    }, [filters])
+    }, [filters, images])
 
 
 
@@ -152,7 +147,8 @@ const DisplayContent = props => {
             moveLeft()
             : (showSingleBox === true || showMultipleBox === true) && event.keyCode === 39 ?
                 moveRight()
-                : console.log('key not allowed')
+                // : (showSingleBox === true || showMultipleBox === true) && event.keyCode === 27 ?
+                    : console.log('key not allowed')
     }
 
 
@@ -165,7 +161,9 @@ const DisplayContent = props => {
 
                     <div className='displaycontent-gallery'>
                         <div className='displaycontent-title'>
-                            <h1 className={props.view === 'PROJETS ÉTUDIANTS' ? 'student-title' : ''}>
+                            <h1 className={
+                                // props.view === 'PROJETS ÉTUDIANTS' ? 'student-title' : 
+                                ''}>
                                 {props.view}
                             </h1>
                             <div className='displaycontent-filters' onClick={() => setOpenFilters(!openFilters)}>
@@ -183,21 +181,23 @@ const DisplayContent = props => {
 
                             </div>
                         </div>
-                        {filteredImages.map((image, i) =>
-                            <div className='displaycontent-image-container' key={i} >
-                                <div className='displaycontent-inner-image-container'>
-                                    <div className='displaycontent-image-holder' >
-                                        <div onClick={() => {
-                                            selectImage(image)
-                                            filteredImages.length > 1 ? setShowMultipleBox(true) : setShowSingleBox(true)
-                                        }}>
-                                            <img className='displaycontent-image-thumbnail' src={image.src} alt={image.caption} />
-                                        </div>
+                        <div className='displaycontent-gallery'>
+                            {filteredImages.map((image, i) =>
+                                <div className='displaycontent-image-container' key={i} >
+                                    <div className='displaycontent-inner-image-container'>
+                                        <div className='displaycontent-image-holder' >
+                                            <div onClick={() => {
+                                                selectImage(image)
+                                                filteredImages.length > 1 ? setShowMultipleBox(true) : setShowSingleBox(true)
+                                            }}>
+                                                <img className='displaycontent-image-thumbnail' src={image.src} alt={image.caption} />
+                                            </div>
 
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )}
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

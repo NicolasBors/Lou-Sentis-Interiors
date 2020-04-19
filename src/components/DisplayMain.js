@@ -1,27 +1,42 @@
 import React, { useState, useEffect } from 'react'
+import { withRouter } from 'react-router-dom'
+
 import './css/DisplayMain.css'
+
+import Duquesne from './projects/Duquesne'
+import IleDeLaReunion from './projects/IleDeLaReunion'
+import LaCoupole from './projects/LaCoupole'
+import ShowroomDigital from './projects/ShowroomDigital'
+
 import Intreatl from './projects/Intreatl'
 
-const DisplayMain = props => {
-    // const images = props.brand.image
+const DisplayMain = ({view, match, history}) => {
     
-    const links = props.view === 'PROJETS' ?
+    const links = view === 'RÉALISATION' ?
         [
             {
-                title: 'HÔTELS',
-                image: Intreatl.image[0].src,
+                title: Duquesne.title,
+                image: Duquesne.image[0].src,
+                linkUrl: '/duquesne'
             },
             {
-                title: 'PARTICULIERS',
-                image: Intreatl.image[1].src,
+                title: IleDeLaReunion.title,
+                image: IleDeLaReunion.image[0].src,
+                linkUrl: '/île-de-la-réunion'
             },
             {
-                title: 'PROJETS ÉTUDIANTS',
-                image: Intreatl.image[2].src,
+                title: LaCoupole.title,
+                image: LaCoupole.image[0].src,
+                linkUrl: '/la-coupole'
+            },
+            {
+                title: ShowroomDigital.title,
+                image: ShowroomDigital.image[0].src,
+                linkUrl: '/showroom-digital'
             }
         ]
         :
-        props.view === 'COLLECTION' ?
+        view === 'MOBILIER' ?
             [
                 {
                     title: 'ACCESSOIRES',
@@ -42,14 +57,19 @@ const DisplayMain = props => {
             ]
             : []
 
+            console.log(history);
+            
+
 
 
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [props.view])
+    }, [view])
 
     return (
-        <div className='displaymain' onClick={props.menu ? props.setMenu(false) : null}>
+        <div className='displaymain' 
+        // onClick={menu ? props.setMenu(false) : null}
+        >
             <div className='displaymain-content'>
                 <div className='displaymain-container'>
 
@@ -58,14 +78,14 @@ const DisplayMain = props => {
                         <div className='displaymain-title-container'>
                             <div className='displaymain-title'>
                                 <h1>
-                                    {`${props.view} —`}
+                                    {`${view} —`}
                                 </h1>
                                 <div className='displaymain-description'>
-                                    {props.view === 'COLLECTION' ?
-                                        <p>This is a collection of bla bla bla bla bla bla bla bla bla bla.</p>
+                                    {view === 'RÉALISATION' ?
+                                        <p>Projets architecturaux</p>
                                         :
-                                        props.view === 'PROJETS' ?
-                                            <p>This is the projects of bla bla bla bla bla bla bla bla bla bla.</p>
+                                        view === 'MOBILIER' ?
+                                            <p>Collection d'éléments mobiliers</p>
                                             :
                                             null
                                     }
@@ -76,7 +96,9 @@ const DisplayMain = props => {
                             <div className={'displaymain-image-container'} key={i} >
                                 <div className='displaymain-inner-image-container'>
                                     <div className='displaymain-image-holder' >
-                                        <div onClick={() => props.setView(link.title)}>
+                                        <div 
+                                        onClick={() => history.push(`${match.url}${link.linkUrl}`)}
+                                        >
                                             <img className='displaymain-image-thumbnail' src={link.image} alt={link.title} />
                                             <div className='displaymain-image-title-container'>
 
@@ -97,4 +119,4 @@ const DisplayMain = props => {
     )
 }
 
-export default DisplayMain
+export default withRouter(DisplayMain)
