@@ -81,10 +81,10 @@ const Navbar = ({ menu, setMenu, match, history }) => {
             linkUrl: 'mobilier/assises'
         },
         {
-            title: 'Luminaire',
+            title: 'Luminaires',
             id: 9,
             section: 'MOBILIER',
-            linkUrl: 'mobilier/luminaire'
+            linkUrl: 'mobilier/luminaires'
         },
         {
             title: 'Meubles',

@@ -79,7 +79,7 @@ const Accessoires = {
     description: 'bla bla',
     image: [
         {
-            categorie: 'Portans',
+            categorie: 'Portants',
             caption: '',
             src: acc1
         },

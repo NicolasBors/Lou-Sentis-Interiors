@@ -30,12 +30,13 @@ const DisplayContent = props => {
     const categories =
         props.view === 'DUQUESNE' ? ['']
             : props.view === 'PARTICULIERS' ? ['']
-                : props.view === 'PROJETS ÉTUDIANTS' ? ['']
-                    : props.view === 'ACESSOIRES' ? ['']
-                        : props.view === 'LUMINAIRE' ? ['']
-                            : props.view === 'MOBILIER' ? ['CHAISES', 'CANAPÉS', 'LAMPES', 'TABLES']
-                                : props.view === 'TENDANCES' ? ['']
-                                    : ['']
+                : props.view === 'Accessoires' ? ['Arts de la table', 'Coussins', 'Décoration', 'Miroirs', 'Portants', 'Tapis', 'Tissus', 'Vases et plantes']
+                    : props.view === 'Assises' ? ['Chaises', 'Fauteuils et canapés', 'Poufs']
+                        : props.view === 'Luminaires' ? ['Appliques', 'Lampadaires', 'Lampes à poser', 'Suspensions']
+                            : props.view === 'Meubles' ? ['Commodes', 'Étagères', 'Lits', "Tables basses et d'appoint", 'Tables à manger']
+                                : props.view === 'MOBILIER' ? ['CHAISES', 'CANAPÉS', 'LAMPES', 'TABLES']
+                                    : props.view === 'TENDANCES' ? ['']
+                                        : ['']
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [props.view])
@@ -148,7 +149,7 @@ const DisplayContent = props => {
             : (showSingleBox === true || showMultipleBox === true) && event.keyCode === 39 ?
                 moveRight()
                 // : (showSingleBox === true || showMultipleBox === true) && event.keyCode === 27 ?
-                    : console.log('key not allowed')
+                : console.log('key not allowed')
     }
 
 

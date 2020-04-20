@@ -15,6 +15,11 @@ import LaCoupole from './components/projects/LaCoupole'
 import IleDeLaReunion from './components/projects/IleDeLaReunion'
 import ShowroomDigital from './components/projects/ShowroomDigital'
 
+import Accessoires from './components/collection/Accessoires'
+import Assises from './components/collection/Assises'
+import Luminaires from './components/collection/Luminaires'
+import Meubles from './components/collection/Meubles'
+
 const App = () => {
 
   const [view, setView] = useState('HOME')
@@ -40,6 +45,10 @@ const App = () => {
           <Route path='/réalisation/la-coupole' render={(props) => <DisplayContent view={'La Coupole'} content={LaCoupole} />} />
           <Route path='/réalisation/île-de-la-réunion' render={(props) => <DisplayContent view={'Île de la Réunion'} content={IleDeLaReunion} />} />
           <Route path='/réalisation/showroom-digital' render={(props) => <DisplayContent view={'Showroom Digital'} content={ShowroomDigital} />} />
+          <Route path='/mobilier/accessoires' render={(props) => <DisplayContent view={'Accessoires'} content={Accessoires} />} />
+          <Route path='/mobilier/assises' render={(props) => <DisplayContent view={'Assises'} content={Assises} />} />
+          <Route path='/mobilier/luminaires' render={(props) => <DisplayContent view={'Luminaires'} content={Luminaires} />} />
+          <Route path='/mobilier/meubles' render={(props) => <DisplayContent view={'Meubles'} content={Meubles} />} />
 
 
           <Route path='/collection/mobilier' render={(props) => <DisplayContent view={'MOBILIER'} />} />
