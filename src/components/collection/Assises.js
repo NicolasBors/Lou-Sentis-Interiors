@@ -89,12 +89,12 @@ const Assises = {
         {
             categorie: 'Fauteuils et canapés',
             caption: '',
-            src: canap1
+            src: canap2
         },
         {
             categorie: 'Fauteuils et canapés',
             caption: '',
-            src: canap2
+            src: canap1
         },
         {
             categorie: 'Fauteuils et canapés',
@@ -407,7 +407,7 @@ const Assises = {
         {
             categorie: 'Poufs',
             caption: '',
-            src: pouf1
+            src: pouf10
         },
         {
             categorie: 'Poufs',
@@ -452,7 +452,7 @@ const Assises = {
         {
             categorie: 'Poufs',
             caption: '',
-            src: pouf10
+            src: pouf1
         }
     ]
 }

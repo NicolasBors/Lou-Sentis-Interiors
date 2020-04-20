@@ -23,7 +23,6 @@ import basse22 from '../../assets/pictures/meubles/basse22.JPG'
 
 import commode1 from '../../assets/pictures/meubles/commode1.JPG'
 import commode2 from '../../assets/pictures/meubles/commode2.JPG'
-import commode3 from '../../assets/pictures/meubles/commode3.JPG'
 
 import etage1 from '../../assets/pictures/meubles/etag1.JPG'
 import etage2 from '../../assets/pictures/meubles/etage2.JPG'
@@ -50,6 +49,26 @@ const Meubles = {
     title: 'Meubles',
     description: '',
     image: [
+        {
+            categorie: "Commodes",
+            caption: '',
+            src: commode2
+        },
+        {
+            categorie: "Étagères",
+            caption: '',
+            src: etage3
+        },
+        {
+            categorie: "Tables basses et d'appoint",
+            caption: '',
+            src: basse14
+        },
+        {
+            categorie: "Tables à manger",
+            caption: '',
+            src: mange10
+        },
         {
             categorie: "Tables basses et d'appoint",
             caption: '',
@@ -115,11 +134,7 @@ const Meubles = {
             caption: '',
             src: basse13
         },
-        {
-            categorie: "Tables basses et d'appoint",
-            caption: '',
-            src: basse14
-        },
+        
         {
             categorie: "Tables basses et d'appoint",
             caption: '',
@@ -165,16 +180,8 @@ const Meubles = {
             caption: '',
             src: commode1
         },
-        {
-            categorie: "Commodes",
-            caption: '',
-            src: commode2
-        },
-        {
-            categorie: "Commodes",
-            caption: '',
-            src: commode3
-        },
+        
+        
         {
             categorie: "Étagères",
             caption: '',
@@ -185,11 +192,7 @@ const Meubles = {
             caption: '',
             src: etage2
         },
-        {
-            categorie: "Étagères",
-            caption: '',
-            src: etage3
-        },
+        
         {
             categorie: "Étagères",
             caption: '',
@@ -259,12 +262,8 @@ const Meubles = {
             categorie: "Tables à manger",
             caption: '',
             src: mange9
-        },
-        {
-            categorie: "Tables à manger",
-            caption: '',
-            src: mange10
         }
+        
     ]
 }
 

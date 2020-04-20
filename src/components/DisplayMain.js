@@ -8,7 +8,10 @@ import IleDeLaReunion from './projects/IleDeLaReunion'
 import LaCoupole from './projects/LaCoupole'
 import ShowroomDigital from './projects/ShowroomDigital'
 
-import Intreatl from './projects/Intreatl'
+import Accessoires from './collection/Accessoires'
+import Assises from './collection/Assises'
+import Luminaires from './collection/Luminaires'
+import Meubles from './collection/Meubles' 
 
 const DisplayMain = ({view, match, history}) => {
     
@@ -39,20 +42,27 @@ const DisplayMain = ({view, match, history}) => {
         view === 'MOBILIER' ?
             [
                 {
-                    title: 'ACCESSOIRES',
-                    image: Intreatl.image[0].src,
+                    title: Accessoires.title,
+                    image: Accessoires.image[0].src,
+                    linkUrl: '/accessoires'
                 },
                 {
-                    title: 'LUMINAIRE',
-                    image: Intreatl.image[1].src,
+                    title: Assises.title,
+                    image: Assises.image[0].src,
+                    linkUrl: '/assises'
+
                 },
                 {
-                    title: 'MOBILIER',
-                    image: Intreatl.image[2].src,
+                    title: Luminaires.title,
+                    image: Luminaires.image[0].src,
+                    linkUrl: '/luminaires'
+
                 },
                 {
-                    title: 'TENDANCES',
-                    image: Intreatl.image[3].src,
+                    title: Meubles.title,
+                    image: Meubles.image[0].src,
+                    linkUrl: '/meubles'
+
                 }
             ]
             : []

@@ -12,7 +12,7 @@ const DisplayContent = props => {
     const filtersTitle =
         props.view === 'HÔTELS' || props.view === 'PARTICULIERS' || props.view === 'PROJETS ÉTUDIANTS' ?
             'PAR PROJET'
-            : props.view === 'ACCESSOIRES' || props.view === 'LUMINAIRE' || props.view === 'MOBILIER' || props.view === 'TENDANCES' ?
+            : props.view === 'Accessoires' || props.view === 'Assises' || props.view === 'Luminaires' || props.view === 'Meubles' ?
                 'PAR CATÉGORIE'
                 : ''
 
@@ -43,7 +43,7 @@ const DisplayContent = props => {
 
     useEffect(() => {
         setFilters(filtersTitle)
-    }, [filtersTitle])
+    }, [filtersTitle, props.view])
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
@@ -58,7 +58,6 @@ const DisplayContent = props => {
             :
             setFilteredImages(images)
     }, [filters, images])
-
 
 
     // const filteredImages = filters !== 'PAR CATÉGORIE' && filters !== 'PAR PROJET' ? images.filter(image => image.categorie === filters) : images

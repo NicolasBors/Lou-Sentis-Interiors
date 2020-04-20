@@ -1,8 +1,10 @@
+import accmain from '../../assets/pictures/accessoires/vase8.JPG'
+
 import acc1 from '../../assets/pictures/accessoires/cintre1.JPG'
 import acc2 from '../../assets/pictures/accessoires/cintre2.JPG'
-import acc3 from '../../assets/pictures/accessoires/cintre3.JPG'
+import acc3 from '../../assets/pictures/accessoires/cintre3.PNG'
 import acc4 from '../../assets/pictures/accessoires/cintre4.JPG'
-import acc5 from '../../assets/pictures/accessoires/cintre5.JPG'
+import acccintre from '../../assets/pictures/accessoires/cintre5.JPG'
 import acc6 from '../../assets/pictures/accessoires/cintre6.JPG'
 
 import acc7 from '../../assets/pictures/accessoires/couss1.JPG'
@@ -11,7 +13,7 @@ import acc9 from '../../assets/pictures/accessoires/couss3.JPG'
 import acc10 from '../../assets/pictures/accessoires/couss4.JPG'
 import acc11 from '../../assets/pictures/accessoires/couss5.JPG'
 import acc12 from '../../assets/pictures/accessoires/couss6.JPG'
-import acc13 from '../../assets/pictures/accessoires/couss7.JPG'
+import acccouss from '../../assets/pictures/accessoires/couss7.JPG'
 import acc14 from '../../assets/pictures/accessoires/couss8.JPG'
 import acc15 from '../../assets/pictures/accessoires/couss9.JPG'
 import acc16 from '../../assets/pictures/accessoires/couss10.JPG'
@@ -36,7 +38,7 @@ import acc33 from '../../assets/pictures/accessoires/deco15.JPG'
 import acc34 from '../../assets/pictures/accessoires/deco16.JPG'
 import acc35 from '../../assets/pictures/accessoires/deco17.JPG'
 import acc36 from '../../assets/pictures/accessoires/deco18.JPG'
-import acc37 from '../../assets/pictures/accessoires/deco19.JPG'
+import accdeco from '../../assets/pictures/accessoires/deco19.JPG'
 import acc38 from '../../assets/pictures/accessoires/deco20.JPG'
 
 import acc39 from '../../assets/pictures/accessoires/miroir1.JPG'
@@ -48,11 +50,11 @@ import acc43 from '../../assets/pictures/accessoires/table3.JPG'
 import acc44 from '../../assets/pictures/accessoires/table4.JPG'
 import acc45 from '../../assets/pictures/accessoires/table5.JPG'
 import acc46 from '../../assets/pictures/accessoires/table6.JPG'
-import acc47 from '../../assets/pictures/accessoires/table7.JPG'
+import acctab from '../../assets/pictures/accessoires/table7.JPG'
 
 import acc48 from '../../assets/pictures/accessoires/tapis1.JPG'
 import acc49 from '../../assets/pictures/accessoires/tapis2.JPG'
-import acc50 from '../../assets/pictures/accessoires/tapis3.JPG'
+import acctapis from '../../assets/pictures/accessoires/tapis3.JPG'
 
 import acc51 from '../../assets/pictures/accessoires/tissu1.JPG'
 import acc52 from '../../assets/pictures/accessoires/tissu2.JPG'
@@ -66,7 +68,6 @@ import acc58 from '../../assets/pictures/accessoires/vase4.JPG'
 import acc59 from '../../assets/pictures/accessoires/vase5.JPG'
 import acc60 from '../../assets/pictures/accessoires/vase6.JPG'
 import acc61 from '../../assets/pictures/accessoires/vase7.JPG'
-import acc62 from '../../assets/pictures/accessoires/vase8.JPG'
 import acc63 from '../../assets/pictures/accessoires/vase9.JPG'
 import acc64 from '../../assets/pictures/accessoires/vase10.JPG'
 import acc65 from '../../assets/pictures/accessoires/vase11.JPG'
@@ -78,6 +79,16 @@ const Accessoires = {
     title: 'Accessoires',
     description: 'bla bla',
     image: [
+        {
+            categorie: 'Vases et plantes',
+            caption: '',
+            src: accmain
+        },
+        {
+            categorie: 'Portants',
+            caption: '',
+            src: acccintre
+        },
         {
             categorie: 'Portants',
             caption: '',
@@ -98,15 +109,16 @@ const Accessoires = {
             caption: '',
             src: acc4
         },
-        {
-            categorie: 'Portants',
-            caption: '',
-            src: acc5
-        },
+
         {
             categorie: 'Portants',
             caption: '',
             src: acc6
+        },
+        {
+            categorie: 'Coussins',
+            caption: '',
+            src: acccouss
         },
         {
             categorie: 'Coussins',
@@ -138,11 +150,7 @@ const Accessoires = {
             caption: '',
             src: acc12
         },
-        {
-            categorie: 'Coussins',
-            caption: '',
-            src: acc13
-        },
+
         {
             categorie: 'Coussins',
             caption: '',
@@ -167,6 +175,11 @@ const Accessoires = {
             categorie: 'Coussins',
             caption: '',
             src: acc18
+        },
+        {
+            categorie: 'Décoration',
+            caption: '',
+            src: accdeco
         },
         {
             categorie: 'Décoration',
@@ -258,11 +271,7 @@ const Accessoires = {
             caption: '',
             src: acc36
         },
-        {
-            categorie: 'Décoration',
-            caption: '',
-            src: acc37
-        },
+
         {
             categorie: 'Décoration',
             caption: '',
@@ -277,6 +286,11 @@ const Accessoires = {
             categorie: 'Miroirs',
             caption: '',
             src: acc40
+        },
+        {
+            categorie: 'Arts de la table',
+            caption: '',
+            src: acctab
         },
         {
             categorie: 'Arts de la table',
@@ -309,9 +323,9 @@ const Accessoires = {
             src: acc46
         },
         {
-            categorie: 'Arts de la table',
+            categorie: 'Tapis',
             caption: '',
-            src: acc47
+            src: acctapis
         },
         {
             categorie: 'Tapis',
@@ -323,11 +337,7 @@ const Accessoires = {
             caption: '',
             src: acc49
         },
-        {
-            categorie: 'Tapis',
-            caption: '',
-            src: acc50
-        },
+        
         {
             categorie: 'Tissus',
             caption: '',
@@ -357,47 +367,43 @@ const Accessoires = {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc56
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc57
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc58
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc59
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc60
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc61
-        },{
-            categorie: 'Vases et plantes',
-            caption: '',
-            src: acc62
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc63
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc64
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc65
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc66
-        },{
+        }, {
             categorie: 'Vases et plantes',
             caption: '',
             src: acc67
