@@ -140,7 +140,7 @@
 }
 
 .displaymain-image-holder:hover .displaymain-image-thumbnail {
-    filter: brightness(0.5);
+    filter: brightness(0.25);
 }
 
 .displaymain-image-holder:hover .displaymain-image-title {

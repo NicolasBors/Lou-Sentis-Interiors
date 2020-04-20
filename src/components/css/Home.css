@@ -67,7 +67,7 @@
 }
 
 .recent-work .image-holder:hover .image-thumbnail {
-    filter: brightness(0.5);
+    filter: brightness(0.25);
 }
 
 .recent-work .image-holder:hover .image-title {
