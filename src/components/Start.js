@@ -19,6 +19,7 @@ const Start = props => {
         setTimeout(() => setLogo('-after'), 1000)
         setTimeout(() => props.setStart(false), 1200)
         setTimeout(() => props.setOpacity(true), 1300)
+        setTimeout(() => setShine(''), 1300)
     }, [])
 
     return (

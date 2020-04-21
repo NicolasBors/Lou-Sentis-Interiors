@@ -33,61 +33,61 @@ const Navbar = ({ menu, setMenu, match, history }) => {
     ])
     const [subSections, setSubsections] = useState([
         {
-            title: 'Duquesne',
+            title: 'DUQUESNE',
             id: 1,
             section: 'RÉALISATION',
             linkUrl: 'réalisation/duquesne'
         },
         {
-            title: 'Hôtel Sacha',
+            title: 'HÔTEL SACHA',
             id: 2,
             section: 'RÉALISATION',
             linkUrl: 'réalisation/hôtel-sacha'
         },
         {
-            title: 'Île de La Réunion',
+            title: 'ÎLE DE LA RÉUNION',
             id: 3,
             section: 'RÉALISATION',
             linkUrl: 'réalisation/île-de-la-réunion'
         },
         {
-            title: 'La Coupole',
+            title: 'LA COUPOLE',
             id: 4,
             section: 'RÉALISATION',
             linkUrl: 'réalisation/la-coupole'
         },
         {
-            title: 'Le Relais du Louvre',
+            title: 'LE RELAIS DU LOUVRE',
             id: 5,
             section: 'RÉALISATION',
             linkUrl: 'réalisation/le-relais-du-louvre'
         },
         {
-            title: 'Showroom Digital',
+            title: 'SHOWROOM DIGITAL',
             id: 6,
             section: 'RÉALISATION',
             linkUrl: 'réalisation/showroom-digital'
         },
         {
-            title: 'Accessoires',
+            title: 'ACCESSOIRES',
             id: 7,
             section: 'MOBILIER',
             linkUrl: 'mobilier/accessoires'
         },
         {
-            title: 'Assises',
+            title: 'ASSISES',
             id: 8,
             section: 'MOBILIER',
             linkUrl: 'mobilier/assises'
         },
         {
-            title: 'Luminaires',
+            title: 'LUMINAIRES',
             id: 9,
             section: 'MOBILIER',
             linkUrl: 'mobilier/luminaires'
         },
         {
-            title: 'Meubles',
+            title: 'MEUBLES',
             id: 10,
             section: 'MOBILIER',
             linkUrl: 'mobilier/meubles'
@@ -106,7 +106,7 @@ const Navbar = ({ menu, setMenu, match, history }) => {
     }, [])
 
     const setSize = () => {
-        let currentWidth = (window.innerWidth < 800);
+        let currentWidth = (window.innerWidth < 900);
         currentWidth ?
             setSeeMenu(true) :
             setSeeMenu(false)
@@ -122,6 +122,8 @@ const Navbar = ({ menu, setMenu, match, history }) => {
                     < MenuBurger
                         menu={menu}
                         setMenu={setMenu}
+                        sections={sections}
+                        subSections={subSections}
                     />
                     :
                     <div className='navbar'>

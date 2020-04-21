@@ -46,7 +46,7 @@ import mange9 from '../../assets/pictures/meubles/mange9.JPG'
 import mange10 from '../../assets/pictures/meubles/mange10.JPG'
 
 const Meubles = {
-    title: 'Meubles',
+    title: 'MEUBLES',
     description: '',
     image: [
         {

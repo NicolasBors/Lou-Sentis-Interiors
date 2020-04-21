@@ -1,39 +1,44 @@
-.menu-burger {
-  position: fixed;
-  height: 65vh;
-  z-index: 102;
-  top: 0;
-  right: 0;
-  width: 0;
-  background-color: black;
-  transition: ease 0.5s;
-  overflow-x: hidden;
-  padding: 70px 0;
+@font-face {
+  font-family: 'Avenir';
+  src: url('../../assets/fonts/AvenirLTStd-Medium.otf')
 }
 
-.menu-burger a {
-  opacity: 100%;
-  padding: 10px 0px;
-  font-family: Helvetica;
-  color: white;
-  display: block;
-  transition: opacity 2s;
-  text-decoration: none;
-  white-space: nowrap;
+.menu-burger {
+  position: fixed;
+  height: 0;
+  z-index: 150;
+  top: 0;
+  width: 100vw;
+  background-color: white;
+  transition: ease 0.5s;
+  overflow-x: hidden;
+  padding: 0;
+  margin-top: 175px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Avenir';
 }
 
 .open-menu-burger {
-  width: 60vw;
-  box-shadow: 0px 0px 15px black;
+  height: 100vh;
+  border-bottom: 1px solid black
 }
 
 .menu-container {
   position: fixed;
-  right: 25px;
+  right: 35px;
   top: 35px;
   cursor: pointer;
   display: inline-block;
-  z-index: 200;
+  z-index: 155;
+  background-color: white;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .bar1, .bar3 {
@@ -43,15 +48,17 @@
   height: 2px;
   background-color: black;
   transition: 0.2s;
+  align-self: center;
 }
 
 .mbar {
   z-index: 101;
   position: relative;
-  width: 30px;
+  width: 35px;
   height: 2px;
   margin: 8px 0;
   transition: 0.2s;
+  align-self: center;
 }
 
 .mbar1, .mbar2 {
@@ -69,52 +76,113 @@
 
 .open-menu-container .mbar1 {
   transform: rotate(45deg);
-  background-color: white;
 }
 
 .open-menu-container .mbar2 {
   transform: rotate(-45deg);
-  background-color: white;
 }
 
 .open-menu-container .bar3 {
   opacity: 0;
 }
 
-.menu-burger h1 {
-  text-align: right;
-  font-size: 30px;
-  margin: 35px 25px 10px;
-  color: white;
-}
+/* REVIEW !!!! */
 
-.menu-burger h1::first-letter {
-  font-size: larger;
-}
-
-.menu-burger p {
-  text-align: right;
-  margin: 13px 25px;
-  color: white;
-  white-space: nowrap;
+.burger-menu-item {
+  position: relative;
+  margin: 0px 3vw;
+  letter-spacing: 0.2rem;
   cursor: pointer;
-  text-shadow: grey 1px 2px 3px;
+  font-weight: normal;
 }
 
-.menu-burger p:hover {
-  text-shadow: white 1px 2px 3px;
+.burger-menu-item:hover {
+  font-weight: bold;
+  transition: ease 0.25s;
 }
 
-.burger-contact:hover {
-  text-shadow: white 1px 2px 3px;
+.burger-closed-designs-list {
+  position: relative;
+  height: 0px;
+  z-index: 100;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  overflow-x: hidden;
+  width: max-content;
+  letter-spacing: 0px;
+  margin-top: 0px;
+  height: 0;
+  transition: ease 200ms;
+}
+
+.burger-menu-home {
+  padding-top: 50px;
+}
+
+.burger-menu-about {
+  padding-bottom: 50px;
+}
+
+.burger-menu-title {
+  margin: 30px 0px 0px 0px;
+  position: relative;
   cursor: pointer;
+}
+
+.burger-open-designs-list {
+  position: relative;
+  z-index: 90;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  transition: ease 0.5s;
+  overflow-x: hidden;
+  width: max-content;
+  transition: ease 450ms;
+  margin-top: 20px;
+  height: auto;
+}
+
+.burger-designs-list-item {
+  padding: 1em 1em 1em 1em;
+  cursor: pointer;
+  margin: 0 0 0 0;
+  color: black;
+  /* background-color: white; */
+}
+
+.burger-designs-list-item:hover {
+  color: #333333;
+  transition: ease 0.25s;
 }
 
 .burger-background {
   position: fixed;
   width: 100vw;
-  top: 0;
+  top: 175px;
   height: 100vh;
   z-index: 150;
   background: rgba(0, 0, 0, 0.2);
+}
+
+.top-arrow {
+  transform: rotateX(180deg);
+  height: 1.2rem;
+  padding-left: 7px;
+  transition: ease 200ms;
+}
+
+.down-arrow {
+  height: 1.2rem;
+  padding-left: 7px;
+}
+
+.top-arrow, .down-arrow {
+  filter: invert(0.7);
+}
+
+.burger-menu-designs:hover img {
+  filter: invert(0.1);
 }

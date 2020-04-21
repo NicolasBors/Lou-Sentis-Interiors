@@ -7,8 +7,8 @@ import coupole6 from '../../assets/pictures/la-coupole/IMG_8452.jpg'
 import coupole7 from '../../assets/pictures/la-coupole/IMG_8455.jpg'
 
 const LaCoupole = {
-    title: 'La Coupole',
-    description: 'bla bla',
+    title: 'LA COUPOLE',
+    description: 'Hôtel La Coupole, Paris, France. 2020',
     image: [
         {
             categorie: '',

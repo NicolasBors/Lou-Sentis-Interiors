@@ -37,8 +37,8 @@ import duquesne36 from '../../assets/pictures/duquesne/IMG_7399.jpg'
 import duquesne37 from '../../assets/pictures/duquesne/IMG_7400.jpg'
 
 const Duquesne = {
-    title: 'Duquesne',
-    description: 'bla bla',
+    title: 'DUQUESNE',
+    description: 'Hôtel Duquesne, Paris, France. 2020',
     image: [
         {
             categorie: '',

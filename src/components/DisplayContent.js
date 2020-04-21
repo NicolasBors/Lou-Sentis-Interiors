@@ -9,13 +9,6 @@ import downArrow from '../assets/downArrow.png'
 const DisplayContent = props => {
     const images = props.content.image
 
-    const filtersTitle =
-        props.view === 'HÔTELS' || props.view === 'PARTICULIERS' || props.view === 'PROJETS ÉTUDIANTS' ?
-            'PAR PROJET'
-            : props.view === 'Accessoires' || props.view === 'Assises' || props.view === 'Luminaires' || props.view === 'Meubles' ?
-                'PAR CATÉGORIE'
-                : ''
-
     const [filteredImages, setFilteredImages] = useState(images.slice())
     const [fullImages, setFullImages] = useState(filteredImages.slice())
     const [selectedImage, setSelectedImage] = useState(0)
@@ -24,26 +17,23 @@ const DisplayContent = props => {
     const [showMultipleBox, setShowMultipleBox] = useState(false)
     const [active, setActive] = useState(0)
     const [direction, setDirection] = useState('')
-    const [filters, setFilters] = useState(filtersTitle)
+    const [filters, setFilters] = useState('Par catégorie')
     const [openFilters, setOpenFilters] = useState(false)
 
     const categories =
-        props.view === 'DUQUESNE' ? ['']
-            : props.view === 'PARTICULIERS' ? ['']
-                : props.view === 'Accessoires' ? ['Arts de la table', 'Coussins', 'Décoration', 'Miroirs', 'Portants', 'Tapis', 'Tissus', 'Vases et plantes']
-                    : props.view === 'Assises' ? ['Chaises', 'Fauteuils et canapés', 'Poufs']
-                        : props.view === 'Luminaires' ? ['Appliques', 'Lampadaires', 'Lampes à poser', 'Suspensions']
-                            : props.view === 'Meubles' ? ['Commodes', 'Étagères', 'Lits', "Tables basses et d'appoint", 'Tables à manger']
-                                : props.view === 'MOBILIER' ? ['CHAISES', 'CANAPÉS', 'LAMPES', 'TABLES']
-                                    : props.view === 'TENDANCES' ? ['']
-                                        : ['']
+        props.view === 'ACCESSOIRES' ? ['Arts de la table', 'Coussins', 'Décoration', 'Miroirs', 'Portants', 'Tapis', 'Tissus', 'Vases et plantes']
+            : props.view === 'ASSISES' ? ['Chaises', 'Fauteuils et canapés', 'Poufs']
+                : props.view === 'LUMINAIRES' ? ['Appliques', 'Lampadaires', 'Lampes à poser', 'Suspensions']
+                    : props.view === 'MEUBLES' ? ['Commodes', 'Étagères', 'Lits', "Tables basses et d'appoint", 'Tables à manger']
+                        : ['']
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [props.view])
 
     useEffect(() => {
-        setFilters(filtersTitle)
-    }, [filtersTitle, props.view])
+        setFilters('Par catégorie')
+        setOpenFilters(false)
+    }, [props.view])
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
@@ -53,7 +43,7 @@ const DisplayContent = props => {
     })
 
     useEffect(() => {
-        filters !== 'PAR CATÉGORIE' && filters !== 'PAR PROJET' ?
+        filters !== 'Par catégorie' ?
             setFilteredImages(images.filter(image => image.categorie === filters))
             :
             setFilteredImages(images)
@@ -166,20 +156,24 @@ const DisplayContent = props => {
                                 ''}>
                                 {props.view}
                             </h1>
-                            <div className='displaycontent-filters' onClick={() => setOpenFilters(!openFilters)}>
-                                <p>
-                                    {filters}
-                                </p>
-                                <img className={openFilters ? 'displaycontent-top-arrow' : 'displaycontent-down-arrow'} src={downArrow} alt='' />
+                            {
+                                props.view === 'ACCESSOIRES' || props.view === 'ASSISES' || props.view === 'LUMINAIRES' || props.view === 'MEUBLES' ?
+                                    <div className='displaycontent-filters' onClick={() => setOpenFilters(!openFilters)}>
+                                        <p>
+                                            {filters}
+                                        </p>
+                                        <img className={openFilters ? 'displaycontent-top-arrow' : 'displaycontent-down-arrow'} src={downArrow} alt='' />
 
-                                <div className={openFilters ? 'displaycontent-open-filters' : 'displaycontent-close-filters'}>
-                                    <p className='displaycontent-select-filter' onClick={() => setFilters(filtersTitle)}>TOUT AFFICHER</p>
-                                    {categories.map((categorie, i) => (
-                                        <p className='displaycontent-select-filter' onClick={() => setFilters(categorie)}>{categorie}</p>
-                                    ))}
-                                </div>
-
-                            </div>
+                                        <div className={openFilters ? 'displaycontent-open-filters' : 'displaycontent-close-filters'}>
+                                            <p className='displaycontent-select-filter' onClick={() => setFilters('Par catégorie')}>Tout afficher</p>
+                                            {categories.map((categorie, i) => (
+                                                <p className='displaycontent-select-filter' onClick={() => setFilters(categorie)}>{categorie}</p>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    :
+                                    <span className='displaycontent-description'>{props.content.description}</span>
+                            }
                         </div>
                         <div className='displaycontent-gallery'>
                             {filteredImages.map((image, i) =>

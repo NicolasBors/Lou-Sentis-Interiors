@@ -15,8 +15,8 @@ import showroom14 from '../../assets/pictures/showroom-digital/DSC_0230.jpg'
 import showroom15 from '../../assets/pictures/showroom-digital/DSC_0238.jpg'
 
 const ShowroomDigital = {
-    title: 'Showroom Digital',
-    description: 'bla bla',
+    title: 'SHOWROOM DIGITAL',
+    description: 'Showroom Digital, Paris, France. 2020',
     image: [
         {
             categorie: '',

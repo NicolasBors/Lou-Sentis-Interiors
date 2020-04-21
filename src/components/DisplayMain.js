@@ -67,19 +67,12 @@ const DisplayMain = ({view, match, history}) => {
             ]
             : []
 
-            console.log(history);
-            
-
-
-
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [view])
 
     return (
-        <div className='displaymain' 
-        // onClick={menu ? props.setMenu(false) : null}
-        >
+        <div className='displaymain'>
             <div className='displaymain-content'>
                 <div className='displaymain-container'>
 

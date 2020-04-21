@@ -8,6 +8,8 @@ const Home = ({ view, history }) => {
 
     const images = HomePictures
 
+    
+
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [view])
@@ -15,16 +17,9 @@ const Home = ({ view, history }) => {
     return (
         <div className='home'>
             <div className='home-container'>
-                {/* <div className='home-presentation'>
-                    <h2>{'Short description of your work'.toUpperCase()}</h2>
-                    <p>{'More detailed description of your offer and projects'}</p>
-                </div> */}
                 <div className='recent-work'>
-                    <h2>
-                        CRÉATIONS RÉCENTES
-                    </h2>
                     {images.map((image, i) =>
-                        <div className='image-container' key={i} >
+                        <div className={`image-container${image.id}`} key={i} >
                             <div className='inner-image-container'>
                                 <div className='image-holder' >
 

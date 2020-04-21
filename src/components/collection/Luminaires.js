@@ -28,7 +28,7 @@ import lum24 from '../../assets/pictures/luminaires/sus11.JPG'
 
 
 const Luminaires = {
-    title: 'Luminaires',
+    title: 'LUMINAIRES',
     description: '',
     image: [
         {

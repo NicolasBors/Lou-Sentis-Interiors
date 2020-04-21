@@ -9,8 +9,8 @@ import reunion8 from '../../assets/pictures/ile-de-la-reunion/IMG_2655.JPG'
 import reunion9 from '../../assets/pictures/ile-de-la-reunion/IMG_2657.JPG'
 
 const IleDeLaReunion = {
-    title: 'Île de la Réunion',
-    description: 'bla bla',
+    title: 'ÎLE DE LA RÉUNION',
+    description: 'Hôtel de la Réunion, Île de la Réunion, France. 2020',
     image: [
         {
             categorie: '',

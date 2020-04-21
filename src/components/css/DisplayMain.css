@@ -35,7 +35,7 @@
 }
 
 .displaymain-title h1 {
-    font-size: 4.5rem;
+    font-size: 3rem;
     margin-bottom: 50px;
 }
 
@@ -44,7 +44,7 @@
 }
 
 .displaymain-description {
-    padding-top: 30px;
+    padding: 30px 4px 0;
     position: relative;
     min-width: 118px;
     margin-bottom: 50px;
@@ -118,27 +118,6 @@
     white-space: nowrap;
 }
 
-@media all and (max-width: 767px) {
-    .displaymain {
-        background-size: initial;
-        background-position: top center;
-        background-attachment: inherit;
-    }
-    .displaymain-content {
-        height: 400px;
-        vertical-align: top;
-        display: table-cell;
-        width: 100%;
-    }
-    .displaymain-container {
-        max-width: 768px;
-        overflow-wrap: break-word;
-    }
-    .displaymain-image-container {
-        width: 50%;
-    }
-}
-
 .displaymain-image-holder:hover .displaymain-image-thumbnail {
     filter: brightness(0.25);
 }
@@ -166,7 +145,7 @@
     color: white;
     font-family: 'Avenir', sans-serif;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 20px;
     text-align: center;
     /* transition: .25s ease-in-out;
     -moz-transition: .25s ease-in-out;
@@ -479,4 +458,48 @@
 
 .levelx-2, .levelx-1, .levelx1, .levelx2 {
     display: none;
+}
+
+@media all and (max-width: 1000px) {
+    .displaymain {
+        background-size: initial;
+        background-position: top center;
+        background-attachment: inherit;
+    }
+    .displaymain-content {
+        vertical-align: top;
+    }
+    .displaymain-container {
+        max-width: 768px;
+        overflow-wrap: break-word;
+        overflow: hidden;
+    }
+    .displaymain-title {
+        float: unset;
+        width: 100%;
+        margin: 0;
+        padding: 70px 2% 50px 2%;
+        line-height: 0px;
+    }
+    .displaymain-image-container {
+        width: 48%;
+    }
+}
+
+@media all and (max-width: 900px) {
+    .displaymain {
+        margin: 150px auto;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .displaymain-image-container {
+        width: 85%;
+        float: unset;
+        margin: 15px auto;
+        min-width: 300px;
+    }
+    .displaymain-title {
+        min-width: 320px;
+    }
 }

@@ -16,7 +16,7 @@
 }
 
 #contact-form-div {
-	background-color: rgba(192, 146, 104, 0.7);
+	box-shadow: 6px 6px 10px 1px rgba(0, 0, 0, 0.2);
 	padding-left: 35px;
 	padding-right: 35px;
 	padding-top: 35px;
@@ -46,14 +46,14 @@
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-	border: 3px solid rgba(0, 0, 0, 0);
+	border: 2px solid rgba(0, 0, 0, 0);
 	font-family: 'Avenir'
 }
 
 .contact-feedback-input:focus {
 	background: #fff;
 	box-shadow: 0;
-	border: 3px solid black;
+	border: 2px solid black;
 	color: black;
 	outline: none;
 	padding: 13px;
@@ -61,7 +61,7 @@
 
 .focused {
 	color: black;
-	border: black solid 3px;
+	border: black solid 2px;
 }
 
 .contact-title {
@@ -126,7 +126,7 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 #contact-button {
 	float: left;
 	width: 100%;
-	border: #fbfbfb solid 4px;
+	border: #fbfbfb solid 2px;
 	cursor: pointer;
 	background-color: black;
 	color: white;
@@ -165,6 +165,12 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 .contact-submit:hover .ease {
 	width: 100%;
 	background-color: white;
+}
+
+@media all and (max-width: 900px) {
+	#contact-form-main {
+		top: 200px;
+	}
 }
 
 @media only screen and (max-width: 580px) {

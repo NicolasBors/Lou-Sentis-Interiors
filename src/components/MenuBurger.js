@@ -1,21 +1,21 @@
 import React, { useEffect } from 'react'
 import './css/MenuBurger.css'
 
-const MenuBurger = props => {
+const MenuBurger = ({ sections, subSections, menu, setMenu, history, match }) => {
 
     const toggleMenu = () => {
-        props.setMenu(!props.menu)
+        setMenu(!menu)
     }
 
     useEffect(() => {
         window.addEventListener('resize', () => {
-            props.setMenu(false)
+            setMenu(false)
         })
     }, [])
 
     return (
         <>
-            <div className={props.menu ? "open-menu-container menu-container" : "menu-container"} onClick={toggleMenu}>
+            <div className={menu ? "open-menu-container menu-container" : "menu-container"} onClick={toggleMenu}>
                 <div className="bar1"></div>
                 <div className="mbar">
                     <div className="mbar1"></div>
@@ -23,18 +23,27 @@ const MenuBurger = props => {
                 </div>
                 <div className="bar3"></div>
             </div>
-            <div onClick={() => toggleMenu()} className={props.menu ? 'burger-background' : ''}>
-                <div className={props.menu ? "open-menu-burger menu-burger" : "menu-burger"}>
-                    <h1>PROJETS</h1>
-                    <p> PROJETS ÉTUDIANTS </p>
-                    <p> PROJETS PARTICULIERS </p>
-                    <p> PROJETS HÔTELIERS </p>
-                    <h1>COLLECTION</h1>
-                    <p> LUMINAIRE </p>
-                    <p onClick={() => { props.setMobilier(); toggleMenu() }}> MOBILIER </p>
-                    <p> ACCESSOIRES </p>
-                    <p> TENDANCES </p>
-                    <h1 className='burger-contact' onClick={() => { props.setContact(); toggleMenu() }}>CONTACT</h1>
+            <div onClick={() => toggleMenu()} className={menu ? 'burger-background' : ''}>
+                <div className={menu ? "open-menu-burger menu-burger" : "menu-burger"}>
+                    {sections.map(({ id, ...sectionProps }) =>
+                        (
+                                <div className={`burger-item-container${id}`}>
+                                    <p className='burger-menu-item'
+                                        onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
+                                    >{sectionProps.title}</p>
+                                    <div className={`buerger-item-sub-container${id}`} >
+                                        {subSections.filter(subSection => subSection.section === sectionProps.title).map(
+                                            ({ id, ...subSectionProps }) => (
+                                                <p className='burger-item-sub'
+                                                    onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
+
+                                                >{subSectionProps.title}</p>)
+                                        )}
+                                    </div>
+                                </div>
+                        )
+                    )
+                    }
                 </div>
             </div>
         </>

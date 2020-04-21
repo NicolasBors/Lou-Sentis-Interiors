@@ -83,7 +83,7 @@ import pouf10 from '../../assets/pictures/assises/pouf10.JPG'
 
 
 const Assises = {
-    title: 'Assises',
+    title: 'ASSISES',
     description: 'bla bla',
     image: [
         {

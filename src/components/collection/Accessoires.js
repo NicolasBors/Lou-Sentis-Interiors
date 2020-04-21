@@ -76,7 +76,7 @@ import acc67 from '../../assets/pictures/accessoires/vase13.JPG'
 
 
 const Accessoires = {
-    title: 'Accessoires',
+    title: 'ACCESSOIRES',
     description: 'bla bla',
     image: [
         {
