@@ -56,7 +56,7 @@ const IleDeLaReunion = {
             categorie: '',
             caption: '',
             src: reunion9
-        },
+        }
     ]
 }
 

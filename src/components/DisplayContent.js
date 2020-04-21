@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import closeBtn from '../assets/icons/close.png'
-import slideArrow from '../assets/icons/slideArrow.png'
 
 import './css/DisplayContent.css'
+
+import closeBtn from '../assets/icons/close.png'
+import slideArrow from '../assets/icons/slideArrow.png'
 import downArrow from '../assets/downArrow.png'
 
 const DisplayContent = props => {
+
     const images = props.content.image
 
     const [filteredImages, setFilteredImages] = useState(images.slice())
@@ -49,11 +51,6 @@ const DisplayContent = props => {
             setFilteredImages(images)
     }, [filters, images])
 
-
-    // const filteredImages = filters !== 'PAR CATÉGORIE' && filters !== 'PAR PROJET' ? images.filter(image => image.categorie === filters) : images
-
-
-
     useEffect(() => {
         for (let i = 1; i <= selectedImage; i++) {
             let movedImage = fullImages.shift()
@@ -67,21 +64,6 @@ const DisplayContent = props => {
         return () => {
         }
     }, [fullImages, images.length, selectedImage, filteredImages])
-
-
-    // useEffect(() => {
-    //     for (let i = 1; i <= selectedImage; i++) {
-    //         let movedImage = fullImages.shift()
-    //         fullImages.push(movedImage)
-    //     }
-    //     images.length === 1 ? setFullConcatImages(fullImages) :
-    //         images.length === 2 ? setFullConcatImages(fullImages.concat(fullImages).concat(fullImages).concat(fullImages)) :
-    //             images.length === 3 ? setFullConcatImages(fullImages.concat(fullImages).concat(fullImages)) :
-    //                 images.length >= 7 ? setFullConcatImages(fullImages) :
-    //                     setFullConcatImages(fullImages.concat(fullImages))
-    //     return () => {
-    //     }
-    // }, [fullImages, images.length, selectedImage])
 
     const selectImage = (image) => {
         setFullImages(filteredImages.slice())
@@ -100,7 +82,7 @@ const DisplayContent = props => {
             const generateLevel = active - i
             generateItems.push(<Item key={index} id={fullConcatImages[index]} level={generateLevel} />)
         }
-        return generateItems;
+        return generateItems
     }
 
 
@@ -116,7 +98,7 @@ const DisplayContent = props => {
             const generateLevel = active - i
             generateCaptions.push(<Caption key={index} id={fullConcatImages[index]} level={generateLevel} />)
         }
-        return generateCaptions;
+        return generateCaptions
     }
 
     const moveLeft = () => {
@@ -137,25 +119,18 @@ const DisplayContent = props => {
             moveLeft()
             : (showSingleBox === true || showMultipleBox === true) && event.keyCode === 39 ?
                 moveRight()
-                // : (showSingleBox === true || showMultipleBox === true) && event.keyCode === 27 ?
                 : console.log('key not allowed')
     }
 
 
 
     return (
-        <div className={'displaycontent'} onClick={openFilters ? () => setOpenFilters(false) : null, props.menu ? props.setMenu(false) : null}>
+        <div className={'displaycontent'} onClick={openFilters ? () => { setOpenFilters(false) } : null}>
             <div className='displaycontent-content'>
                 <div className='displaycontent-container'>
-
-
                     <div className='displaycontent-gallery'>
                         <div className='displaycontent-title'>
-                            <h1 className={
-                                // props.view === 'PROJETS ÉTUDIANTS' ? 'student-title' : 
-                                ''}>
-                                {props.view}
-                            </h1>
+                            <h1>{props.view}</h1>
                             {
                                 props.view === 'ACCESSOIRES' || props.view === 'ASSISES' || props.view === 'LUMINAIRES' || props.view === 'MEUBLES' ?
                                     <div className='displaycontent-filters' onClick={() => setOpenFilters(!openFilters)}>

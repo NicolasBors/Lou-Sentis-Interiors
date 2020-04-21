@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import HomePictures from './projects/HomePictures'
@@ -7,8 +7,6 @@ import './css/Home.css'
 const Home = ({ view, history }) => {
 
     const images = HomePictures
-
-    
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -22,18 +20,12 @@ const Home = ({ view, history }) => {
                         <div className={`image-container${image.id}`} key={i} >
                             <div className='inner-image-container'>
                                 <div className='image-holder' >
-
-
-                                    <div
-                                    onClick={() => history.push(`${image.linkUrl}`)}
-                                    >
+                                    <div onClick={() => history.push(`${image.linkUrl}`)}>
                                         <img className='image-thumbnail' src={image.src} alt={image.title} />
                                         <div className='image-title-container'>
-
                                             <span className='image-title'>{image.title}</span>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>

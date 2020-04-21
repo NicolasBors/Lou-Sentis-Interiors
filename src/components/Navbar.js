@@ -9,7 +9,7 @@ const Navbar = ({ menu, setMenu, match, history }) => {
 
     const [seeMenu, setSeeMenu] = useState(false)
 
-    const [sections, setSections] = useState([
+    const [sections] = useState([
         {
             title: 'RÉALISATION',
             id: 1,
@@ -31,7 +31,8 @@ const Navbar = ({ menu, setMenu, match, history }) => {
             linkUrl: 'contact'
         }
     ])
-    const [subSections, setSubsections] = useState([
+
+    const [subSections] = useState([
         {
             title: 'DUQUESNE',
             id: 1,
@@ -94,7 +95,6 @@ const Navbar = ({ menu, setMenu, match, history }) => {
         }
     ])
 
-
     useEffect(() => {
         window.addEventListener('resize', () => {
             setSize()
@@ -115,9 +115,6 @@ const Navbar = ({ menu, setMenu, match, history }) => {
     return (
         <div>
             <div className='header' >
-                {/* <div className='header-logo' onClick={() => history.push(`${match.url}`)}>
-                        <img src={louCardTop} alt='Lou Sentis' />
-                    </div> */}
                 {seeMenu ?
                     < MenuBurger
                         menu={menu}
@@ -130,20 +127,20 @@ const Navbar = ({ menu, setMenu, match, history }) => {
                         {sections.map(({ id, ...sectionProps }) =>
                             (
                                 <div className='navbar-item-sub-container'>
-                                <div className={`navbar-item-container${id}`}>
-                                    <p className='navbar-main-item'
-                                        onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
-                                    >{sectionProps.title}</p>
-                                    <div className={`navbar-item-sub-container${id}`} >
-                                        {subSections.filter(subSection => subSection.section === sectionProps.title).map(
-                                            ({ id, ...subSectionProps }) => (
-                                                <p className='navbar-item-sub'
-                                                    onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
+                                    <div className={`navbar-item-container${id}`}>
+                                        <p className='navbar-main-item'
+                                            onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
+                                        >{sectionProps.title}</p>
+                                        <div className={`navbar-item-sub-container${id}`} >
+                                            {subSections.filter(subSection => subSection.section === sectionProps.title).map(
+                                                ({ id, ...subSectionProps }) => (
+                                                    <p className='navbar-item-sub'
+                                                        onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
 
-                                                >{subSectionProps.title}</p>)
-                                        )}
+                                                    >{subSectionProps.title}</p>)
+                                            )}
+                                        </div>
                                     </div>
-                                </div>
                                 </div>
                             )
                         )
@@ -151,8 +148,6 @@ const Navbar = ({ menu, setMenu, match, history }) => {
                     </div>}
             </div>
         </div >
-
-
     )
 }
 

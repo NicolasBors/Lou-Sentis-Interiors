@@ -223,7 +223,7 @@ const Duquesne = {
             categorie: '',
             caption: '',
             src: duquesne37
-        },
+        }
     ]
 }
 

@@ -38,17 +38,17 @@ const App = () => {
       <div className={opacity ? 'after-start' : 'before-start'}>
         <Navbar menu={menu} setMenu={setMenu} />
         <Switch>
-          <Route exact path='/' render={(props) => <Home view={'HOME'} />} />
-          <Route exact path='/réalisation' render={(props) => <DisplayMain view={'RÉALISATION'} setView={setView} />} />
-          <Route exact path='/mobilier' render={(props) => <DisplayMain view={'MOBILIER'} setView={setView} />} />
-          <Route path='/réalisation/duquesne' render={(props) => <DisplayContent view={'DUQUESNE'} content={Duquesne} />} />
-          <Route path='/réalisation/la-coupole' render={(props) => <DisplayContent view={'LA COUPOLE'} content={LaCoupole} />} />
-          <Route path='/réalisation/île-de-la-réunion' render={(props) => <DisplayContent view={'ÎLE DE LA RÉUNION'} content={IleDeLaReunion} />} />
-          <Route path='/réalisation/showroom-digital' render={(props) => <DisplayContent view={'SHOWROOM DIGITAL'} content={ShowroomDigital} />} />
-          <Route path='/mobilier/accessoires' render={(props) => <DisplayContent view={'ACCESSOIRES'} content={Accessoires} />} />
-          <Route path='/mobilier/assises' render={(props) => <DisplayContent view={'ASSISES'} content={Assises} />} />
-          <Route path='/mobilier/luminaires' render={(props) => <DisplayContent view={'LUMINAIRES'} content={Luminaires} />} />
-          <Route path='/mobilier/meubles' render={(props) => <DisplayContent view={'MEUBLES'} content={Meubles} />} />
+          <Route exact path='/' render={() => <Home view={'HOME'} />} />
+          <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} setView={setView} />} />
+          <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} setView={setView} />} />
+          <Route path='/réalisation/duquesne' render={() => <DisplayContent view={'DUQUESNE'} content={Duquesne} />} />
+          <Route path='/réalisation/la-coupole' render={() => <DisplayContent view={'LA COUPOLE'} content={LaCoupole} />} />
+          <Route path='/réalisation/île-de-la-réunion' render={() => <DisplayContent view={'ÎLE DE LA RÉUNION'} content={IleDeLaReunion} />} />
+          <Route path='/réalisation/showroom-digital' render={() => <DisplayContent view={'SHOWROOM DIGITAL'} content={ShowroomDigital} />} />
+          <Route path='/mobilier/accessoires' render={() => <DisplayContent view={'ACCESSOIRES'} content={Accessoires} />} />
+          <Route path='/mobilier/assises' render={() => <DisplayContent view={'ASSISES'} content={Assises} />} />
+          <Route path='/mobilier/luminaires' render={() => <DisplayContent view={'LUMINAIRES'} content={Luminaires} />} />
+          <Route path='/mobilier/meubles' render={() => <DisplayContent view={'MEUBLES'} content={Meubles} />} />
           <Route path='/contact' render={(props) => <ContactForm {...props} view={'CONTACT'} />} />
         </Switch>
       </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import './css/DisplayMain.css'
@@ -7,14 +7,13 @@ import Duquesne from './projects/Duquesne'
 import IleDeLaReunion from './projects/IleDeLaReunion'
 import LaCoupole from './projects/LaCoupole'
 import ShowroomDigital from './projects/ShowroomDigital'
-
 import Accessoires from './collection/Accessoires'
 import Assises from './collection/Assises'
 import Luminaires from './collection/Luminaires'
-import Meubles from './collection/Meubles' 
+import Meubles from './collection/Meubles'
 
-const DisplayMain = ({view, match, history}) => {
-    
+const DisplayMain = ({ view, match, history }) => {
+
     const links = view === 'RÉALISATION' ?
         [
             {
@@ -99,8 +98,8 @@ const DisplayMain = ({view, match, history}) => {
                             <div className={'displaymain-image-container'} key={i} >
                                 <div className='displaymain-inner-image-container'>
                                     <div className='displaymain-image-holder' >
-                                        <div 
-                                        onClick={() => history.push(`${match.url}${link.linkUrl}`)}
+                                        <div
+                                            onClick={() => history.push(`${match.url}${link.linkUrl}`)}
                                         >
                                             <img className='displaymain-image-thumbnail' src={link.image} alt={link.title} />
                                             <div className='displaymain-image-title-container'>
@@ -116,9 +115,7 @@ const DisplayMain = ({view, match, history}) => {
                     </div>
                 </div>
             </div >
-
         </div >
-
     )
 }
 

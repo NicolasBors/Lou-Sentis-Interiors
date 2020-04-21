@@ -3,7 +3,7 @@ import './css/Start.css'
 import louCardWB from '../assets/logos/LOGO BLANC.png'
 import { withRouter } from 'react-router-dom'
 
-const Start = props => {
+const Start = ({ start, setStart, setOpacity, history, match }) => {
 
     const [logo, setLogo] = useState('')
     const [shine, setShine] = useState('')
@@ -17,10 +17,10 @@ const Start = props => {
     useEffect(() => {
         setTimeout(() => setShine('shine'), 200)
         setTimeout(() => setLogo('-after'), 1000)
-        setTimeout(() => props.setStart(false), 1200)
-        setTimeout(() => props.setOpacity(true), 1300)
+        setTimeout(() => setStart(false), 1200)
+        setTimeout(() => setOpacity(true), 1300)
         setTimeout(() => setShine(''), 1300)
-    }, [])
+    }, [setStart, setOpacity])
 
     return (
         <div className='start' >
@@ -29,11 +29,10 @@ const Start = props => {
                     <img className={`logo${logo}`}
                         src={louCardWB}
                         alt='logo'
-                        onClick={() => props.history.push(`${props.match.url}`)} />
+                        onClick={() => history.push(`${match.url}`)} />
                 </figure>
             </div>
         </div>
-        
     )
 }
 

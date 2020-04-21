@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+
 import './css/MenuBurger.css'
 
 const MenuBurger = ({ sections, subSections, menu, setMenu, history, match }) => {
@@ -11,7 +12,7 @@ const MenuBurger = ({ sections, subSections, menu, setMenu, history, match }) =>
         window.addEventListener('resize', () => {
             setMenu(false)
         })
-    }, [])
+    })
 
     return (
         <>
@@ -27,20 +28,19 @@ const MenuBurger = ({ sections, subSections, menu, setMenu, history, match }) =>
                 <div className={menu ? "open-menu-burger menu-burger" : "menu-burger"}>
                     {sections.map(({ id, ...sectionProps }) =>
                         (
-                                <div className={`burger-item-container${id}`}>
-                                    <p className='burger-menu-item'
-                                        onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
-                                    >{sectionProps.title}</p>
-                                    <div className={`buerger-item-sub-container${id}`} >
-                                        {subSections.filter(subSection => subSection.section === sectionProps.title).map(
-                                            ({ id, ...subSectionProps }) => (
-                                                <p className='burger-item-sub'
-                                                    onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
-
-                                                >{subSectionProps.title}</p>)
-                                        )}
-                                    </div>
+                            <div className={`burger-item-container${id}`}>
+                                <p className='burger-menu-item'
+                                    onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
+                                >{sectionProps.title}</p>
+                                <div className={`buerger-item-sub-container${id}`} >
+                                    {subSections.filter(subSection => subSection.section === sectionProps.title).map(
+                                        ({ id, ...subSectionProps }) => (
+                                            <p className='burger-item-sub'
+                                                onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
+                                            >{subSectionProps.title}</p>))
+                                    }
                                 </div>
+                            </div>
                         )
                     )
                     }
