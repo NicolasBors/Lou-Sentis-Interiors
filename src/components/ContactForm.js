@@ -49,16 +49,16 @@ const ContactForm = () => {
                     method="POST"
                 >
                     <p className="contact-name">
-                        <input name="name" type="text" className="contact-feedback-input" placeholder="Nom" id="contact-name" value={name} onChange={e => setName(e.target.value)} />
+                        <input name="name" type="text" className="contact-feedback-input" placeholder="Nom" id="contact-name" value={name} required onChange={e => setName(e.target.value)} />
                     </p>
                     <p className="contact-email">
-                        <input name="email" type="email" className="contact-feedback-input" id="contact-email" placeholder="Email" value={mail} onChange={e => setMail(e.target.value)} />
+                        <input name="email" type="email" className="contact-feedback-input" id="contact-email" placeholder="Email" value={mail} required onChange={e => setMail(e.target.value)} />
                     </p>
                     <p className="contact-object">
-                        <input name="object" type="text" className="contact-feedback-input" placeholder="Objet" id="contact-object" value={subject} onChange={e => setSubject(e.target.value)} />
+                        <input name="object" type="text" className="contact-feedback-input" placeholder="Objet" id="contact-object" value={subject} required onChange={e => setSubject(e.target.value)} />
                     </p>
                     <p className="text">
-                        <textarea name="text" className="contact-feedback-input" id="contact-comment" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)}></textarea>
+                        <textarea name="text" className="contact-feedback-input" id="contact-comment" placeholder="Message" value={message} required onChange={e => setMessage(e.target.value)}></textarea>
                     </p>
                     <div className="contact-submit">
                         <input type="submit" value="ENVOYER" id="contact-button" />

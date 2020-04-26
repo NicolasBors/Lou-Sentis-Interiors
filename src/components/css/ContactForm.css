@@ -128,9 +128,9 @@ input:hover, textarea:hover, input:focus, textarea:focus {
 #contact-button {
 	float: left;
 	width: 100%;
-	border: #fbfbfb solid 2px;
+	border: #3c3c3c solid 2px;
 	cursor: pointer;
-	background-color: black;
+	background-color: #3c3c3c;
 	color: white;
 	font-size: 24px;
 	padding-top: 22px;
