@@ -19,7 +19,7 @@
 
 .start .logo-after {
     height: 120px;
-    transition: ease 400ms;
+    transition: ease 500ms;
     -webkit-filter: blur(0);
     filter: blur(0);
     overflow: hidden;
@@ -46,9 +46,9 @@
     right: auto; */
     position: fixed;
     left: 50%;
-    top: 80px;
+    top: 100px;
     transform: translate(-50%, -50%);
-    transition: ease 400ms;
+    transition: ease 500ms;
 }
 
 .start .logo-container img, .start .logo-container-after img {

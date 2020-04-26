@@ -121,6 +121,8 @@ const Navbar = ({ menu, setMenu, match, history }) => {
                         setMenu={setMenu}
                         sections={sections}
                         subSections={subSections}
+                        history={history}
+                        match={match}
                     />
                     :
                     <div className='navbar'>

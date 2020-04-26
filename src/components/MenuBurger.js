@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './css/MenuBurger.css'
 
+import scrollArrow from '../assets/scrollArrow.png'
+
 const MenuBurger = ({ sections, subSections, menu, setMenu, history, match }) => {
+
+    const [subMenu1, setSubMenu1] = useState(false)
+    const [subMenu2, setSubMenu2] = useState(false)
 
     const toggleMenu = () => {
         setMenu(!menu)
@@ -16,7 +21,7 @@ const MenuBurger = ({ sections, subSections, menu, setMenu, history, match }) =>
 
     return (
         <>
-            <div className={menu ? "open-menu-container menu-container" : "menu-container"} onClick={toggleMenu}>
+            <div className={menu ? "open-menu-container menu-container" : "menu-container"} onClick={() => { toggleMenu(); setSubMenu1(false); setSubMenu2(false); }}>
                 <div className="bar1"></div>
                 <div className="mbar">
                     <div className="mbar1"></div>
@@ -24,19 +29,58 @@ const MenuBurger = ({ sections, subSections, menu, setMenu, history, match }) =>
                 </div>
                 <div className="bar3"></div>
             </div>
-            <div onClick={() => toggleMenu()} className={menu ? 'burger-background' : ''}>
+            <div className={menu ? 'burger-background' : ''}>
                 <div className={menu ? "open-menu-burger menu-burger" : "menu-burger"}>
                     {sections.map(({ id, ...sectionProps }) =>
                         (
                             <div className={`burger-item-container${id}`}>
-                                <p className='burger-menu-item'
-                                    onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
-                                >{sectionProps.title}</p>
-                                <div className={`buerger-item-sub-container${id}`} >
+                                <div className='burger-title-container' onClick={
+                                    sectionProps.title === 'RÉALISATION' ?
+                                        subMenu1 ?
+                                            () => {toggleMenu(); history.push(`${match.url}${sectionProps.linkUrl}`);}
+                                            :
+                                            () => setSubMenu1(true)
+                                        :
+                                        sectionProps.title === 'MOBILIER' ?
+                                            subMenu2 ?
+                                                () => {toggleMenu(); history.push(`${match.url}${sectionProps.linkUrl}`);}
+                                                :
+                                                () => setSubMenu2(true)
+                                            :
+                                            null
+                                }>
+                                    <p className='burger-menu-item'
+
+                                    >{sectionProps.title}</p>
+                                    {id === 1 ?
+                                        <img className={subMenu1 ? 'burger-top-arrow' : 'burger-down-arrow'} src={scrollArrow} alt='More' />
+                                        :
+                                        id === 2 ?
+                                            <img className={subMenu2 ? 'burger-top-arrow' : 'burger-down-arrow'} src={scrollArrow} alt='More' />
+                                            :
+                                            null}
+                                </div>
+                                <div className={
+                                    id === 1 ?
+                                        subMenu1 ?
+                                            `burger-item-sub-container${id}-open`
+                                            :
+                                            `burger-item-sub-container${id}`
+                                        :
+                                        id === 2 ?
+                                            subMenu2 ?
+                                                `burger-item-sub-container${id}-open`
+                                                :
+                                                `burger-item-sub-container${id}`
+                                            :
+                                            `burger-item-sub-container${id}`
+                                } >
                                     {subSections.filter(subSection => subSection.section === sectionProps.title).map(
                                         ({ id, ...subSectionProps }) => (
                                             <p className='burger-item-sub'
-                                                onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
+                                                onClick={
+                                                    () => {toggleMenu(); history.push(`${match.url}${subSectionProps.linkUrl}`);}
+                                                }
                                             >{subSectionProps.title}</p>))
                                     }
                                 </div>

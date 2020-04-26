@@ -11,6 +11,7 @@ const DisplayContent = props => {
 
     const images = props.content.image
 
+    const [contentType, setContentType] = useState('')
     const [filteredImages, setFilteredImages] = useState(images.slice())
     const [fullImages, setFullImages] = useState(filteredImages.slice())
     const [selectedImage, setSelectedImage] = useState(0)
@@ -31,6 +32,13 @@ const DisplayContent = props => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [props.view])
+
+    useEffect(() => (
+        props.view === 'ACCESSOIRES' || props.view === 'ASSISES' || props.view === 'LUMINAIRES' || props.view === 'MEUBLES' ?
+            setContentType('mobilier')
+            :
+            setContentType('réalisation')
+    ), [props.view])
 
     useEffect(() => {
         setFilters('Par catégorie')
@@ -129,7 +137,7 @@ const DisplayContent = props => {
             <div className='displaycontent-content'>
                 <div className='displaycontent-container'>
                     <div className='displaycontent-gallery'>
-                        <div className='displaycontent-title'>
+                        <div className={`displaycontent-title ${contentType === 'mobilier' ? 'mobilier-title' : 'realisation-title'}`}>
                             <h1>{props.view}</h1>
                             {
                                 props.view === 'ACCESSOIRES' || props.view === 'ASSISES' || props.view === 'LUMINAIRES' || props.view === 'MEUBLES' ?

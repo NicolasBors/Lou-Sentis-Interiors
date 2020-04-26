@@ -27,8 +27,8 @@
 
 .menu-container {
   position: fixed;
-  right: 35px;
-  top: 35px;
+  right: 10vw;
+  top: 60px;
   cursor: pointer;
   display: inline-block;
   z-index: 155;
@@ -90,31 +90,21 @@
 
 .burger-menu-item {
   position: relative;
-  margin: 0px 3vw;
+  margin: 0;
   letter-spacing: 0.2rem;
   cursor: pointer;
   font-weight: normal;
+  color: #4d4d4d;
 }
 
-.burger-menu-item:hover {
-  font-weight: bold;
+.burger-title-container:hover .burger-menu-item {
   transition: ease 0.25s;
+  color: black;
 }
 
-.burger-closed-designs-list {
-  position: relative;
-  height: 0px;
-  z-index: 100;
-  top: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: transparent;
-  overflow-x: hidden;
-  width: max-content;
-  letter-spacing: 0px;
-  margin-top: 0px;
-  height: 0;
-  transition: ease 200ms;
+.burger-title-container {
+  display: inline-flex;
+  cursor: pointer;
 }
 
 .burger-menu-home {
@@ -128,20 +118,46 @@
 .burger-menu-title {
   margin: 30px 0px 0px 0px;
   position: relative;
-  cursor: pointer;
 }
 
-.burger-open-designs-list {
+.burger-item-container1, .burger-item-container2, .burger-item-container3, .burger-item-container4 {
+  padding: 10px 0;
+}
+
+.burger-item-sub {
+  cursor: pointer;
+  color: #4d4d4d;
+}
+
+.burger-item-sub:hover {
+  cursor: pointer;
+  transition: color ease 0.25s;
+  color: black;
+}
+
+.burger-item-sub-container1, .burger-item-sub-container2 {
   position: relative;
-  z-index: 90;
+  height: 0px;
+  z-index: 100;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: transparent;
+  overflow-x: hidden;
+  width: max-content;
+  letter-spacing: 0px;
+  margin-top: 0px;
+  height: 0;
+}
+
+.burger-item-sub-container1-open, .burger-item-sub-container2-open {
+  position: relative;
   left: 50%;
   transform: translateX(-50%);
   background-color: white;
-  transition: ease 0.5s;
+  transition: ease 0.2s;
   overflow-x: hidden;
   width: max-content;
-  transition: ease 450ms;
-  margin-top: 20px;
   height: auto;
 }
 
@@ -167,22 +183,36 @@
   background: rgba(0, 0, 0, 0.2);
 }
 
-.top-arrow {
-  transform: rotateX(180deg);
-  height: 1.2rem;
-  padding-left: 7px;
-  transition: ease 200ms;
-}
-
 .down-arrow {
   height: 1.2rem;
   padding-left: 7px;
 }
 
-.top-arrow, .down-arrow {
-  filter: invert(0.7);
+.burger-down-arrow {
+  width: 16px;
+  padding-left: 10px;
+  opacity: 0.6;
 }
 
-.burger-menu-designs:hover img {
-  filter: invert(0.1);
+.burger-title-container:hover .burger-down-arrow {
+  opacity: 1;
+  transition: opacity ease 200ms;
+}
+
+.burger-top-arrow {
+  width: 16px;
+  transform: rotateX(180deg);
+  transition: transform ease 200ms;
+  padding-left: 10px;
+  opacity: 0.6;
+}
+
+.burger-title-container:hover .burger-top-arrow {
+  transition: opacity ease 200ms;
+  opacity: 1;
+}
+
+.background-app {
+  filter: blur(50px);
+  opacity: 0.5;
 }

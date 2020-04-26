@@ -2,31 +2,36 @@ import React, { useState, useEffect } from 'react'
 import './css/ContactForm.css'
 import axios from 'axios'
 
-const ContactForm = props => {
+const ContactForm = () => {
 
     const [name, setName] = useState('')
     const [mail, setMail] = useState('')
-    const [object, setObject] = useState('')
+    const [subject, setSubject] = useState('')
     const [message, setMessage] = useState('')
 
     const handleSubmit = e => {
         e.preventDefault()
-        // axios({
-        //     method: "POST",
-        //     url: "http://localhost:3000",
-        //     data: mail
-        // }).then((response) => {
-        //     if (response.data.status === 'success') {
-        //         alert("Message Sent.");
-        //         this.resetForm()
-        //     } else if (response.data.status === 'fail') {
-        //         alert("Message failed to send.")
-        //     }
-        // })
-        setName('')
-        setMail('')
-        setObject('')
-        setMessage('')
+
+        axios({
+            method: "POST",
+            url: "http://localhost:3001/send",
+            data: {
+                name,
+                mail,
+                subject,
+                message
+            }
+        }).then((response) => {
+            if (response.data.status === 'success') {
+                alert("Message envoyé à Lou Sentis !");
+                setName('')
+                setMail('')
+                setSubject('')
+                setMessage('')
+            } else if (response.data.status === 'fail') {
+                alert("Erreur lors de l'envoi du message")
+            }
+        })
     }
 
     useEffect(() => {
@@ -40,18 +45,20 @@ const ContactForm = props => {
                 <div className='contact-border-container'>
                     <p className='contact-border'></p>
                 </div>
-                <form className="contact-form" id="contact-form1" onSubmit={() => handleSubmit} method="POST">
+                <form className="contact-form" id="contact-form1" onSubmit={e => handleSubmit(e)}
+                    method="POST"
+                >
                     <p className="contact-name">
-                        <input name="name" type="text" className="contact-feedback-input" placeholder="Nom" id="contact-name" onChange={e => setName(e.target.value)} />
+                        <input name="name" type="text" className="contact-feedback-input" placeholder="Nom" id="contact-name" value={name} onChange={e => setName(e.target.value)} />
                     </p>
                     <p className="contact-email">
-                        <input name="email" type="email" className="contact-feedback-input" id="contact-email" placeholder="Email" onChange={e => setMail(e.target.value)} />
+                        <input name="email" type="email" className="contact-feedback-input" id="contact-email" placeholder="Email" value={mail} onChange={e => setMail(e.target.value)} />
                     </p>
                     <p className="contact-object">
-                        <input name="object" type="text" className="contact-feedback-input" placeholder="Objet" id="contact-object" onChange={e => setObject(e.target.value)} />
+                        <input name="object" type="text" className="contact-feedback-input" placeholder="Objet" id="contact-object" value={subject} onChange={e => setSubject(e.target.value)} />
                     </p>
                     <p className="text">
-                        <textarea name="text" className="contact-feedback-input" id="contact-comment" placeholder="Message" onChange={e => setMessage(e.target.value)}></textarea>
+                        <textarea name="text" className="contact-feedback-input" id="contact-comment" placeholder="Message" value={message} onChange={e => setMessage(e.target.value)}></textarea>
                     </p>
                     <div className="contact-submit">
                         <input type="submit" value="ENVOYER" id="contact-button" />
