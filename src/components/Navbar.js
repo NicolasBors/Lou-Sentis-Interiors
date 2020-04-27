@@ -39,12 +39,12 @@ const Navbar = ({ toggleMenu, match, history }) => {
             section: 'RÉALISATION',
             linkUrl: 'réalisation/duquesne'
         },
-        {
-            title: 'HÔTEL SACHA',
-            id: 2,
-            section: 'RÉALISATION',
-            linkUrl: 'réalisation/hôtel-sacha'
-        },
+        // {
+        //     title: 'HÔTEL SACHA',
+        //     id: 2,
+        //     section: 'RÉALISATION',
+        //     linkUrl: 'réalisation/hôtel-sacha'
+        // },
         {
             title: 'ÎLE DE LA RÉUNION',
             id: 3,

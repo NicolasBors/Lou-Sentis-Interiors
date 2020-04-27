@@ -18,6 +18,12 @@ const MenuBurger = ({ sections, subSections, visible, toggleMenu, closeMenu, his
         })
     }, [closeMenu])
 
+    // useEffect(() => {
+    //     window.addEventListener('resize', () => (
+    //         window.innerWidth > 900 ? closeMenu() : null
+    //     ))        
+    // })
+
     return (
         <>
             <div className={visible ? "open-menu-container menu-container" : "menu-container"} onClick={() => { toggleMenu(); setSubMenu1(false); setSubMenu2(false); }}>

@@ -7,10 +7,7 @@
     transition: opacity 300ms;
 }
 
-.blurred-background {
+.fixed-background {
     filter: blur(50px);
-    transition: filter 500ms;
-    position: fixed;
-    height: 100%;
-    width: 100%;
+    transition: 500ms;
 }

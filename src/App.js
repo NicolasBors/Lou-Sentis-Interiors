@@ -37,7 +37,7 @@ const App = ({visible}) => {
       :
       <div className={opacity ? 'after-start' : 'before-start'}>
         <Navbar />
-        <div className={visible ? 'blurred-background' : 'normal-background'}>
+        <div className={visible ? 'fixed-background' : ''}>
           <Switch>
             <Route exact path='/' render={() => <Home />} />
             <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} />} />
