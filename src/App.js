@@ -23,7 +23,6 @@ import Meubles from './components/collection/Meubles'
 
 const App = () => {
 
-  const [view, setView] = useState('')
   const [start, setStart] = useState(true)
   const [opacity, setOpacity] = useState(false)
 
@@ -39,8 +38,8 @@ const App = () => {
         <Navbar />
         <Switch>
           <Route exact path='/' render={() => <Home/>} />
-          <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} setView={setView} />} />
-          <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} setView={setView} />} />
+          <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} />} />
+          <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} />} />
           <Route path='/réalisation/duquesne' render={() => <DisplayContent content={Duquesne} />} />
           <Route path='/réalisation/la-coupole' render={() => <DisplayContent content={LaCoupole} />} />
           <Route path='/réalisation/le-relais-du-louvre' render={() => <DisplayContent content={LeRelaisDuLouvre} />} />
