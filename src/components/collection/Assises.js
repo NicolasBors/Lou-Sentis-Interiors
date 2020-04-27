@@ -85,6 +85,7 @@ import pouf10 from '../../assets/pictures/assises/pouf10.JPG'
 const Assises = {
     title: 'ASSISES',
     description: 'bla bla',
+    categories: ['Chaises', 'Fauteuils et canapés', 'Poufs'],
     image: [
         {
             categorie: 'Fauteuils et canapés',

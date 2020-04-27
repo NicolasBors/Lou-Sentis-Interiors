@@ -26,36 +26,31 @@ const App = () => {
   const [view, setView] = useState('HOME')
   const [start, setStart] = useState(true)
   const [opacity, setOpacity] = useState(false)
-  const [menu, setMenu] = useState(false)
-
-  const toggleMenu = () => {
-    setMenu(!menu)
-  }
 
   return (<div className="App">
 
     <Start
-      start={start} setStart={setStart} setOpacity={setOpacity} menu={menu} toggleMenu={toggleMenu}
+      start={start} setStart={setStart} setOpacity={setOpacity}
     />
     {start ?
       null
       :
       <div className={opacity ? 'after-start' : 'before-start'}>
-        <Navbar menu={menu} setMenu={setMenu} toggleMenu={toggleMenu} />
+        <Navbar />
         <Switch>
-          <Route exact path='/' render={() => <Home view={'HOME'} />} />
+          <Route exact path='/' render={() => <Home/>} />
           <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} setView={setView} />} />
           <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} setView={setView} />} />
-          <Route path='/réalisation/duquesne' render={() => <DisplayContent view={'DUQUESNE'} content={Duquesne} />} />
-          <Route path='/réalisation/la-coupole' render={() => <DisplayContent view={'LA COUPOLE'} content={LaCoupole} />} />
-          <Route path='/réalisation/le-relais-du-louvre' render={() => <DisplayContent view={'LE RELAIS DU LOUVRE'} content={LeRelaisDuLouvre} />} />
-          <Route path='/réalisation/île-de-la-réunion' render={() => <DisplayContent view={'ÎLE DE LA RÉUNION'} content={IleDeLaReunion} />} />
-          <Route path='/réalisation/showroom-digital' render={() => <DisplayContent view={'SHOWROOM DIGITAL'} content={ShowroomDigital} />} />
-          <Route path='/mobilier/accessoires' render={() => <DisplayContent view={'ACCESSOIRES'} content={Accessoires} />} />
-          <Route path='/mobilier/assises' render={() => <DisplayContent view={'ASSISES'} content={Assises} />} />
-          <Route path='/mobilier/luminaires' render={() => <DisplayContent view={'LUMINAIRES'} content={Luminaires} />} />
-          <Route path='/mobilier/meubles' render={() => <DisplayContent view={'MEUBLES'} content={Meubles} />} />
-          <Route path='/contact' render={() => <ContactForm view={'CONTACT'} />} />
+          <Route path='/réalisation/duquesne' render={() => <DisplayContent content={Duquesne} />} />
+          <Route path='/réalisation/la-coupole' render={() => <DisplayContent content={LaCoupole} />} />
+          <Route path='/réalisation/le-relais-du-louvre' render={() => <DisplayContent content={LeRelaisDuLouvre} />} />
+          <Route path='/réalisation/île-de-la-réunion' render={() => <DisplayContent content={IleDeLaReunion} />} />
+          <Route path='/réalisation/showroom-digital' render={() => <DisplayContent content={ShowroomDigital} />} />
+          <Route path='/mobilier/accessoires' render={() => <DisplayContent content={Accessoires} />} />
+          <Route path='/mobilier/assises' render={() => <DisplayContent content={Assises} />} />
+          <Route path='/mobilier/luminaires' render={() => <DisplayContent content={Luminaires} />} />
+          <Route path='/mobilier/meubles' render={() => <DisplayContent content={Meubles} />} />
+          <Route path='/contact' render={() => <ContactForm/>} />
         </Switch>
       </div>
     }

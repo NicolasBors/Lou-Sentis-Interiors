@@ -4,13 +4,13 @@ import { withRouter } from 'react-router-dom'
 import HomePictures from './projects/HomePictures'
 import './css/Home.css'
 
-const Home = ({ view, history }) => {
+const Home = ({ history }) => {
 
     const images = HomePictures
 
-    useEffect(() => {
+    useEffect(() =>
         window.scrollTo(0, 0)
-    }, [view])
+    )
 
     return (
         <div className='home'>

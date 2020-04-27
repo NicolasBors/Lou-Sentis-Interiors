@@ -101,9 +101,4 @@ const mapDispatchToProps = dispatch => ({
     toggleMenu: menu => dispatch(toggleMenu(menu))
 })
 
-// export default compose(
-//     withRouter,
-//     connect(mapStateToProps, mapDispatchToProps)
-//   )(Navbar)
-
 export default connect(mapStateToProps, mapDispatchToProps)(MenuBurger)

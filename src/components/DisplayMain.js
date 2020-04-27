@@ -6,7 +6,9 @@ import './css/DisplayMain.css'
 import Duquesne from './projects/Duquesne'
 import IleDeLaReunion from './projects/IleDeLaReunion'
 import LaCoupole from './projects/LaCoupole'
+import LeRelaisDuLouvre from './projects/LeRelaisDuLouvre'
 import ShowroomDigital from './projects/ShowroomDigital'
+
 import Accessoires from './collection/Accessoires'
 import Assises from './collection/Assises'
 import Luminaires from './collection/Luminaires'
@@ -30,6 +32,11 @@ const DisplayMain = ({ view, match, history }) => {
                 title: LaCoupole.title,
                 image: LaCoupole.image[0].src,
                 linkUrl: '/la-coupole'
+            },
+            {
+                title: LeRelaisDuLouvre.title,
+                image: LeRelaisDuLouvre.image[0].src,
+                linkUrl: '/le-relais-du-louvre'
             },
             {
                 title: ShowroomDigital.title,

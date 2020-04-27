@@ -30,6 +30,7 @@ import lum24 from '../../assets/pictures/luminaires/sus11.JPG'
 const Luminaires = {
     title: 'LUMINAIRES',
     description: '',
+    categories: ['Appliques', 'Lampadaires', 'Lampes à poser', 'Suspensions'],
     image: [
         {
             categorie: 'Suspensions',

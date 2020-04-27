@@ -78,6 +78,7 @@ import acc67 from '../../assets/pictures/accessoires/vase13.JPG'
 const Accessoires = {
     title: 'ACCESSOIRES',
     description: 'bla bla',
+    categories: ['Arts de la table', 'Coussins', 'Décoration', 'Miroirs', 'Portants', 'Tapis', 'Tissus', 'Vases et plantes'],
     image: [
         {
             categorie: 'Vases et plantes',
@@ -337,7 +338,7 @@ const Accessoires = {
             caption: '',
             src: acc49
         },
-        
+
         {
             categorie: 'Tissus',
             caption: '',

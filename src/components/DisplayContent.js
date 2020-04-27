@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import './css/DisplayContent.css'
+import Accessoires from './collection/Accessoires'
+import Assises from './collection/Assises'
+import Luminaires from './collection/Luminaires'
+import Meubles from './collection/Meubles'
 
 import closeBtn from '../assets/icons/close.png'
 import slideArrow from '../assets/icons/slideArrow.png'
 import downArrow from '../assets/downArrow.png'
 
-const DisplayContent = props => {
+import './css/DisplayContent.css'
 
-    const images = props.content.image
+const DisplayContent = content => {
+
+    const images = content.image
 
     const [contentType, setContentType] = useState('')
     const [filteredImages, setFilteredImages] = useState(images.slice())
@@ -23,27 +28,21 @@ const DisplayContent = props => {
     const [filters, setFilters] = useState('Par catégorie')
     const [openFilters, setOpenFilters] = useState(false)
 
-    const categories =
-        props.view === 'ACCESSOIRES' ? ['Arts de la table', 'Coussins', 'Décoration', 'Miroirs', 'Portants', 'Tapis', 'Tissus', 'Vases et plantes']
-            : props.view === 'ASSISES' ? ['Chaises', 'Fauteuils et canapés', 'Poufs']
-                : props.view === 'LUMINAIRES' ? ['Appliques', 'Lampadaires', 'Lampes à poser', 'Suspensions']
-                    : props.view === 'MEUBLES' ? ['Commodes', 'Étagères', 'Lits', "Tables basses et d'appoint", 'Tables à manger']
-                        : ['']
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [props.view])
+    }, [content])
 
     useEffect(() => (
-        props.view === 'ACCESSOIRES' || props.view === 'ASSISES' || props.view === 'LUMINAIRES' || props.view === 'MEUBLES' ?
+        content === Accessoires || content === Assises || content === Luminaires || content === Meubles ?
             setContentType('mobilier')
             :
             setContentType('réalisation')
-    ), [props.view])
+    ), [content])
 
     useEffect(() => {
         setFilters('Par catégorie')
         setOpenFilters(false)
-    }, [props.view])
+    }, [content])
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown)
@@ -138,9 +137,9 @@ const DisplayContent = props => {
                 <div className='displaycontent-container'>
                     <div className='displaycontent-gallery'>
                         <div className={`displaycontent-title ${contentType === 'mobilier' ? 'mobilier-title' : 'realisation-title'}`}>
-                            <h1>{props.view}</h1>
+                            <h1>{content.title}</h1>
                             {
-                                props.view === 'ACCESSOIRES' || props.view === 'ASSISES' || props.view === 'LUMINAIRES' || props.view === 'MEUBLES' ?
+                                content === Accessoires || content === Assises || content === Luminaires || content === Meubles ?
                                     <div className='displaycontent-filters' onClick={() => setOpenFilters(!openFilters)}>
                                         <p>
                                             {filters}
@@ -149,13 +148,13 @@ const DisplayContent = props => {
 
                                         <div className={openFilters ? 'displaycontent-open-filters' : 'displaycontent-close-filters'}>
                                             <p className='displaycontent-select-filter' onClick={() => setFilters('Par catégorie')}>Tout afficher</p>
-                                            {categories.map((categorie, i) => (
+                                            {content.categories.map((categorie, i) => (
                                                 <p className='displaycontent-select-filter' onClick={() => setFilters(categorie)}>{categorie}</p>
                                             ))}
                                         </div>
                                     </div>
                                     :
-                                    <span className='displaycontent-description'>{props.content.description}</span>
+                                    <span className='displaycontent-description'>{content.description}</span>
                             }
                         </div>
                         <div className='displaycontent-gallery'>
@@ -226,22 +225,22 @@ const DisplayContent = props => {
     )
 }
 
-const Item = props => {
-    const className = 'item level' + props.level
+const Item = ({ id, level }) => {
+    const className = 'item level' + level
     return (
         <div>
             <div className={className}>
-                <img src={props.id.src} alt={props.id.caption} />
+                <img src={id.src} alt={id.caption} />
             </div>
         </div>
     )
 }
 
-const Caption = props => {
-    const className = 'caption levelx' + props.level
+const Caption = ({ id, level }) => {
+    const className = 'caption levelx' + level
     return (
         <div>
-            <p className={className}>{props.id.caption}</p>
+            <p className={className}>{id.caption}</p>
         </div>
     )
 }

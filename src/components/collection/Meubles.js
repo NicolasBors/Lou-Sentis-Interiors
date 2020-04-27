@@ -48,6 +48,7 @@ import mange10 from '../../assets/pictures/meubles/mange10.JPG'
 const Meubles = {
     title: 'MEUBLES',
     description: '',
+    categories: ['Commodes', 'Étagères', 'Lits', "Tables basses et d'appoint", 'Tables à manger'],
     image: [
         {
             categorie: "Commodes",

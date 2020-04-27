@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import './css/Start.css'
-import louCardWB from '../assets/logos/LOGO BLANC.png'
 import { withRouter } from 'react-router-dom'
+import { compose } from 'redux'
+import { connect } from 'react-redux'
 
-const Start = ({ start, setStart, setOpacity, menu, toggleMenu, history, match }) => {
+import { toggleMenu } from '../redux/menu/menu.actions'
+import louCardWB from '../assets/logos/LOGO BLANC.png'
+
+import './css/Start.css'
+
+const Start = ({ setStart, setOpacity, visible, toggleMenu, history, match }) => {
 
     const [logo, setLogo] = useState('')
     const [shine, setShine] = useState('')
@@ -33,7 +38,7 @@ const Start = ({ start, setStart, setOpacity, menu, toggleMenu, history, match }
                         src={louCardWB}
                         alt='logo'
                         onClick={
-                            menu ?
+                            visible ?
                                 () => { toggleMenu(); history.push(`${match.url}`); }
 
                                 :
@@ -45,4 +50,15 @@ const Start = ({ start, setStart, setOpacity, menu, toggleMenu, history, match }
     )
 }
 
-export default withRouter(Start)
+const mapStateToProps = ({ menu: { visible } }) => ({
+    visible
+})
+
+const mapDispatchToProps = dispatch => ({
+    toggleMenu: menu => dispatch(toggleMenu(menu))
+})
+
+export default compose(
+    withRouter,
+    connect(mapStateToProps, mapDispatchToProps)
+)(Start)
