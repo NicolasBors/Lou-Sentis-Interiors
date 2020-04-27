@@ -11,6 +11,11 @@ const menuReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 visible: !state.visible
             }
+        case MenuActionTypes.CLOSE_MENU:
+            return {
+                ...state,
+                visible: false
+            }
         default:
             return state
     }

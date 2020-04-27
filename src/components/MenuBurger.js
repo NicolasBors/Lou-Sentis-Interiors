@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import { toggleMenu } from '../redux/menu/menu.actions'
+import { toggleMenu, closeMenu } from '../redux/menu/menu.actions'
 
 import scrollArrow from '../assets/scrollArrow.png'
 
 import './css/MenuBurger.css'
 
-const MenuBurger = ({ sections, subSections, visible, toggleMenu, history, match }) => {
+const MenuBurger = ({ sections, subSections, visible, toggleMenu, closeMenu, history, match }) => {
 
     const [subMenu1, setSubMenu1] = useState(false)
     const [subMenu2, setSubMenu2] = useState(false)
 
     useEffect(() => {
         window.addEventListener('resize', () => {
-            toggleMenu()
+            closeMenu()
         })
-    })
+    }, [closeMenu])
 
     return (
         <>
@@ -98,7 +98,8 @@ const mapStateToProps = ({ menu: { visible } }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    toggleMenu: menu => dispatch(toggleMenu(menu))
+    toggleMenu: menu => dispatch(toggleMenu(menu)),
+    closeMenu: menu => dispatch(closeMenu(menu))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuBurger)
