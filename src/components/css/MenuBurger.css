@@ -9,9 +9,11 @@
   z-index: 150;
   top: 0;
   width: 100vw;
-  background-color: white;
-  transition: ease 0.5s;
+  /* background-color: white; */
+  
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.6) 70%, white 100%);
   overflow-x: hidden;
+  overflow-y: scroll;
   padding: 0;
   margin-top: 175px;
   display: flex;
@@ -22,7 +24,8 @@
 
 .open-menu-burger {
   height: 100vh;
-  border-bottom: 1px solid black
+  border-bottom: 1px solid black;
+  transition: ease 0.5s;
 }
 
 .menu-container {
@@ -154,8 +157,8 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  background-color: white;
-  transition: ease 0.2s;
+  /* background-color: white; */
+  /* transition: height ease 0.2s; */
   overflow-x: hidden;
   width: max-content;
   height: auto;
@@ -180,7 +183,7 @@
   top: 175px;
   height: 100vh;
   z-index: 150;
-  background: rgba(0, 0, 0, 0.2);
+  /* background: rgba(0, 0, 0, 0.2); */
 }
 
 .down-arrow {
@@ -210,9 +213,4 @@
 .burger-title-container:hover .burger-top-arrow {
   transition: opacity ease 200ms;
   opacity: 1;
-}
-
-.background-app {
-  filter: blur(50px);
-  opacity: 0.5;
 }

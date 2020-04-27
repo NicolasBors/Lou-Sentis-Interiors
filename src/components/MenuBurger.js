@@ -36,13 +36,13 @@ const MenuBurger = ({ sections, subSections, visible, toggleMenu, closeMenu, his
                                 <div className='burger-title-container' onClick={
                                     sectionProps.title === 'RÉALISATION' ?
                                         subMenu1 ?
-                                            () => { toggleMenu(); history.push(`${match.url}${sectionProps.linkUrl}`); }
+                                            () => setSubMenu1(false)
                                             :
                                             () => setSubMenu1(true)
                                         :
                                         sectionProps.title === 'MOBILIER' ?
                                             subMenu2 ?
-                                                () => { toggleMenu(); history.push(`${match.url}${sectionProps.linkUrl}`); }
+                                                () => setSubMenu2(false)
                                                 :
                                                 () => setSubMenu2(true)
                                             :

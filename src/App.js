@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import './App.css'
 
@@ -21,7 +22,7 @@ import Assises from './components/collection/Assises'
 import Luminaires from './components/collection/Luminaires'
 import Meubles from './components/collection/Meubles'
 
-const App = () => {
+const App = ({visible}) => {
 
   const [start, setStart] = useState(true)
   const [opacity, setOpacity] = useState(false)
@@ -36,24 +37,30 @@ const App = () => {
       :
       <div className={opacity ? 'after-start' : 'before-start'}>
         <Navbar />
-        <Switch>
-          <Route exact path='/' render={() => <Home/>} />
-          <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} />} />
-          <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} />} />
-          <Route path='/réalisation/duquesne' render={() => <DisplayContent content={Duquesne} />} />
-          <Route path='/réalisation/la-coupole' render={() => <DisplayContent content={LaCoupole} />} />
-          <Route path='/réalisation/le-relais-du-louvre' render={() => <DisplayContent content={LeRelaisDuLouvre} />} />
-          <Route path='/réalisation/île-de-la-réunion' render={() => <DisplayContent content={IleDeLaReunion} />} />
-          <Route path='/réalisation/showroom-digital' render={() => <DisplayContent content={ShowroomDigital} />} />
-          <Route path='/mobilier/accessoires' render={() => <DisplayContent content={Accessoires} />} />
-          <Route path='/mobilier/assises' render={() => <DisplayContent content={Assises} />} />
-          <Route path='/mobilier/luminaires' render={() => <DisplayContent content={Luminaires} />} />
-          <Route path='/mobilier/meubles' render={() => <DisplayContent content={Meubles} />} />
-          <Route path='/contact' render={() => <ContactForm/>} />
-        </Switch>
+        <div className={visible ? 'blurred-background' : 'normal-background'}>
+          <Switch>
+            <Route exact path='/' render={() => <Home />} />
+            <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} />} />
+            <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} />} />
+            <Route path='/réalisation/duquesne' render={() => <DisplayContent content={Duquesne} />} />
+            <Route path='/réalisation/la-coupole' render={() => <DisplayContent content={LaCoupole} />} />
+            <Route path='/réalisation/le-relais-du-louvre' render={() => <DisplayContent content={LeRelaisDuLouvre} />} />
+            <Route path='/réalisation/île-de-la-réunion' render={() => <DisplayContent content={IleDeLaReunion} />} />
+            <Route path='/réalisation/showroom-digital' render={() => <DisplayContent content={ShowroomDigital} />} />
+            <Route path='/mobilier/accessoires' render={() => <DisplayContent content={Accessoires} />} />
+            <Route path='/mobilier/assises' render={() => <DisplayContent content={Assises} />} />
+            <Route path='/mobilier/luminaires' render={() => <DisplayContent content={Luminaires} />} />
+            <Route path='/mobilier/meubles' render={() => <DisplayContent content={Meubles} />} />
+            <Route path='/contact' render={() => <ContactForm />} />
+          </Switch>
+        </div>
       </div>
     }
   </div>)
 }
 
-export default App
+const mapStateToProps = ({ menu: { visible } }) => ({
+  visible
+})
+
+export default connect(mapStateToProps)(App)
