@@ -23,7 +23,7 @@ import Meubles from './components/collection/Meubles'
 
 const App = () => {
 
-  const [view, setView] = useState('HOME')
+  const [view, setView] = useState('')
   const [start, setStart] = useState(true)
   const [opacity, setOpacity] = useState(false)
 

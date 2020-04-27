@@ -12,7 +12,7 @@ import downArrow from '../assets/downArrow.png'
 
 import './css/DisplayContent.css'
 
-const DisplayContent = content => {
+const DisplayContent = ({content}) => {
 
     const images = content.image
 
