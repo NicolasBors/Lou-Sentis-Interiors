@@ -3,7 +3,7 @@ import './css/Start.css'
 import louCardWB from '../assets/logos/LOGO BLANC.png'
 import { withRouter } from 'react-router-dom'
 
-const Start = ({ start, setStart, setOpacity, history, match }) => {
+const Start = ({ start, setStart, setOpacity, menu, toggleMenu, history, match }) => {
 
     const [logo, setLogo] = useState('')
     const [shine, setShine] = useState('')
@@ -27,12 +27,18 @@ const Start = ({ start, setStart, setOpacity, history, match }) => {
 
     return (
         <div className='start' >
-            <div id='logoId' style={blur ? {filter: 'blur(10px)', filter: 'opacity(0.7)'} : null} className={`logo-container${logo}`} >
+            <div id='logoId' style={blur ? { filter: 'blur(10px)', filter: 'opacity(0.7)' } : null} className={`logo-container${logo}`} >
                 <figure className={`logo-figure ${shine}`} >
                     <img className={`logo${logo}`}
                         src={louCardWB}
                         alt='logo'
-                        onClick={() => history.push(`${match.url}`)} />
+                        onClick={
+                            menu ?
+                                () => { toggleMenu(); history.push(`${match.url}`); }
+
+                                :
+                                () => { history.push(`${match.url}`); }
+                        } />
                 </figure>
             </div>
         </div>

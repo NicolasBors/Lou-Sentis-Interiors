@@ -123,6 +123,7 @@ textarea {
 
 input:hover, textarea:hover, input:focus, textarea:focus {
 	background-color: white;
+	border: 2px solid grey;
 }
 
 #contact-button {

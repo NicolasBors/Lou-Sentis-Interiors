@@ -12,6 +12,7 @@ import ContactForm from './components/ContactForm'
 
 import Duquesne from './components/projects/Duquesne'
 import LaCoupole from './components/projects/LaCoupole'
+import LeRelaisDuLouvre from './components/projects/LeRelaisDuLouvre'
 import IleDeLaReunion from './components/projects/IleDeLaReunion'
 import ShowroomDigital from './components/projects/ShowroomDigital'
 
@@ -27,29 +28,34 @@ const App = () => {
   const [opacity, setOpacity] = useState(false)
   const [menu, setMenu] = useState(false)
 
+  const toggleMenu = () => {
+    setMenu(!menu)
+  }
+
   return (<div className="App">
 
     <Start
-      start={start} setStart={setStart} setOpacity={setOpacity}
+      start={start} setStart={setStart} setOpacity={setOpacity} menu={menu} toggleMenu={toggleMenu}
     />
     {start ?
       null
       :
       <div className={opacity ? 'after-start' : 'before-start'}>
-        <Navbar menu={menu} setMenu={setMenu} />
+        <Navbar menu={menu} setMenu={setMenu} toggleMenu={toggleMenu} />
         <Switch>
           <Route exact path='/' render={() => <Home view={'HOME'} />} />
           <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} setView={setView} />} />
           <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} setView={setView} />} />
           <Route path='/réalisation/duquesne' render={() => <DisplayContent view={'DUQUESNE'} content={Duquesne} />} />
           <Route path='/réalisation/la-coupole' render={() => <DisplayContent view={'LA COUPOLE'} content={LaCoupole} />} />
+          <Route path='/réalisation/le-relais-du-louvre' render={() => <DisplayContent view={'LE RELAIS DU LOUVRE'} content={LeRelaisDuLouvre} />} />
           <Route path='/réalisation/île-de-la-réunion' render={() => <DisplayContent view={'ÎLE DE LA RÉUNION'} content={IleDeLaReunion} />} />
           <Route path='/réalisation/showroom-digital' render={() => <DisplayContent view={'SHOWROOM DIGITAL'} content={ShowroomDigital} />} />
           <Route path='/mobilier/accessoires' render={() => <DisplayContent view={'ACCESSOIRES'} content={Accessoires} />} />
           <Route path='/mobilier/assises' render={() => <DisplayContent view={'ASSISES'} content={Assises} />} />
           <Route path='/mobilier/luminaires' render={() => <DisplayContent view={'LUMINAIRES'} content={Luminaires} />} />
           <Route path='/mobilier/meubles' render={() => <DisplayContent view={'MEUBLES'} content={Meubles} />} />
-          <Route path='/contact' render={(props) => <ContactForm {...props} view={'CONTACT'} />} />
+          <Route path='/contact' render={() => <ContactForm view={'CONTACT'} />} />
         </Switch>
       </div>
     }

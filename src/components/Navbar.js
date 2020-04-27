@@ -5,7 +5,7 @@ import './css/Navbar.css'
 
 import MenuBurger from './MenuBurger'
 
-const Navbar = ({ menu, setMenu, match, history }) => {
+const Navbar = ({ menu, setMenu, toggleMenu, match, history }) => {
 
     const [seeMenu, setSeeMenu] = useState(false)
 
@@ -121,6 +121,7 @@ const Navbar = ({ menu, setMenu, match, history }) => {
                         setMenu={setMenu}
                         sections={sections}
                         subSections={subSections}
+                        toggleMenu={toggleMenu}
                         history={history}
                         match={match}
                     />
