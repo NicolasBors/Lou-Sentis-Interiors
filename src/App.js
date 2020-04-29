@@ -12,16 +12,16 @@ import DisplayMain from './pages/DisplayMain'
 import DisplayContent from './pages/DisplayContent'
 import ContactForm from './pages/ContactForm'
 
-import Duquesne from './components/projects/Duquesne'
-import LaCoupole from './components/projects/LaCoupole'
-import LeRelaisDuLouvre from './components/projects/LeRelaisDuLouvre'
-import IleDeLaReunion from './components/projects/IleDeLaReunion'
-import ShowroomDigital from './components/projects/ShowroomDigital'
+import Duquesne from './data/projects/Duquesne'
+import LaCoupole from './data/projects/LaCoupole'
+import LeRelaisDuLouvre from './data/projects/LeRelaisDuLouvre'
+import IleDeLaReunion from './data/projects/IleDeLaReunion'
+import ShowroomDigital from './data/projects/ShowroomDigital'
 
-import Accessoires from './components/collection/Accessoires'
-import Assises from './components/collection/Assises'
-import Luminaires from './components/collection/Luminaires'
-import Meubles from './components/collection/Meubles'
+import Accessoires from './data/collection/Accessoires'
+import Assises from './data/collection/Assises'
+import Luminaires from './data/collection/Luminaires'
+import Meubles from './data/collection/Meubles'
 
 const App = ({visible}) => {
 
