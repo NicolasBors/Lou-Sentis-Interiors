@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
-import BurgerIcon from './BurgerIcon'
+import BurgerIcon from './BurgerIcon.jsx'
 
 import { toggleMenu, closeMenu } from '../redux/menu/menu.actions'
 

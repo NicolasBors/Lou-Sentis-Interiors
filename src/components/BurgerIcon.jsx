@@ -28,7 +28,7 @@ const mapStateToProps = ({ menu: { visible } }) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-    toggleMenu: menu => dispatch(toggleMenu(menu)),
+    toggleMenu: menu => dispatch(toggleMenu(menu))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(BurgerIcon)
