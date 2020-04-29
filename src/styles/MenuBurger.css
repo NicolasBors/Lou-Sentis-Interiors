@@ -8,9 +8,7 @@
   height: 0;
   z-index: 150;
   top: 0;
-  width: 100vw;
-  /* background-color: white; */
-  
+  width: 100vw;  
   background: linear-gradient(to top, rgba(255, 255, 255, 0.6) 70%, white 100%);
   overflow-x: hidden;
   padding: 0;
@@ -27,71 +25,6 @@
   transition: ease 0.5s;
 }
 
-.menu-container {
-  position: fixed;
-  right: 10vw;
-  top: 60px;
-  cursor: pointer;
-  display: inline-block;
-  z-index: 155;
-  background-color: white;
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.bar1, .bar3 {
-  border-radius: 3px;
-  position: relative;
-  width: 35px;
-  height: 2px;
-  background-color: #4d4d4d;
-  transition: 0.2s;
-  align-self: center;
-}
-
-.mbar {
-  z-index: 101;
-  position: relative;
-  width: 35px;
-  height: 2px;
-  margin: 8px 0;
-  transition: 0.2s;
-  align-self: center;
-}
-
-.mbar1, .mbar2 {
-  border-radius: 5px;
-  position: absolute;
-  width: 35px;
-  height: 2px;
-  background-color: #4d4d4d;
-  transition: 0.5s;
-}
-
-.menu-container:hover .bar1, .menu-container:hover .bar3, .menu-container:hover .mbar1, .menu-container:hover .mbar2, .menu-container:hover .mbar3, .open-menu-container:hover .bar1, .open-menu-container:hover .bar3, .open-menu-container:hover .mbar1, .open-menu-container:hover .mbar2, .open-menu-container:hover .mbar3 {
-  background-color: black;
-  transition: background-color ease 0s;
-}
-
-.open-menu-container .bar1 {
-  opacity: 0;
-}
-
-.open-menu-container .mbar1 {
-  transform: rotate(45deg);
-}
-
-.open-menu-container .mbar2 {
-  transform: rotate(-45deg);
-}
-
-.open-menu-container .bar3 {
-  opacity: 0;
-}
 
 .burger-menu-item {
   position: relative;

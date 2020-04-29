@@ -10,7 +10,7 @@ import closeBtn from '../assets/icons/close.png'
 import slideArrow from '../assets/icons/slideArrow.png'
 import downArrow from '../assets/downArrow.png'
 
-import '../css/DisplayContent.css'
+import '../styles/DisplayContent.css'
 
 const DisplayContent = ({content}) => {
 

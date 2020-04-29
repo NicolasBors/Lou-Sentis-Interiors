@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import '../css/ContactForm.css'
+import '../styles/ContactForm.css'
 import axios from 'axios'
 
 const ContactForm = () => {

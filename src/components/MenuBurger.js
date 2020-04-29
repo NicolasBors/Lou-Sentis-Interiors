@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
+import BurgerIcon from './BurgerIcon'
+
 import { toggleMenu, closeMenu } from '../redux/menu/menu.actions'
 
 import scrollArrow from '../assets/scrollArrow.png'
 
-import '../css/MenuBurger.css'
+import '../styles/MenuBurger.css'
 
 const MenuBurger = ({ sections, subSections, visible, toggleMenu, closeMenu, history, match }) => {
 
@@ -20,14 +22,7 @@ const MenuBurger = ({ sections, subSections, visible, toggleMenu, closeMenu, his
 
     return (
         <>
-            <div className={visible ? "open-menu-container menu-container" : "menu-container"} onClick={() => { toggleMenu(); setSubMenu1(false); setSubMenu2(false); }}>
-                <div className="bar1"></div>
-                <div className="mbar">
-                    <div className="mbar1"></div>
-                    <div className="mbar2"></div>
-                </div>
-                <div className="bar3"></div>
-            </div>
+            <BurgerIcon setSubMenu1={setSubMenu1} setSubMenu2={setSubMenu2} />
             <div className={visible ? 'burger-background' : ''}>
                 <div className={visible ? "open-menu-burger menu-burger" : "menu-burger"}>
                     {sections.map(({ id, ...sectionProps }) =>

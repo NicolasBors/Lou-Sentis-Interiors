@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import '../css/Navbar.css'
+import '../styles/Navbar.css'
 
 import MenuBurger from './MenuBurger'
 

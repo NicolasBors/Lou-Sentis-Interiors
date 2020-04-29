@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import '../css/DisplayMain.css'
+import '../styles/DisplayMain.css'
 
 import Duquesne from '../data/projects/Duquesne'
 import IleDeLaReunion from '../data/projects/IleDeLaReunion'

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { toggleMenu } from '../redux/menu/menu.actions'
 import louCardWB from '../assets/logos/LOGO BLANC.png'
 
-import '../css/Start.css'
+import '../styles/Start.css'
 
 const Start = ({ setStart, setOpacity, visible, history, match, dispatch }) => {
 

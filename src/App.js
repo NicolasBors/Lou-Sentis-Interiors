@@ -23,7 +23,7 @@ import Assises from './data/collection/Assises'
 import Luminaires from './data/collection/Luminaires'
 import Meubles from './data/collection/Meubles'
 
-const App = ({visible}) => {
+const App = ({ visible }) => {
 
   const [start, setStart] = useState(true)
   const [opacity, setOpacity] = useState(false)

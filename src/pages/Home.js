@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
 import HomePictures from '../data/projects/HomePictures'
-import '../css/Home.css'
+import '../styles/Home.css'
 
 const Home = ({ history }) => {
 
