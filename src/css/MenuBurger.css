@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Avenir';
-  src: url('../../assets/fonts/AvenirLTStd-Medium.otf')
+	src: url('../assets/fonts/AvenirLTStd-Medium.otf');
 }
 
 .menu-burger {
@@ -48,7 +48,7 @@
   position: relative;
   width: 35px;
   height: 2px;
-  background-color: black;
+  background-color: #4d4d4d;
   transition: 0.2s;
   align-self: center;
 }
@@ -68,8 +68,13 @@
   position: absolute;
   width: 35px;
   height: 2px;
-  background-color: black;
+  background-color: #4d4d4d;
   transition: 0.5s;
+}
+
+.menu-container:hover .bar1, .menu-container:hover .bar3, .menu-container:hover .mbar1, .menu-container:hover .mbar2, .menu-container:hover .mbar3, .open-menu-container:hover .bar1, .open-menu-container:hover .bar3, .open-menu-container:hover .mbar1, .open-menu-container:hover .mbar2, .open-menu-container:hover .mbar3 {
+  background-color: black;
+  transition: background-color ease 0s;
 }
 
 .open-menu-container .bar1 {
@@ -87,8 +92,6 @@
 .open-menu-container .bar3 {
   opacity: 0;
 }
-
-/* REVIEW !!!! */
 
 .burger-menu-item {
   position: relative;

@@ -5,7 +5,7 @@ import { toggleMenu, closeMenu } from '../redux/menu/menu.actions'
 
 import scrollArrow from '../assets/scrollArrow.png'
 
-import './css/MenuBurger.css'
+import '../css/MenuBurger.css'
 
 const MenuBurger = ({ sections, subSections, visible, toggleMenu, closeMenu, history, match }) => {
 

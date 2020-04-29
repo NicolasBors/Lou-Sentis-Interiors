@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import './css/DisplayMain.css'
+import '../css/DisplayMain.css'
 
-import Duquesne from './projects/Duquesne'
-import IleDeLaReunion from './projects/IleDeLaReunion'
-import LaCoupole from './projects/LaCoupole'
-import LeRelaisDuLouvre from './projects/LeRelaisDuLouvre'
-import ShowroomDigital from './projects/ShowroomDigital'
+import Duquesne from '../data/projects/Duquesne'
+import IleDeLaReunion from '../data/projects/IleDeLaReunion'
+import LaCoupole from '../data/projects/LaCoupole'
+import LeRelaisDuLouvre from '../data/projects/LeRelaisDuLouvre'
+import ShowroomDigital from '../data/projects/ShowroomDigital'
 
-import Accessoires from './collection/Accessoires'
-import Assises from './collection/Assises'
-import Luminaires from './collection/Luminaires'
-import Meubles from './collection/Meubles'
+import Accessoires from '../data/collection/Accessoires'
+import Assises from '../data/collection/Assises'
+import Luminaires from '../data/collection/Luminaires'
+import Meubles from '../data/collection/Meubles'
 
 const DisplayMain = ({ view, match, history }) => {
 

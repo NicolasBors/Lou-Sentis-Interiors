@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-import { compose } from 'redux'
 import { connect } from 'react-redux'
 
 import { toggleMenu } from '../redux/menu/menu.actions'
 import louCardWB from '../assets/logos/LOGO BLANC.png'
 
-import './css/Start.css'
+import '../css/Start.css'
 
-const Start = ({ setStart, setOpacity, visible, toggleMenu, history, match }) => {
+const Start = ({ setStart, setOpacity, visible, history, match, dispatch }) => {
 
     const [logo, setLogo] = useState('')
     const [shine, setShine] = useState('')
@@ -32,15 +31,19 @@ const Start = ({ setStart, setOpacity, visible, toggleMenu, history, match }) =>
 
     return (
         <div className='start' >
-            <div id='logoId' style={blur ? { filter: 'blur(10px)', filter: 'opacity(0.7)' } : null} className={`logo-container${logo}`} >
+            <div id='logoId'
+                style={blur ? { filter: 'blur(10px)', filter: 'opacity(0.7)' } : null}
+                className={`logo-container${logo}`} >
                 <figure className={`logo-figure ${shine}`} >
                     <img className={`logo${logo}`}
                         src={louCardWB}
                         alt='logo'
                         onClick={
                             visible ?
-                                () => { toggleMenu(); history.push(`${match.url}`); }
-
+                                () => {
+                                    dispatch(toggleMenu())
+                                    history.push(`${match.url}`)
+                                }
                                 :
                                 () => { history.push(`${match.url}`); }
                         } />
@@ -54,11 +57,7 @@ const mapStateToProps = ({ menu: { visible } }) => ({
     visible
 })
 
-const mapDispatchToProps = dispatch => ({
-    toggleMenu: menu => dispatch(toggleMenu(menu))
-})
-
-export default compose(
-    withRouter,
-    connect(mapStateToProps, mapDispatchToProps)
-)(Start)
+export default
+    withRouter(
+        connect(mapStateToProps)
+            (Start))

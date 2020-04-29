@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Avenir';
-    src: url('../../assets/fonts/AvenirLTStd-Medium.otf')
+	src: url('../assets/fonts/AvenirLTStd-Medium.otf');
 }
 
 /* .start {
@@ -134,13 +134,22 @@
 }
 
 .navbar-item-sub {
-    padding: 1em 0;
+    padding: 1em 0 1em;
     cursor: pointer;
     margin: 0 0 0 0;
     color: black;
     font-size: 10px;
     white-space: nowrap;
     letter-spacing: 1px;
+    text-align: left;
+}
+
+.navbar-item-sub-container1 .navbar-item-sub {
+    padding-left: 18px;
+}
+
+.navbar-item-sub-container2 .navbar-item-sub {
+    padding-left: 33px;
 }
 
 .navbar-item-sub-container1, .navbar-item-sub-container2 {

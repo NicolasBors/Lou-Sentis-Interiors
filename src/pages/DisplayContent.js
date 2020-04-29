@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
-import Accessoires from './collection/Accessoires'
-import Assises from './collection/Assises'
-import Luminaires from './collection/Luminaires'
-import Meubles from './collection/Meubles'
+import Accessoires from '../data/collection/Accessoires'
+import Assises from '../data/collection/Assises'
+import Luminaires from '../data/collection/Luminaires'
+import Meubles from '../data/collection/Meubles'
 
 import closeBtn from '../assets/icons/close.png'
 import slideArrow from '../assets/icons/slideArrow.png'
 import downArrow from '../assets/downArrow.png'
 
-import './css/DisplayContent.css'
+import '../css/DisplayContent.css'
 
 const DisplayContent = ({content}) => {
 

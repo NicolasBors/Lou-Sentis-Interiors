@@ -6,10 +6,11 @@ import './App.css'
 
 import Start from './components/Start'
 import Navbar from './components/Navbar'
-import Home from './components/Home'
-import DisplayMain from './components/DisplayMain'
-import DisplayContent from './components/DisplayContent'
-import ContactForm from './components/ContactForm'
+
+import Home from './pages/Home'
+import DisplayMain from './pages/DisplayMain'
+import DisplayContent from './pages/DisplayContent'
+import ContactForm from './pages/ContactForm'
 
 import Duquesne from './components/projects/Duquesne'
 import LaCoupole from './components/projects/LaCoupole'
