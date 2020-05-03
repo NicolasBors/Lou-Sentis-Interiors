@@ -3,24 +3,27 @@ import { connect } from 'react-redux'
 
 import { toggleMenu } from '../redux/menu/menu.actions'
 
-import '../styles/BurgerIcon.scss'
+import {
+    BurgerContainer,
+    BurgerBar,
+    MediumBurgerBarContainer,
+    MediumBurgerBar
+} from '../styles/BurgerIconStyles'
 
 const BurgerIcon = ({ visible, toggleMenu, setSubMenu1, setSubMenu2 }) => (
-    <div className='burger-icon'
+    <BurgerContainer
         onClick={() => {
             toggleMenu()
             setSubMenu1(false)
             setSubMenu2(false)
         }}>
-        <div className={visible ? 'opened' : ''}>
-            <div className="bar1"></div>
-            <div className="mbar">
-                <div className="mbar1"></div>
-                <div className="mbar2"></div>
-            </div>
-            <div className="bar3"></div>
-        </div >
-    </div >
+        <BurgerBar visible={visible} />
+        <MediumBurgerBarContainer>
+            <MediumBurgerBar visible={visible} />
+            <MediumBurgerBar visible={visible} inverted />
+        </MediumBurgerBarContainer>
+        <BurgerBar visible={visible} />
+    </BurgerContainer>
 )
 
 const mapStateToProps = ({ menu: { visible } }) => ({
