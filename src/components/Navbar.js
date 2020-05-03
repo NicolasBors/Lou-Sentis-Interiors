@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 import '../styles/Navbar.css'
 
-import MenuBurger from './MenuBurger'
+import MenuBurger from './MenuBurger.jsx'
 
 const Navbar = ({ toggleMenu, match, history }) => {
 
