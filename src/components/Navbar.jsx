@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 import '../styles/Navbar.css'
 
-import MenuBurger from './MenuBurger.jsx'
+import MobileMenu from './MobileMenu.jsx'
 
 const Navbar = ({ toggleMenu, match, history }) => {
 
@@ -116,7 +116,7 @@ const Navbar = ({ toggleMenu, match, history }) => {
         <div>
             <div className='header' >
                 {seeMenu ?
-                    < MenuBurger
+                    < MobileMenu
                         sections={sections}
                         subSections={subSections}
                         toggleMenu={toggleMenu}

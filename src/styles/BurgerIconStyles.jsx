@@ -1,27 +1,27 @@
 import styled, { css } from 'styled-components'
 
-const BarStyles = css`
+const barStyles = css`
 opacity: 1;
 `
 
-const OpenBarStyles = css`
+const openBarStyles = css`
 opacity: 0;
 `
 
-const PositiveRotation = css`
+const positiveRotation = css`
 transform: rotate(45deg);
 `
 
-const NegativeRotation = css`
+const negativeRotation = css`
 transform: rotate(-45deg);
 `
 
 const getBarStyles = ({ visible }) => {
-    return visible ? OpenBarStyles : BarStyles
+    return visible ? openBarStyles : barStyles
 }
 
 const getRotation = ({ visible, inverted }) => {
-    return visible ? inverted ? NegativeRotation : PositiveRotation : null
+    return visible ? inverted ? negativeRotation : positiveRotation : null
 }
 
 export const BurgerBar = styled.div`
