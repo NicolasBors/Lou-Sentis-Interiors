@@ -1,0 +1,118 @@
+.navbar {
+    display: flex;
+    background-color: #fff;
+    position: static;
+    height: 100%;
+    width: 70%;
+    font-family: "Avenir";
+    margin: auto;
+    justify-content: space-between;
+
+    .item-sub-container {
+        width: 100%;
+        border-collapse: collapse;
+        border-left: 1px solid black;
+
+        &:first-of-type {
+            border-left: none;
+        }
+
+        .item-container1,
+        .item-container2,
+        .item-container3,
+        .item-container4 {
+            text-align: center;
+            width: 150px;
+            position: relative;
+            margin: auto;
+
+            .main-item {
+                margin-top: 0;
+                padding: 12px;
+                position: relative;
+                z-index: 2;
+                text-decoration: none;
+                color: black;
+                box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                -webkit-box-sizing: border-box;
+                cursor: pointer;
+            }
+
+            .main-item:after {
+                content: "";
+                height: 100%;
+                left: 0;
+                top: 0;
+                width: 0px;
+                position: absolute;
+                transition: all 0.3s ease 0s;
+                -webkit-transition: all 0.3s ease 0s;
+                z-index: -1;
+            }
+
+            &:hover {
+                .main-item {
+                    color: white;
+
+                    &:after {
+                        width: 100%;
+                        background: black;
+                    }
+                }
+                .sub-item-container1,
+                .sub-item-container2 {
+                    display: block;
+
+                    .sub-item {
+                        padding: 1em 0 1em;
+                        cursor: pointer;
+                        margin: 0 0 0 0;
+                        color: black;
+                        font-size: 10px;
+                        white-space: nowrap;
+                        letter-spacing: 1px;
+                        text-align: left;
+
+                        &:hover {
+                            background: black;
+                            color: white;
+                        }
+                    }
+                }
+
+                .sub-item-container1 {
+                    .sub-item {
+                        padding-left: 18px;
+                    }
+                }
+
+                .sub-item-container2 {
+                    .sub-item {
+                        padding-left: 33px;
+                    }
+                }
+            }
+
+            .sub-item-container1,
+            .sub-item-container2 {
+                display: none;
+                position: absolute;
+                height: 0px;
+                z-index: 100;
+                top: 21px;
+                left: 50%;
+                transform: translateX(-50%);
+                overflow-x: hidden;
+                width: 149px;
+                letter-spacing: 0px;
+                margin-top: 20px;
+                height: auto;
+                transition: ease 200ms;
+                background-color: white;
+                border-bottom: 1px solid black;
+                border-right: 1px solid black;
+            }
+        }
+    }
+}

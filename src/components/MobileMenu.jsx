@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { createStructuredSelector } from 'reselect'
+
+import { selectMenuVisible } from '../redux/menu/menu.selectors'
+import { selectDirectorySections, selectDirectorySubsections } from '../redux/directory/directory.selectors'
 
 import BurgerIcon from './BurgerIcon'
 
@@ -74,7 +79,10 @@ const MobileMenu = ({ sections, subSections, visible, toggleMenu, closeMenu, his
                                     ({ id, ...subSectionProps }) => (
                                         <SubItem
                                             onClick={
-                                                () => { toggleMenu(); history.push(`${match.url}${subSectionProps.linkUrl}`); }
+                                                () => {
+                                                    toggleMenu()
+                                                    history.push(`${match.url}${subSectionProps.linkUrl}`)
+                                                }
                                             }
                                         >{subSectionProps.title}</SubItem>))
                                 }
@@ -88,8 +96,10 @@ const MobileMenu = ({ sections, subSections, visible, toggleMenu, closeMenu, his
     )
 }
 
-const mapStateToProps = ({ menu: { visible } }) => ({
-    visible
+const mapStateToProps = createStructuredSelector({
+    visible: selectMenuVisible,
+    sections: selectDirectorySections,
+    subSections: selectDirectorySubsections
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -97,4 +107,8 @@ const mapDispatchToProps = dispatch => ({
     closeMenu: menu => dispatch(closeMenu(menu))
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(MobileMenu)
+export default withRouter(
+    connect(
+        mapStateToProps,
+        mapDispatchToProps)(
+            MobileMenu))

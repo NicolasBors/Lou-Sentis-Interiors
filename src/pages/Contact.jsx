@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import '../styles/ContactForm.scss'
 import axios from 'axios'
+import '../styles/Contact.scss'
 
-const ContactForm = () => {
+const Contact = () => {
 
     const [userCredentials, setCredentials] = useState({
         name: '',
@@ -82,4 +82,4 @@ const ContactForm = () => {
     )
 }
 
-export default ContactForm
+export default Contact
