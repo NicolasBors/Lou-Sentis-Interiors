@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import '../styles/Navbar.scss'
+import '../styles/Header.scss'
 
 import MobileMenu from './MobileMenu'
 

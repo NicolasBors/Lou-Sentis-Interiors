@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import './App.css'
 
 import Start from './components/Start'
-import Navbar from './components/Navbar.jsx'
+import Header from './components/Header.jsx'
 
 import Home from './pages/Home'
 import DisplayMain from './pages/DisplayMain'
@@ -30,14 +30,14 @@ const App = ({ visible }) => {
 
   return (<div className="App">
 
-    {/* <Start
+    <Start
       start={start} setStart={setStart} setOpacity={setOpacity}
     />
     {start ?
       null
-      : */}
-      {/* <div className={opacity ? 'after-start' : 'before-start'}> */}
-        <Navbar />
+      :
+      <div className={opacity ? 'after-start' : 'before-start'}>
+        <Header />
         <div className={visible ? 'fixed-background' : ''}>
           <Switch>
             <Route exact path='/' render={() => <Home />} />
@@ -55,7 +55,7 @@ const App = ({ visible }) => {
             <Route path='/contact' render={() => <ContactForm />} />
           </Switch>
         </div>
-      {/* </div> */}
+      </div>
     }
   </div>)
 }
