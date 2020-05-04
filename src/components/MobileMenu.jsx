@@ -51,7 +51,10 @@ const MobileMenu = ({ sections, subSections, visible, toggleMenu, closeMenu, his
                                             :
                                             () => { toggleMenu(); history.push(`${match.url}${sectionProps.linkUrl}`); }
                                 }>
-                                <Title>{sectionProps.title}</Title>
+                                <Title
+                                    subMenu={id === 1 ? subMenu1 : id === 2 ? subMenu2 : undefined} >
+                                    {sectionProps.title}
+                                </Title>
                                 {id === 1 ?
                                     <ArrowContainer subMenu={subMenu1} src={scrollArrow} alt='More'>
                                         <img src={scrollArrow} alt='More' />

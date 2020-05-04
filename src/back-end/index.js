@@ -26,7 +26,7 @@ transporter.verify((error, success) => {
 
 router.post('/send', (req, res, next) => {
   const name = req.body.name
-  const email = req.body.mail
+  const email = req.body.email
   const subject = req.body.subject
   const message = req.body.message
 

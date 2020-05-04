@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 
 import './App.css'
 
-import Start from './components/Start'
+import Start from './components/Start.jsx'
 import Header from './components/Header.jsx'
 
 import Home from './pages/Home'
 import DisplayMain from './pages/DisplayMain'
 import DisplayContent from './pages/DisplayContent'
-import ContactForm from './pages/ContactForm'
+import ContactForm from './pages/ContactForm.jsx'
 
 import Duquesne from './data/projects/Duquesne'
 import LaCoupole from './data/projects/LaCoupole'
@@ -30,34 +30,35 @@ const App = ({ visible }) => {
 
   return (<div className="App">
 
-    <Start
+    {/* <Start
       start={start} setStart={setStart} setOpacity={setOpacity}
     />
     {start ?
       null
       :
-      <div className={opacity ? 'after-start' : 'before-start'}>
-        <Header />
-        <div className={visible ? 'fixed-background' : ''}>
-          <Switch>
-            <Route exact path='/' render={() => <Home />} />
-            <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} />} />
-            <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} />} />
-            <Route path='/réalisation/duquesne' render={() => <DisplayContent content={Duquesne} />} />
-            <Route path='/réalisation/la-coupole' render={() => <DisplayContent content={LaCoupole} />} />
-            <Route path='/réalisation/le-relais-du-louvre' render={() => <DisplayContent content={LeRelaisDuLouvre} />} />
-            <Route path='/réalisation/île-de-la-réunion' render={() => <DisplayContent content={IleDeLaReunion} />} />
-            <Route path='/réalisation/showroom-digital' render={() => <DisplayContent content={ShowroomDigital} />} />
-            <Route path='/mobilier/accessoires' render={() => <DisplayContent content={Accessoires} />} />
-            <Route path='/mobilier/assises' render={() => <DisplayContent content={Assises} />} />
-            <Route path='/mobilier/luminaires' render={() => <DisplayContent content={Luminaires} />} />
-            <Route path='/mobilier/meubles' render={() => <DisplayContent content={Meubles} />} />
-            <Route path='/contact' render={() => <ContactForm />} />
-          </Switch>
-        </div>
-      </div>
-    }
-  </div>)
+      <div className={opacity ? 'after-start' : 'before-start'}> */}
+    <Header />
+    <div className={visible ? 'fixed-background' : ''}>
+      <Switch>
+        <Route exact path='/' render={() => <Home />} />
+        <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} />} />
+        <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} />} />
+        <Route path='/réalisation/duquesne' render={() => <DisplayContent content={Duquesne} />} />
+        <Route path='/réalisation/la-coupole' render={() => <DisplayContent content={LaCoupole} />} />
+        <Route path='/réalisation/le-relais-du-louvre' render={() => <DisplayContent content={LeRelaisDuLouvre} />} />
+        <Route path='/réalisation/île-de-la-réunion' render={() => <DisplayContent content={IleDeLaReunion} />} />
+        <Route path='/réalisation/showroom-digital' render={() => <DisplayContent content={ShowroomDigital} />} />
+        <Route path='/mobilier/accessoires' render={() => <DisplayContent content={Accessoires} />} />
+        <Route path='/mobilier/assises' render={() => <DisplayContent content={Assises} />} />
+        <Route path='/mobilier/luminaires' render={() => <DisplayContent content={Luminaires} />} />
+        <Route path='/mobilier/meubles' render={() => <DisplayContent content={Meubles} />} />
+        <Route path='/contact' render={() => <ContactForm />} />
+      </Switch>
+    </div>
+  </div>
+    //   }
+    // </div>
+  )
 }
 
 const mapStateToProps = ({ menu: { visible } }) => ({

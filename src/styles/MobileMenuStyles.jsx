@@ -10,9 +10,22 @@ const closeMobileNavbarStyles = css`
 height: 0;
 `
 
+const greyStyles = css`
+color: #4d4d4d;
+`
+
+const blackStyles = css`
+color: black;
+`
+
+const regularArrowStyles = css`
+opacity: 0.6;
+`
+
 const invertedArrowStyles = css`
 transform: rotateX(180deg);
 transition: transform ease 200ms;
+opacity: 1;
 `
 
 const openSubItemStyles = css`
@@ -28,14 +41,21 @@ const getMobileNavbarStyles = ({ visible }) => {
 }
 
 const getArrowStyles = ({ subMenu }) => {
-    return subMenu ? invertedArrowStyles : null
+    return subMenu ? invertedArrowStyles : regularArrowStyles
 }
 
 const getSubItemStyles = ({ subMenu }) => {
     return subMenu ?
-    openSubItemStyles
-    :
-    closeSubItemStyles
+        openSubItemStyles
+        :
+        closeSubItemStyles
+}
+
+const getTitleStyles = ({ subMenu }) => {
+    return subMenu ?
+        blackStyles
+        :
+        greyStyles
 }
 
 export const MobileNavbarContainer = styled.div`
@@ -64,14 +84,13 @@ margin: 0;
 letter-spacing: 0.2rem;
 cursor: pointer;
 font-weight: normal;
-color: #4d4d4d;
+${getTitleStyles}
 `
 
 export const ArrowContainer = styled.div`
 img {
     width: 16px;
     padding-left: 10px;
-    opacity: 0.6;
 ${getArrowStyles}
 }
 `
@@ -107,6 +126,7 @@ ${getSubItemStyles}
 export const SubItem = styled.p`
 cursor: pointer;
 color: #4d4d4d;
+letter-spacing: 0.2rem;
 &:hover {
     cursor: pointer;
     transition: color ease 0.25s;
