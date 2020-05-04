@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 
-import '../styles/Navbar.css'
+import '../styles/Navbar.scss'
 
-import MobileMenu from './MobileMenu.jsx'
+import MobileMenu from './MobileMenu'
 
 const Navbar = ({ toggleMenu, match, history }) => {
 
     const [seeMenu, setSeeMenu] = useState(false)
 
-    const [sections] = useState([
+    const sections = [
         {
             title: 'RÉALISATION',
             id: 1,
@@ -30,9 +30,9 @@ const Navbar = ({ toggleMenu, match, history }) => {
             id: 4,
             linkUrl: 'contact'
         }
-    ])
+    ]
 
-    const [subSections] = useState([
+    const subSections = [
         {
             title: 'DUQUESNE',
             id: 1,
@@ -93,7 +93,7 @@ const Navbar = ({ toggleMenu, match, history }) => {
             section: 'MOBILIER',
             linkUrl: 'mobilier/meubles'
         }
-    ])
+    ]
 
     useEffect(() => {
         window.addEventListener('resize', () => {
@@ -113,7 +113,6 @@ const Navbar = ({ toggleMenu, match, history }) => {
     }
 
     return (
-        <div>
             <div className='header' >
                 {seeMenu ?
                     < MobileMenu
@@ -127,15 +126,15 @@ const Navbar = ({ toggleMenu, match, history }) => {
                     <div className='navbar'>
                         {sections.map(({ id, ...sectionProps }) =>
                             (
-                                <div className='navbar-item-sub-container'>
-                                    <div className={`navbar-item-container${id}`}>
-                                        <p className='navbar-main-item'
+                                <div className='item-sub-container'>
+                                    <div className={`item-container${id}`}>
+                                        <p className='main-item'
                                             onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
                                         >{sectionProps.title}</p>
-                                        <div className={`navbar-item-sub-container${id}`} >
+                                        <div className={`sub-item-container${id}`} >
                                             {subSections.filter(subSection => subSection.section === sectionProps.title).map(
                                                 ({ id, ...subSectionProps }) => (
-                                                    <p className='navbar-item-sub'
+                                                    <p className='sub-item'
                                                         onClick={() => history.push(`${match.url}${subSectionProps.linkUrl}`)}
 
                                                     >{subSectionProps.title}</p>)
@@ -148,7 +147,6 @@ const Navbar = ({ toggleMenu, match, history }) => {
                         }
                     </div>}
             </div>
-        </div >
     )
 }
 
