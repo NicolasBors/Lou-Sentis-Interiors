@@ -8,7 +8,8 @@ import Start from './components/Start.jsx'
 import Header from './components/Header.jsx'
 
 import Home from './pages/Home'
-import DisplayMain from './pages/DisplayMain'
+import Realisation from './pages/Realisation'
+import Mobilier from './pages/Mobilier'
 import Project from './pages/Project'
 import Collection from './pages/Collection'
 import Contact from './pages/Contact.jsx'
@@ -42,8 +43,8 @@ const App = ({ visible }) => {
           <div className={visible ? 'fixed-background' : ''}>
             <Switch>
               <Route exact path='/' component={Home} />
-              <Route exact path='/réalisation' render={() => <DisplayMain view={'RÉALISATION'} />} />
-              <Route exact path='/mobilier' render={() => <DisplayMain view={'MOBILIER'} />} />
+              <Route exact path='/réalisation' render={() => <Realisation />} />
+              <Route exact path='/mobilier' render={() => <Mobilier view={'MOBILIER'} />} />
               <Route path='/réalisation/duquesne' render={() => <Project content={Duquesne} />} />
               <Route path='/réalisation/la-coupole' render={() => <Project content={LaCoupole} />} />
               <Route path='/réalisation/le-relais-du-louvre' render={() => <Project content={LeRelaisDuLouvre} />} />

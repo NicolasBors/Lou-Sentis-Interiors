@@ -24,7 +24,7 @@ const Contact = () => {
 
         axios({
             method: "POST",
-            url: "http://localhost:3001/send",
+            url: "http://localhost:5000/send",
             data: {
                 name,
                 email,
