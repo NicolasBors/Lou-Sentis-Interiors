@@ -1,13 +1,13 @@
-import duquesne from '../../assets/pictures/duquesne/IMG_7368.jpg'
-import reunion from '../../assets/pictures/ile-de-la-reunion/IMG_0207.JPG'
-import coupole from '../../assets/pictures/la-coupole/IMG_8455.jpg'
-import showroom from '../../assets/pictures/showroom-digital/DSC_0181.jpg'
-import meubles from '../../assets/pictures/meubles/etage3.JPG'
-import luminaires from '../../assets/pictures/luminaires/mur2.JPG'
-import canapes from '../../assets/pictures/assises/canap38.JPG'
-import accessoires from '../../assets/pictures/accessoires/vase1.JPG'
+import duquesne from '../assets/pictures/duquesne/IMG_7368.jpg'
+import reunion from '../assets/pictures/ile-de-la-reunion/IMG_0207.JPG'
+import coupole from '../assets/pictures/la-coupole/IMG_8455.jpg'
+import showroom from '../assets/pictures/showroom-digital/DSC_0181.jpg'
+import meubles from '../assets/pictures/meubles/etage3.JPG'
+import luminaires from '../assets/pictures/luminaires/mur2.JPG'
+import canapes from '../assets/pictures/assises/canap38.JPG'
+import accessoires from '../assets/pictures/accessoires/vase1.JPG'
 
-const HomePictures = [
+const MainPictures = [
     {
         src: coupole,
         title: 'LA COUPOLE',
@@ -58,4 +58,4 @@ const HomePictures = [
     }
 ]
 
-export default HomePictures
+export default MainPictures

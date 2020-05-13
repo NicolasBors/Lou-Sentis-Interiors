@@ -86,6 +86,8 @@ const Assises = {
     title: 'ASSISES',
     description: 'bla bla',
     categories: ['Chaises', 'Fauteuils et canapés', 'Poufs'],
+    oddWidth: 100,
+    evenWidth: 100,
     image: [
         {
             categorie: 'Fauteuils et canapés',

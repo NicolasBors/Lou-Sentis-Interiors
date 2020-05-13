@@ -79,6 +79,8 @@ const Accessoires = {
     title: 'ACCESSOIRES',
     description: 'bla bla',
     categories: ['Arts de la table', 'Coussins', 'Décoration', 'Miroirs', 'Portants', 'Tapis', 'Tissus', 'Vases et plantes'],
+    oddWidth: 100,
+    evenWidth: 100,
     image: [
         {
             categorie: 'Vases et plantes',

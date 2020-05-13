@@ -9,11 +9,13 @@ import coupole7 from '../../assets/pictures/la-coupole/IMG_8455.jpg'
 const LaCoupole = {
     title: 'LA COUPOLE',
     description: 'Hôtel La Coupole, Paris, France. 2020',
+    oddWidth: 100,
+    evenWidth: 100,
     image: [
         {
             categorie: '',
             caption: '',
-            src: coupole7
+            src: coupole6
         },
         {
             categorie: '',
@@ -28,7 +30,7 @@ const LaCoupole = {
         {
             categorie: '',
             caption: '',
-            src: coupole3
+            src: coupole7
         },
         {
             categorie: '',
@@ -43,7 +45,7 @@ const LaCoupole = {
         {
             categorie: '',
             caption: '',
-            src: coupole6
+            src: coupole3
         }
     ]
 }

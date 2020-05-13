@@ -31,6 +31,8 @@ const Luminaires = {
     title: 'LUMINAIRES',
     description: '',
     categories: ['Appliques', 'Lampadaires', 'Lampes à poser', 'Suspensions'],
+    oddWidth: 100,
+    evenWidth: 100,
     image: [
         {
             categorie: 'Suspensions',

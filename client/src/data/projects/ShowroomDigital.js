@@ -17,11 +17,13 @@ import showroom15 from '../../assets/pictures/showroom-digital/DSC_0238.jpg'
 const ShowroomDigital = {
     title: 'SHOWROOM DIGITAL',
     description: 'Showroom Digital, Paris, France. 2020',
+    oddWidth: 100,
+    evenWidth: 100,
     image: [
         {
             categorie: '',
             caption: '',
-            src: showroom1
+            src: showroom5
         },
         {
             categorie: '',
@@ -41,7 +43,7 @@ const ShowroomDigital = {
         {
             categorie: '',
             caption: '',
-            src: showroom5
+            src: showroom1
         },
         {
             categorie: '',
@@ -51,12 +53,12 @@ const ShowroomDigital = {
         {
             categorie: '',
             caption: '',
-            src: showroom7
+            src: showroom8
         },
         {
             categorie: '',
             caption: '',
-            src: showroom8
+            src: showroom7
         },
         {
             categorie: '',

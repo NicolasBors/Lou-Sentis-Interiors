@@ -3,7 +3,7 @@
 	src: url('../assets/fonts/AvenirLTStd-Medium.otf');
 }
 
-.home {
+/* .home {
     font-family: 'Avenir';
     letter-spacing: 2px;
 }
@@ -12,58 +12,43 @@
     width: 70%;
     text-align: center;
     margin: 250px auto 50px auto;
-}
+} */
 
-.home-presentation {
-    height: 68vh;
-    padding: 0 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid black;
-    border-left: 1px solid black;
-}
-
-.recent-work {
+/* .recent-work {
     line-height: 0px;
     padding: 0;
     margin: 50px 0;
     overflow: hidden;
-}
+} */
 
-.recent-work h2 {
-    margin-bottom: 50px;
-}
-
-.recent-work .image-container1, .image-container4, .image-container6, .image-container8 {
+ /* .image-container1, .image-container4, .image-container6, .image-container8 {
     float: left;
     width: 48.35%;
     margin: 0;
     line-height: 0px;
 }
 
-.recent-work .image-container2, .image-container3, .image-container5 {
+ .image-container2, .image-container3, .image-container5 {
     float: left;
     width: 51.65%;
     margin: 0;
     line-height: 0px;
 }
 
-.recent-work .image-container7 {
+ .image-container7 {
     float: right;
     width: 51.65%;
     margin: 0;
     line-height: 0px;
-}
+} */
 
-.recent-work .image-container1 .image-holder, .image-container2 .image-holder, .image-container3 .image-holder, .image-container4 .image-holder, .image-container5 .image-holder, .image-container6 .image-holder, .image-container7 .image-holder, .image-container8 .image-holder {
+ /* .image-container1 .image-holder, .image-container2 .image-holder, .image-container3 .image-holder, .image-container4 .image-holder, .image-container5 .image-holder, .image-container6 .image-holder, .image-container7 .image-holder, .image-container8 .image-holder {
     position: relative;
     width: 100%;
     overflow: hidden;
-}
+} */
 
-.recent-work .image-container1 .image-thumbnail, .image-container2 .image-thumbnail, .image-container3 .image-thumbnail, .image-container4 .image-thumbnail, .image-container5 .image-thumbnail, .image-container6 .image-thumbnail, .image-container7 .image-thumbnail, .image-container8 .image-thumbnail {
+ /* .image-container1 .image-thumbnail, .image-container2 .image-thumbnail, .image-container3 .image-thumbnail, .image-container4 .image-thumbnail, .image-container5 .image-thumbnail, .image-container6 .image-thumbnail, .image-container7 .image-thumbnail, .image-container8 .image-thumbnail {
     border: 0;
     width: 100%;
     left: 0%;
@@ -71,31 +56,31 @@
     bottom: 50%;
     filter: brightness(1);
     transition: filter 0.3s;
-}
+} */
 
-.recent-work .inner-image-container {
+ /* .inner-image-container {
     margin: 10px;
     position: relative;
-}
+} */
 
-.recent-work .image-holder:hover .image-thumbnail {
+ /* .image-holder:hover .image-thumbnail {
     filter: brightness(0.25);
-}
+} */
 
-.recent-work .image-holder:hover .image-title {
+ /* .image-holder:hover .image-title {
     display: block;
-}
+} */
 
-.recent-work .image-title-container {
+ /* .image-title-container {
     width: 100%;
     height: 100%;
     cursor: pointer;
     /* transition: .25s ease-in-out;
     -moz-transition: .25s ease-in-out;
     -webkit-transition: .25s ease-in-out; */
-}
+} */
 
-.recent-work .image-title {
+ /* .image-title {
     display: none;
     position: absolute;
     top: 50%;
@@ -109,57 +94,57 @@
     /* transition: .25s ease-in-out;
     -moz-transition: .25s ease-in-out;
     -webkit-transition: .25s ease-in-out; */
-}
+} */
 
-.home-contact a {
+/* .home-contact a {
     text-decoration: none;
     color: black;
     font-weight: bold;
     font-size: 1.1rem;
-}
+} */
 
 @media all and (max-width: 1000px) {
-    .home {
+    /* .home {
         background-size: initial;
         background-position: top center;
         background-attachment: inherit;
     }
     .home-container {
         vertical-align: top;
-    }
-    .recent-work {
+    } */
+    /* .recent-work {
         max-width: 768px;
         overflow-wrap: break-word;
-    }
-    .recent-work .image-container1, .image-container4, .image-container6, .image-container8 {
+    } */
+     /* .image-container1, .image-container4, .image-container6, .image-container8 {
         float: left;
         width: 50%;
         margin: 0;
         line-height: 0px;
     }
-    .recent-work .image-container2, .image-container3, .image-container5 {
+     .image-container2, .image-container3, .image-container5 {
         float: left;
         width: 50%;
         margin: 0;
         line-height: 0px;
     }
-    .recent-work .image-container7 {
+     .image-container7 {
         float: left;
         width: 50%;
         margin: 0;
         line-height: 0px;
-    }
-    .recent-work .image-container1 .inner-image-container, .image-container2 .inner-image-container, .image-container3 .inner-image-container, .image-container4 .inner-image-container, .image-container5 .inner-image-container, .image-container6 .inner-image-container, .image-container7 .inner-image-container, .image-container8 .inner-image-container {
+    } */
+     /* .image-container1 .inner-image-container, .image-container2 .inner-image-container, .image-container3 .inner-image-container, .image-container4 .inner-image-container, .image-container5 .inner-image-container, .image-container6 .inner-image-container, .image-container7 .inner-image-container, .image-container8 .inner-image-container {
         margin: 5px;
         position: relative;
-    }
-    .recent-work .image-container1 .image-holder, .image-container2 .image-holder, .image-container3 .image-holder, .image-container4 .image-holder, .image-container5 .image-holder, .image-container6 .image-holder, .image-container7 .image-holder, .image-container8 .image-holder {
+    } */
+     /* .image-container1 .image-holder, .image-container2 .image-holder, .image-container3 .image-holder, .image-container4 .image-holder, .image-container5 .image-holder, .image-container6 .image-holder, .image-container7 .image-holder, .image-container8 .image-holder {
         position: relative;
         width: 100%;
         padding: 0 0 75%;
         overflow: hidden;
-    }
-    .recent-work .image-container1 .image-thumbnail, .image-container2 .image-thumbnail, .image-container3 .image-thumbnail, .image-container4 .image-thumbnail, .image-container5 .image-thumbnail, .image-container6 .image-thumbnail, .image-container7 .image-thumbnail, .image-container8 .image-thumbnail {
+    } */
+     /* .image-container1 .image-thumbnail, .image-container2 .image-thumbnail, .image-container3 .image-thumbnail, .image-container4 .image-thumbnail, .image-container5 .image-thumbnail, .image-container6 .image-thumbnail, .image-container7 .image-thumbnail, .image-container8 .image-thumbnail {
         position: absolute;
         border: 0;
         width: 100%;
@@ -170,38 +155,38 @@
         transform: translateY(-50%);
         filter: brightness(1);
         transition: filter 0.3s;
-    }
+    } */
 }
 
-@media all and (max-width: 900px) {
-    .displaymain {
+/* @media all and (max-width: 900px) {
+    .home {
         margin: 200px auto 50px;
     }
-}
+} */
 
-@media all and (max-width: 600px) {
-    .recent-work .image-container1, .image-container4, .image-container6, .image-container8 {
+/* @media all and (max-width: 600px) {
+     .image-container1, .image-container4, .image-container6, .image-container8 {
         width: 85%;
         float: unset;
         margin: 15px auto;
         min-width: 300px;
     }
-    .recent-work .image-container2, .image-container3, .image-container5 {
+     .image-container2, .image-container3, .image-container5 {
         width: 85%;
         float: unset;
         margin: 15px auto;
         min-width: 300px;
     }
-    .recent-work .image-container7 {
+     .image-container7 {
         width: 85%;
         float: unset;
         margin: 15px auto;
         min-width: 300px;
     }
-    .recent-work .image-container2 {
+     .image-container2 {
         width: 85%;
         float: unset;
         margin: 15px auto;
         min-width: 300px;
     }
-}
+} */

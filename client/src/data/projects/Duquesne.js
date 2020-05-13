@@ -39,6 +39,8 @@ import duquesne37 from '../../assets/pictures/duquesne/IMG_7400.jpg'
 const Duquesne = {
     title: 'DUQUESNE',
     description: 'Hôtel Duquesne, Paris, France. 2020',
+    oddWidth: 100,
+    evenWidth: 100,
     image: [
         {
             categorie: '',
@@ -138,7 +140,7 @@ const Duquesne = {
         {
             categorie: '',
             caption: '',
-            src: duquesne20
+            src: duquesne27
         },
         {
             categorie: '',
@@ -173,7 +175,7 @@ const Duquesne = {
         {
             categorie: '',
             caption: '',
-            src: duquesne27
+            src: duquesne20
         },
         {
             categorie: '',

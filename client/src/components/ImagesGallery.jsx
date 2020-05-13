@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 
 import FullScreenBox from './FullScreenBox'
 
+import { ImageContainer } from '../styles/ImageContainerStyles'
 import '../styles/ImagesGallery.scss'
 
-const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages }) => {
+const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages, oddWidth, evenWidth }) => {
 
     const [selectedImage, setSelectedImage] = useState(0)
     const [fullScreenBox, setFullScreenBox] = useState(false)
@@ -21,7 +22,7 @@ const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages }) =>
                     filteredImages.length >= 7 ? setFullConcatImages(fullImages) :
                         setFullConcatImages(fullImages.concat(fullImages))
     }, [fullImages, images.length, selectedImage, filteredImages])
-    
+
 
     const selectImage = (image) => {
         setFullImages(filteredImages.slice())
@@ -32,7 +33,7 @@ const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages }) =>
         <>
             <div id='images-grid'>
                 {filteredImages.map((image, i) =>
-                    <div className='image-container' key={i} >
+                    <ImageContainer className='image-container' key={i} oddWidth={oddWidth} evenWidth={evenWidth} >
                         <div className='inner-image-container'>
                             <div className='image-holder' >
                                 <div onClick={() => {
@@ -43,7 +44,7 @@ const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages }) =>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </ImageContainer>
                 )}
             </div>
             {fullScreenBox ?

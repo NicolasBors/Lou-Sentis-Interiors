@@ -11,11 +11,13 @@ import reunion9 from '../../assets/pictures/ile-de-la-reunion/IMG_2657.JPG'
 const IleDeLaReunion = {
     title: 'ÎLE DE LA RÉUNION',
     description: 'Hôtel de la Réunion, Île de la Réunion, France. 2020',
+    oddWidth: 100,
+    evenWidth: 100,
     image: [
         {
             categorie: '',
             caption: '',
-            src: reunion1
+            src: reunion5
         },
         {
             categorie: '',
@@ -35,7 +37,7 @@ const IleDeLaReunion = {
         {
             categorie: '',
             caption: '',
-            src: reunion5
+            src: reunion1
         },
         {
             categorie: '',

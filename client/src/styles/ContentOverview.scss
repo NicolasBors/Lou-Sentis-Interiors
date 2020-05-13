@@ -4,10 +4,10 @@
 }
 
 #content-overview {
-    margin: 200px auto;
+    margin: 300px auto;
     font-family: "Avenir";
     letter-spacing: 0.15em;
-    width: 100%;
+    width: 70%;
     height: 100%;
     color: black;
     font-size: 16px;
@@ -22,7 +22,6 @@
     table-layout: fixed;
 
     #overview {
-        height: 400px;
         vertical-align: top;
         display: table-cell;
         width: 100%;
@@ -34,18 +33,23 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            column-count: 2;
+            -webkit-column-gap: 20px;
+            -moz-column-gap: 20px;
+            column-gap: 20px;
+            width: 100%;
 
             .title {
                 font-family: "Avenir";
                 display: flex;
                 flex-direction: column;
-                justify-content: center;
-                float: left;
-                width: 45%;
-                margin: 0;
-                padding: 100px 2% 1% 2%;
+                width: 88%;
+                margin: 0 0 50px 0;
+                padding: 0px 2% 1% 2%;
                 line-height: normal;
-                max-height: 100px;
+                height: 320px;
 
                 h1 {
                     font-size: 3rem;
@@ -140,10 +144,6 @@
     }
 }
 
-.displaycontent-image-container:first-of-type {
-    width: 45% !important;
-}
-
 @media all and (max-width: 1000px) {
     #content-overview {
         background-size: initial;
@@ -157,6 +157,9 @@
                 max-width: 768px;
                 overflow-wrap: break-word;
                 overflow: hidden;
+                -webkit-column-count: 1;
+                -moz-column-count: 1;
+                column-count: 1;    
 
                 .title {
                     float: unset;
@@ -200,10 +203,12 @@
 }
 
 @media all and (max-width: 600px) {
-    #content-overview .title {
-        min-width: 320px;
-    }
-    .displaycontent-image-container:first-of-type {
-        width: 85% !important;
+    #content-overview {
+        .title {
+            min-width: 320px;
+        }
+        .displaycontent-image-container:first-of-type {
+            width: 85% !important;
+        }
     }
 }

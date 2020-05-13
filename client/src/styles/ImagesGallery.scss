@@ -4,29 +4,21 @@
 }
 
 #images-grid {
-    line-height: 0px;
-    padding: 0;
-    margin: 50px 0;
-
     .image-container {
-        float: left;
-        width: 30%;
-        margin: 0;
-        padding: 1%;
         line-height: 0px;
-
-        .inner-image-container {
-            margin: 5px;
-            position: relative;
-
+        margin-bottom: 100px;
+        &:first-of-type {
+            // margin-top: 90px;
+            // width: 50% !important;
+            // margin-bottom: 30px !important;
+            // height: 320px;
+            // overflow: hidden;
             .image-holder {
                 position: relative;
                 width: 100%;
                 padding: 0 0 75%;
                 overflow: hidden;
-
                 .image-thumbnail {
-                    max-width: 600px;
                     position: absolute;
                     border: 0;
                     width: 100%;
@@ -38,13 +30,61 @@
                 }
             }
         }
+
+        .inner-image-container {
+            margin: 40px;
+
+            .image-holder {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+
+                .image-thumbnail {
+                    border: 0;
+                    width: 100%;
+                    left: 0%;
+                    cursor: pointer;
+                    bottom: 50%;
+                    filter: brightness(1);
+                    transition: filter 0.3s;
+                }
+            }
+        }
     }
 }
 
 @media all and (max-width: 1000px) {
     #images-grid {
+        max-width: 768px;
+        overflow-wrap: break-word;
+
         .image-container {
             width: 48%;
+            float: left;
+
+            .inner-image-container {
+                margin: 20px;
+
+                .image-holder {
+                    position: relative;
+                    width: 100%;
+                    padding: 0 0 75%;
+                    overflow: hidden;
+
+                    .image-thumbnail {
+                        position: absolute;
+                        border: 0;
+                        width: 100%;
+                        top: 50%;
+                        left: 0%;
+                        cursor: pointer;
+                        bottom: 50%;
+                        transform: translateY(-50%);
+                        filter: brightness(1);
+                        transition: filter 0.3s;
+                    }
+                }
+            }
         }
     }
 }
@@ -54,7 +94,7 @@
         .image-container {
             width: 85%;
             float: unset;
-            margin: 15px auto;
+            margin: 30px auto;
             min-width: 300px;
         }
     }

@@ -5,16 +5,18 @@ import relais3 from '../../assets/pictures/relais-du-louvre/94711563_25401516577
 const LeRelaisDuLouvre = {
     title: 'LE RELAIS DU LOUVRE',
     description: 'Hôtel Le Relais du Louvre, Paris, France. 2020',
+    oddWidth: 100,
+    evenWidth: 100,
     image: [
         {
             categorie: '',
             caption: '',
-            src: relais1
+            src: relais2
         },
         {
             categorie: '',
             caption: '',
-            src: relais2
+            src: relais1
         },
         {
             categorie: '',

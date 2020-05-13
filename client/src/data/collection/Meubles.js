@@ -49,6 +49,8 @@ const Meubles = {
     title: 'MEUBLES',
     description: '',
     categories: ['Commodes', 'Étagères', 'Lits', "Tables basses et d'appoint", 'Tables à manger'],
+    oddWidth: 100,
+    evenWidth: 100,
     image: [
         {
             categorie: "Commodes",

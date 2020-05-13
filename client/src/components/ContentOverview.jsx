@@ -9,19 +9,16 @@ import '../styles/ContentOverview.scss'
 const ContentOverview = ({ content, project, collection }) => {
 
     const images = content.image
+    const oddWidth = content.oddWidth
+    const evenWidth = content.evenWidth
 
     const [filteredImages, setFilteredImages] = useState(images.slice())
     const [fullImages, setFullImages] = useState(filteredImages.slice())
     const [filters, setFilters] = useState('Par catégorie')
     const [openFilters, setOpenFilters] = useState(false)
 
-
     useEffect(() => {
-        console.log('CONTENT:', content)
-    })
-
-    useEffect(() => {
-        window.scrollTo(0, 0)        
+        window.scrollTo(0, 0)
     }, [content])
 
     useEffect(() => {
@@ -61,7 +58,7 @@ const ContentOverview = ({ content, project, collection }) => {
                                 <span className='description'>{content.description}</span>
                         }
                     </div>
-                    <ImagesGallery filteredImages={filteredImages} images={images} fullImages={fullImages} setFullImages={setFullImages} />
+                    <ImagesGallery filteredImages={filteredImages} images={images} fullImages={fullImages} setFullImages={setFullImages} oddWidth={oddWidth} evenWidth={evenWidth} />
                 </div>
             </div>
         </div>
