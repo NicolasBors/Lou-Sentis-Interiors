@@ -11,23 +11,24 @@
     margin: 250px auto 50px auto;
 
     .gallery {
-        line-height: 0px;
         padding: 0;
         margin: 50px 0;
         overflow: hidden;
     }
 }
 
-@media all and (max-width: 1000px) {
+@media all and (max-width: 1024px) {
     .home {
         background-size: initial;
         background-position: top center;
         background-attachment: inherit;
         vertical-align: top;
+        width: 90%;
 
         .gallery {
             max-width: 768px;
             overflow-wrap: break-word;
+            margin: 50px auto;
         }
     }
 }
@@ -35,5 +36,11 @@
 @media all and (max-width: 900px) {
     .home {
         margin: 200px auto 50px;
+    }
+}
+
+@media all and (max-width: 420px) {
+    .home {
+        width: 100%;
     }
 }
