@@ -6,7 +6,7 @@ import SmoothImageRender from './SmoothImageRender'
 import { ImageContainer } from '../styles/ImageContainerStyles'
 import '../styles/ImagesGallery.scss'
 
-const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages, oddWidth, evenWidth }) => {
+const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages, project, oddWidth, evenWidth }) => {
 
     const [selectedImage, setSelectedImage] = useState(0)
     const [fullScreenBox, setFullScreenBox] = useState(false)
@@ -33,7 +33,6 @@ const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages, oddW
     return (
         <>
             <div id='images-grid'>
-                {console.log(lastLoaded)}
                 {filteredImages.map((image, i) =>
                     <ImageContainer className='image-container'
                         key={i}
@@ -45,14 +44,22 @@ const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages, oddW
                                     selectImage(image)
                                     setFullScreenBox(true)
                                 }}>
-                                    <SmoothImageRender
-                                        className='image-thumbnail'
-                                        src={image.src}
-                                        alt={image.caption}
-                                        images={images}
-                                        lastLoaded={lastLoaded}
-                                        setLastLoaded={setLastLoaded}
-                                    />
+                                    {project ?
+                                        <SmoothImageRender
+                                            className='image-thumbnail'
+                                            src={image.src}
+                                            alt={image.caption}
+                                            images={images}
+                                            lastLoaded={lastLoaded}
+                                            setLastLoaded={setLastLoaded}
+                                        />
+                                        :
+                                        <img
+                                            className='image-thumbnail'
+                                            src={image.src}
+                                            alt={image.caption}
+                                        />
+                                    }
                                 </div>
                             </div>
                         </div>

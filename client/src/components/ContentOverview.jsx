@@ -58,7 +58,7 @@ const ContentOverview = ({ content, project, collection }) => {
                                 <span className='description'>{content.description}</span>
                         }
                     </div>
-                    <ImagesGallery filteredImages={filteredImages} images={images} fullImages={fullImages} setFullImages={setFullImages} oddWidth={oddWidth} evenWidth={evenWidth} />
+                    <ImagesGallery filteredImages={filteredImages} images={images} fullImages={fullImages} setFullImages={setFullImages} project={project} oddWidth={oddWidth} evenWidth={evenWidth} />
                 </div>
             </div>
         </div>

@@ -8,6 +8,7 @@ const SmoothImageRender = ({ src, alt = 'notFound', objectFit = 'contain', image
         setLastLoaded(false)
     }, [images])
 
+
     return (
         <div className='smooth-image-wrapper'>
             {isValidSrc ? (
@@ -19,6 +20,8 @@ const SmoothImageRender = ({ src, alt = 'notFound', objectFit = 'contain', image
                     onLoad={() => {
                         if (src === images[images.length - 1].src)
                             setLastLoaded(true)
+                        if (src === images[images.length - 1].src)
+                            console.log('je suis chargée')
                     }}
                     onError={() => setIsValidSrc(false)}
                 />
