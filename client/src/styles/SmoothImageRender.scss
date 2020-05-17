@@ -1,0 +1,21 @@
+.smooth-image-wrapper {
+    position: relative;
+    .smooth-image {
+        width: 100%;
+        height: 100%;
+    }
+
+    .smooth-no-image {
+        background-color: transparent;
+    }
+
+    .img-visible {
+        opacity: 1;
+        transition: 1s;
+    }
+
+    .img-hidden {
+        opacity: 0;
+        transition: 0s;
+    }
+}

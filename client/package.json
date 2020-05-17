@@ -10,6 +10,7 @@
     "react": "^16.8.6",
     "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.8.6",
+    "react-masonry-css": "^1.0.14",
     "react-redux": "7.0.3",
     "react-router-dom": "5.0.0",
     "react-stripe-checkout": "2.6.3",

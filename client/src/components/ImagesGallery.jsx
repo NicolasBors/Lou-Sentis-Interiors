@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import FullScreenBox from './FullScreenBox'
+import SmoothImageRender from './SmoothImageRender'
 
 import { ImageContainer } from '../styles/ImageContainerStyles'
 import '../styles/ImagesGallery.scss'
@@ -10,6 +11,7 @@ const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages, oddW
     const [selectedImage, setSelectedImage] = useState(0)
     const [fullScreenBox, setFullScreenBox] = useState(false)
     const [fullConcatImages, setFullConcatImages] = useState(fullImages)
+    const [lastLoaded, setLastLoaded] = useState(false)
 
     useEffect(() => {
         for (let i = 1; i <= selectedImage; i++) {
@@ -23,7 +25,6 @@ const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages, oddW
                         setFullConcatImages(fullImages.concat(fullImages))
     }, [fullImages, images.length, selectedImage, filteredImages])
 
-
     const selectImage = (image) => {
         setFullImages(filteredImages.slice())
         setSelectedImage(filteredImages.indexOf(image))
@@ -32,15 +33,26 @@ const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages, oddW
     return (
         <>
             <div id='images-grid'>
+                {console.log(lastLoaded)}
                 {filteredImages.map((image, i) =>
-                    <ImageContainer className='image-container' key={i} oddWidth={oddWidth} evenWidth={evenWidth} >
+                    <ImageContainer className='image-container'
+                        key={i}
+                        oddWidth={oddWidth}
+                        evenWidth={evenWidth} >
                         <div className='inner-image-container'>
                             <div className='image-holder' >
                                 <div onClick={() => {
                                     selectImage(image)
                                     setFullScreenBox(true)
                                 }}>
-                                    <img className='image-thumbnail' src={image.src} alt={image.caption} />
+                                    <SmoothImageRender
+                                        className='image-thumbnail'
+                                        src={image.src}
+                                        alt={image.caption}
+                                        images={images}
+                                        lastLoaded={lastLoaded}
+                                        setLastLoaded={setLastLoaded}
+                                    />
                                 </div>
                             </div>
                         </div>
@@ -49,9 +61,14 @@ const ImagesGallery = ({ images, filteredImages, fullImages, setFullImages, oddW
             </div>
             {fullScreenBox ?
                 filteredImages.length > 1 ?
-                    <FullScreenBox multiple fullConcatImages={fullConcatImages} setFullScreenBox={setFullScreenBox} />
+                    <FullScreenBox
+                        multiple
+                        fullConcatImages={fullConcatImages}
+                        setFullScreenBox={setFullScreenBox} />
                     :
-                    <FullScreenBox fullConcatImages={fullConcatImages} setFullScreenBox={setFullScreenBox} />
+                    <FullScreenBox
+                        fullConcatImages={fullConcatImages}
+                        setFullScreenBox={setFullScreenBox} />
                 :
                 null
             }

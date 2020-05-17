@@ -7,29 +7,7 @@
     .image-container {
         line-height: 0px;
         margin-bottom: 100px;
-        &:first-of-type {
-            // margin-top: 90px;
-            // width: 50% !important;
-            // margin-bottom: 30px !important;
-            // height: 320px;
-            // overflow: hidden;
-            .image-holder {
-                position: relative;
-                width: 100%;
-                padding: 0 0 75%;
-                overflow: hidden;
-                .image-thumbnail {
-                    position: absolute;
-                    border: 0;
-                    width: 100%;
-                    top: 50%;
-                    left: 0%;
-                    cursor: pointer;
-                    bottom: 50%;
-                    transform: translateY(-50%);
-                }
-            }
-        }
+        width: 100%;
 
         .inner-image-container {
             margin: 40px;
@@ -62,6 +40,9 @@
             width: 48%;
             float: left;
 
+            &:first-of-type {
+                width: 96% !important;
+            }
             .inner-image-container {
                 margin: 20px;
 
@@ -98,4 +79,13 @@
             min-width: 300px;
         }
     }
+}
+
+.fade-appear {
+    opacity: 0.01;
+}
+
+.fade-appear-active {
+    opacity: 1;
+    transition: opacity 0.7s ease-in;
 }
