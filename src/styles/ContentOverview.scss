@@ -1,0 +1,213 @@
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/fonts/AvenirLTStd-Medium.otf");
+}
+
+#content-overview {
+    margin: 300px auto;
+    font-family: "Avenir";
+    letter-spacing: 0.15em;
+    width: 70%;
+    height: 100%;
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 25px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    background: #ffffff;
+    text-align: left;
+    display: table;
+    table-layout: fixed;
+
+    #overview {
+        vertical-align: top;
+        display: table-cell;
+        width: 100%;
+        font-family: "Avenir", sans-serif;
+
+        #gallery-container {
+            padding: 0px 20px 40px 20px;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            column-count: 2;
+            -webkit-column-gap: 20px;
+            -moz-column-gap: 20px;
+            column-gap: 20px;
+
+            .title {
+                font-family: "Avenir";
+                display: flex;
+                flex-direction: column;
+                width: 88%;
+                margin: 0 0 50px 0;
+                padding: 0px 2% 1% 2%;
+                line-height: normal;
+                height: 320px;
+
+                h1 {
+                    font-size: 3rem;
+                    margin-bottom: 15px;
+                    letter-spacing: 0.15em;
+                }
+
+                p {
+                    margin: auto;
+                }
+
+                .filters {
+                    display: flex;
+                    padding-top: 20px;
+                    border-top: 1px solid black;
+                    cursor: pointer;
+                    position: relative;
+                    min-width: 155px;
+                    justify-content: center;
+                    text-align: left;
+
+                    .down-arrow {
+                        height: 1.2rem;
+                        padding-left: 7px;
+                        transition: ease 300ms;
+                    }
+
+                    .top-arrow {
+                        height: 1.2rem;
+                        padding-left: 7px;
+                        transform: rotateX(180deg);
+                        transition: ease 300ms;
+                    }
+
+                    .open-filters {
+                        font-size: 14px;
+                        position: absolute;
+                        height: auto;
+                        z-index: 90;
+                        top: 3rem;
+                        left: -20px;
+                        background-color: white;
+                        transition: ease 0.5s;
+                        overflow-x: hidden;
+                        width: max-content;
+                        border-bottom: 1px solid black;
+                        border-right: 1px solid black;
+                        padding: 20px 20px 0px 20px;
+                        transition: ease 400ms;
+                    }
+
+                    .close-filters {
+                        position: absolute;
+                        height: 0px;
+                        z-index: 100;
+                        top: 3rem;
+                        left: -20px;
+                        background-color: white;
+                        overflow-x: hidden;
+                        width: max-content;
+                        font-size: 14px;
+                        padding: 0px 20px -20px 20px;
+                    }
+
+                    .select-filter {
+                        padding-bottom: 15px;
+
+                        &:hover {
+                            transform: scale(1.05);
+                        }
+                    }
+                }
+            }
+            .mobilier {
+                align-items: center;
+                text-align: left;
+            }
+            .realisation {
+                align-items: flex-end;
+                text-align: right;
+
+                h1 {
+                    padding-left: 50%;
+                }
+
+                .description {
+                    margin-top: 5px;
+                    padding-left: 50%;
+                }
+            }
+        }
+    }
+}
+
+@media all and (max-width: 1000px) {
+    #content-overview {
+        background-size: initial;
+        background-position: top center;
+        background-attachment: inherit;
+
+        #overview {
+            vertical-align: top;
+
+            #gallery-container {
+                max-width: 768px;
+                overflow-wrap: break-word;
+                overflow: hidden;
+                -webkit-column-count: 1;
+                -moz-column-count: 1;
+                column-count: 1;    
+
+                .title {
+                    float: unset;
+                    width: 100%;
+                    margin: 0;
+                    padding: 70px 2% 50px 2%;
+                    max-height: none;
+
+                    h1 {
+                        font-size: 3rem;
+                        margin-bottom: 15px;
+                        padding-left: 0;
+                    }
+                }
+
+                .realisation {
+                    align-items: center;
+                    text-align: center;
+
+                    .description {
+                        margin-top: 15px;
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .displaycontent-image-container:first-of-type {
+        width: 98% !important;
+    }
+    .displaycontent-image-container:first-of-type .displaycontent-image-thumbnail {
+        max-width: none;
+    }
+}
+
+@media all and (max-width: 900px) {
+    #content-overview {
+        margin: 100px auto;
+    }
+}
+
+@media all and (max-width: 600px) {
+    #content-overview {
+        .title {
+            min-width: 320px;
+        }
+        .displaycontent-image-container:first-of-type {
+            width: 85% !important;
+        }
+    }
+}

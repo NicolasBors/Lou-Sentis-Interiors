@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "Avenir";
+    src: url("../assets/fonts/AvenirLTStd-Medium.otf");
+}
+
+.home {
+    font-family: "Avenir";
+    letter-spacing: 2px;
+    width: 70%;
+    text-align: center;
+    margin: 250px auto 50px auto;
+
+    .gallery {
+        padding: 0;
+        margin: 50px 0;
+        overflow: hidden;
+    }
+}
+
+@media all and (max-width: 1024px) {
+    .home {
+        background-size: initial;
+        background-position: top center;
+        background-attachment: inherit;
+        vertical-align: top;
+        width: 90%;
+
+        .gallery {
+            max-width: 768px;
+            overflow-wrap: break-word;
+            margin: 50px auto;
+        }
+    }
+}
+
+@media all and (max-width: 900px) {
+    .home {
+        margin: 200px auto 50px;
+    }
+}
+
+@media all and (max-width: 420px) {
+    .home {
+        width: 100%;
+    }
+}
