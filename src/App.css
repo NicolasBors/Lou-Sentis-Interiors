@@ -1,12 +1,3 @@
-.before-start {
-  opacity: 0;
-}
-
-.after-start {
-  opacity: 1;
-  transition: opacity 300ms;
-}
-
 .fixed-background {
   filter: blur(50px);
   transition: 500ms;
