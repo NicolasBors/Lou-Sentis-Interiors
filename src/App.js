@@ -37,8 +37,7 @@ const App = ({ visible }) => {
             <Route exact path="/" component={Home} />
             <Route exact path="/realisation" render={() => <Realisation />} />
             <Route exact path="/mobilier" render={() => <Mobilier />} />
-            {data.realisation.pages.map((realisation) => {
-              console.log(realisation.path);
+            {data["realisation"].pages.map((realisation) => {
               return (
                 <Route
                   path={realisation.path}
@@ -51,7 +50,7 @@ const App = ({ visible }) => {
                 />
               );
             })}
-            {data.mobilier.pages.map((mobilier) => (
+            {data["mobilier"].pages.map((mobilier) => (
               <Route
                 path={mobilier.path}
                 render={() => (

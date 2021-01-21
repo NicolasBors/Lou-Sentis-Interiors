@@ -47,34 +47,40 @@ const MobileMenu = ({
     <div>
       <BurgerIcon setSubMenu1={setSubMenu1} setSubMenu2={setSubMenu2} />
       <MobileNavbarContainer visible={visible}>
-        {sections.map(({ id, ...sectionProps }) => (
+        {sections.map(({ id, name }) => (
           <ItemContainer>
             <TitleContainer
               onClick={
-                sectionProps.title === "RÉALISATION"
+                name === "realisation"
                   ? subMenu1
                     ? () => setSubMenu1(false)
                     : () => setSubMenu1(true)
-                  : sectionProps.title === "MOBILIER"
+                  : name === "mobilier"
                   ? subMenu2
                     ? () => setSubMenu2(false)
                     : () => setSubMenu2(true)
                   : () => {
                       toggleMenu();
-                      history.push(`${match.url}${sectionProps.linkUrl}`);
+                      history.push(`/${id}`);
                     }
               }
             >
               <Title
-                subMenu={id === 1 ? subMenu1 : id === 2 ? subMenu2 : undefined}
+                subMenu={
+                  id === "realisation"
+                    ? subMenu1
+                    : id === "mobilier"
+                    ? subMenu2
+                    : undefined
+                }
               >
-                {sectionProps.title}
+                {name}
               </Title>
-              {id === 1 ? (
+              {id === "realisation" ? (
                 <ArrowContainer subMenu={subMenu1} src={scrollArrow} alt="More">
                   <img src={scrollArrow} alt="More" />
                 </ArrowContainer>
-              ) : id === 2 ? (
+              ) : id === "mobilier" ? (
                 <ArrowContainer subMenu={subMenu2} src={scrollArrow} alt="More">
                   <img src={scrollArrow} alt="More" />
                 </ArrowContainer>
@@ -84,17 +90,15 @@ const MobileMenu = ({
               subMenu={id === 1 ? subMenu1 : id === 2 ? subMenu2 : undefined}
             >
               {subSections
-                .filter(
-                  (subSection) => subSection.section === sectionProps.title
-                )
-                .map(({ id, ...subSectionProps }) => (
+                .filter((subSection) => subSection.sectionId === id)
+                .map(({ name, path }) => (
                   <SubItem
                     onClick={() => {
                       toggleMenu();
-                      history.push(`${match.url}${subSectionProps.linkUrl}`);
+                      history.push(path);
                     }}
                   >
-                    {subSectionProps.title}
+                    {name}
                   </SubItem>
                 ))}
             </SubItemContainer>

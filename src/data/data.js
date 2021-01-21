@@ -1,5 +1,4 @@
 export const data = {
-  // sections OK
   sections: [
     {
       id: "realisation",

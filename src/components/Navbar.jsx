@@ -9,28 +9,25 @@ import {
 
 import "../styles/Navbar.scss";
 
-const Navbar = ({ sections, subSections, history, match }) => (
+const Navbar = ({ sections, subSections, history }) => (
   <div className="navbar">
-    {sections.map(({ id, ...sectionProps }) => (
+    {sections.map(({ id, name }) => (
       <div className="item-sub-container">
         <div className={`item-container${id}`}>
-          <p
-            className="main-item"
-            onClick={() => history.push(`${match.url}${sectionProps.linkUrl}`)}
-          >
-            {sectionProps.title}
+          <p className="main-item" onClick={() => history.push(`/${id}`)}>
+            {name}
           </p>
           <div className={`sub-item-container${id}`}>
             {subSections
-              .filter((subSection) => subSection.section === sectionProps.title)
-              .map(({ id, ...subSectionProps }) => (
+              .filter((subSection) => subSection.sectionId === id)
+              .map(({ name, path }) => (
                 <p
                   className="sub-item"
                   onClick={() => {
-                    history.push(`${match.url}${subSectionProps.linkUrl}`);
+                    history.push(path);
                   }}
                 >
-                  {subSectionProps.title}
+                  {name}
                 </p>
               ))}
           </div>

@@ -60,7 +60,7 @@ const Collection = ({ content, images }) => {
                 {content.categories.map((categorie, i) => (
                   <p
                     className="select-filter"
-                    onClick={() => setFilters(categorie)}
+                    onClick={() => setFilters(categorie.id)}
                   >
                     {categorie.label}
                   </p>
