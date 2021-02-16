@@ -2,3 +2,7 @@
   filter: blur(50px);
   transition: 500ms;
 }
+
+.App {
+  height: 1000px;
+}

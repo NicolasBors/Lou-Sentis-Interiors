@@ -1,66 +1,68 @@
-import React, { useState } from "react";
+import React from "react";
 import { Switch, Route } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "./App.css";
 
-// import Start from "./components/Start.jsx";
-import Header from "./components/Header.jsx";
+import Header from "./components/header/Header";
+import Logo from "./components/logo/Logo";
+import HideOnScroll from "./components/hide-on-scroll/HideOnScroll";
 
-// import Home from './pages/Home'
-import Home from "./pages/Home.jsx";
-import Realisation from "./pages/Realisation";
-import Mobilier from "./pages/Mobilier";
-import Project from "./pages/Project";
-import Collection from "./pages/Collection";
-import Contact from "./pages/Contact.jsx";
-import { data } from "./data/data";
+import Home from "./pages/home/Home.jsx";
+import Realisation from "./pages/realisation/Realisation";
+import Mobilier from "./pages/mobilier/Mobilier";
+import Project from "./pages/project/Project";
+import Collection from "./pages/collection/Collection";
+import Contact from "./pages/contact/Contact.jsx";
+import data from "./data/data.json";
+import { Toolbar, AppBar } from "@material-ui/core";
 
-// import Duquesne from "./data/projects/Duquesne";
-// import LaCoupole from "./data/projects/LaCoupole";
-// import LeRelaisDuLouvre from "./data/projects/LeRelaisDuLouvre";
-// import IleDeLaReunion from "./data/projects/IleDeLaReunion";
-// import ShowroomDigital from "./data/projects/ShowroomDigital";
-
-// import Accessoires from "./data/collection/Accessoires";
-// import Assises from "./data/collection/Assises";
-// import Luminaires from "./data/collection/Luminaires";
-// import Meubles from "./data/collection/Meubles";
+const classes = {
+  start: {
+    textAlign: "center",
+    zIndex: 110,
+    position: "fixed",
+    height: 200,
+    width: "100%",
+  },
+};
 
 const App = ({ visible }) => {
   return (
     <div className="App">
-      <div className={"after-start"}>
-        <Header />
-        <div className={visible ? "fixed-background" : ""}>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/realisation" render={() => <Realisation />} />
-            <Route exact path="/mobilier" render={() => <Mobilier />} />
-            {data["realisation"].pages.map((realisation) => {
-              return (
-                <Route
-                  path={realisation.path}
-                  render={() => (
-                    <Project
-                      content={realisation}
-                      images={realisation.images}
-                    />
-                  )}
-                />
-              );
-            })}
-            {data["mobilier"].pages.map((mobilier) => (
+      <HideOnScroll>
+        <AppBar elevation={0}>
+          <Toolbar style={{ minHeight: 200, backgroundColor: "white" }}>
+            <Logo />
+          </Toolbar>
+          <Header />
+        </AppBar>
+        {/* dissocier header */}
+
+        {/* <h1 style={{ position: "fixed" }}>LOGO</h1> */}
+      </HideOnScroll>
+
+      <div className={visible ? "fixed-background" : ""}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/realisations" render={() => <Realisation />} />
+          <Route exact path="/collections" render={() => <Mobilier />} />
+          {data["realisations"].map((realisation) => {
+            return (
               <Route
-                path={mobilier.path}
-                render={() => (
-                  <Collection content={mobilier} images={mobilier.images} />
-                )}
+                path={realisation.path}
+                render={() => <Project realisation={realisation} />}
               />
-            ))}
-            <Route path="/contact" component={Contact} />
-          </Switch>
-        </div>
+            );
+          })}
+          {data["collections"].map((collection) => (
+            <Route
+              path={collection.path}
+              render={() => <Collection collection={collection} />}
+            />
+          ))}
+          <Route path="/contact" component={Contact} />
+        </Switch>
       </div>
     </div>
   );

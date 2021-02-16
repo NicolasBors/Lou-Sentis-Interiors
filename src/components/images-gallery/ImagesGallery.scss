@@ -1,0 +1,91 @@
+@font-face {
+  font-family: "Avenir";
+  src: url("../../assets/fonts/AvenirLTStd-Medium.otf");
+}
+
+#images-grid {
+  .image-container {
+    line-height: 0px;
+    margin-bottom: 100px;
+    width: 100%;
+
+    .inner-image-container {
+      margin: 40px;
+
+      .image-holder {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+
+        .image-thumbnail {
+          border: 0;
+          width: 100%;
+          left: 0%;
+          cursor: pointer;
+          bottom: 50%;
+          filter: brightness(1);
+          transition: filter 0.3s;
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  #images-grid {
+    max-width: 768px;
+    overflow-wrap: break-word;
+
+    .image-container {
+      width: 48%;
+      float: left;
+
+      &:first-of-type {
+        width: 96% !important;
+      }
+      .inner-image-container {
+        margin: 20px;
+
+        .image-holder {
+          position: relative;
+          width: 100%;
+          padding: 0 0 75%;
+          overflow: hidden;
+
+          .image-thumbnail {
+            position: absolute;
+            border: 0;
+            width: 100%;
+            top: 50%;
+            left: 0%;
+            cursor: pointer;
+            bottom: 50%;
+            transform: translateY(-50%);
+            filter: brightness(1);
+            transition: filter 0.3s;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media all and (max-width: 600px) {
+  #images-grid {
+    .image-container {
+      width: 85%;
+      float: unset;
+      margin: 30px auto;
+      min-width: 300px;
+    }
+  }
+}
+
+.fade-appear {
+  opacity: 0.01;
+}
+
+.fade-appear-active {
+  opacity: 1;
+  transition: opacity 0.7s ease-in;
+}

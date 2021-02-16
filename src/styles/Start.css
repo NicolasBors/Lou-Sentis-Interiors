@@ -1,106 +1,112 @@
 @font-face {
-    font-family: 'Avenir';
-	src: url('../assets/fonts/AvenirLTStd-Medium.otf');
+  font-family: "Avenir";
+  src: url("../assets/fonts/AvenirLTStd-Medium.otf");
 }
 
 .start {
-    text-align: center;
-    font-family: 'Avenir';
-    letter-spacing: 0.15em;
-    z-index: 110;
-    position: fixed;
-    
+  text-align: center;
+  font-family: "Avenir";
+  letter-spacing: 0.15em;
+  z-index: 110;
+  position: fixed;
 }
 
 .start .logo {
-    height: 50vh;
-    overflow: hidden;
+  height: 50vh;
+  overflow: hidden;
 }
 
 .start .logo-after {
-    height: 120px;
-    transition: ease 500ms;
-    -webkit-filter: blur(0);
-    filter: blur(0);
-    overflow: hidden;
-    cursor: pointer;
+  height: 120px;
+  transition: ease 500ms;
+  -webkit-filter: blur(0);
+  filter: blur(0);
+  overflow: hidden;
+  cursor: pointer;
 }
 
 .start .logo-container {
-    /* margin-top: 50vh;
+  /* margin-top: 50vh;
     transform: translateY(-50%);
     position: relative;
     left: auto;
     right: auto; */
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .start .logo-container-after {
-    /* margin-top: 50vh;
+  /* margin-top: 50vh;
     transform: translateY(-50%);
     position: relative;
     left: auto;
     right: auto; */
-    position: fixed;
-    left: 50%;
-    top: 100px;
-    transform: translate(-50%, -50%);
-    transition: ease 500ms;
+  position: fixed;
+  left: 50%;
+  top: 100px;
+  transform: translate(-50%, -50%);
+  transition: ease 500ms;
 }
 
-.start .logo-container img, .start .logo-container-after img {
-    filter: invert(1)
+.start .logo-container img,
+.start .logo-container-after img {
+  filter: invert(1);
 }
 
 .start .shine {
-    position: relative;
+  position: relative;
 }
 
 .start .shine::before {
-    position: absolute;
-    top: 0;
-    left: -75%;
-    z-index: 2;
-    display: block;
-    content: '';
-    width: 50%;
-    height: 100%;
-    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .15) 100%);
-    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .15) 100%);
-    -webkit-transform: skewX(-25deg);
-    transform: skewX(-25deg);
+  position: absolute;
+  top: 0;
+  left: -75%;
+  z-index: 2;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+  background: -webkit-linear-gradient(
+    left,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  -webkit-transform: skewX(-25deg);
+  transform: skewX(-25deg);
 }
 
 .start .shine::before {
-    -webkit-animation: shine 1500ms;
-    animation: shine 1500ms;
+  -webkit-animation: shine 1500ms;
+  animation: shine 1500ms;
 }
 
 @keyframes wink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-
-
 @-webkit-keyframes shine {
-    100% {
-        left: 125%;
-    }
+  100% {
+    left: 125%;
+  }
 }
 
 @keyframes shine {
-    100% {
-        left: 125%;
-    }
+  100% {
+    left: 125%;
+  }
 }
