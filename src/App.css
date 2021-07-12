@@ -1,8 +1,30 @@
-.fixed-background {
-  filter: blur(50px);
-  transition: 500ms;
+@font-face {
+  font-family: 'Avenir';
+  src: url('./assets/fonts/AvenirLTStd-Medium.otf');
 }
 
 .App {
-  height: 1000px;
+  font-family: 'Avenir';
+  color: black;
+  /* TODO: title/text */
+  letter-spacing: 0.1rem;
+  margin: 300px 0 100px 0;
+}
+
+.grid-base-layout {
+  display: grid;
+  grid-template-columns: repeat(24, 1fr);
+  border-collapse: collapse;
+}
+
+.main-container {
+  /* media queries ! */
+  /* width: 70%; */
+  margin: auto;
+}
+
+@media (max-width: 992px) {
+  .grid-base-layout {
+    grid-template-columns: repeat(3, 0fr) repeat(16, 1fr) repeat(5, 0fr);
+  }
 }

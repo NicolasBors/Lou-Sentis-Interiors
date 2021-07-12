@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from 'react'
+import Masonry, { ResponsiveMasonry } from 'react-responsive-masonry'
+import { SRLWrapper } from 'simple-react-lightbox'
+import SimpleReactLightbox from 'simple-react-lightbox'
 
-// import FullScreenBox from "./FullScreenBox";
-// import SmoothImageRender from "./SmoothImageRender";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import { SRLWrapper } from "simple-react-lightbox";
-import SimpleReactLightbox from "simple-react-lightbox";
-
-import { ImageContainer } from "../../styles/ImageContainerStyles";
-import "./ImagesGallery.scss";
+import { ImageContainer } from '../../styles/ImageContainerStyles'
+import './ImagesGallery.scss'
 
 const options = {
   settings: {
@@ -16,13 +13,13 @@ const options = {
   },
   // couleurs et polices du thème
   caption: {
-    captionColor: "white",
-    captionFontFamily: "Avenir",
+    captionColor: 'white',
+    captionFontFamily: 'Avenir',
   },
-};
+}
 
 const ImagesGallery = ({ images }) => {
-  console.log(images);
+  console.log(images)
   return (
     <SimpleReactLightbox>
       <div id="images-grid">
@@ -30,7 +27,7 @@ const ImagesGallery = ({ images }) => {
           options={options}
           customCaptions={images.map((image) => ({
             id: image.id,
-            caption: image.caption || "",
+            caption: image.caption || '',
           }))}
         >
           <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2 }}>
@@ -39,11 +36,7 @@ const ImagesGallery = ({ images }) => {
                 <ImageContainer className="image-container" key={i}>
                   <div className="inner-image-container">
                     <div className="image-holder">
-                      <img
-                        style={{ objectFit: "contain" }}
-                        src={image.url}
-                        alt={image.caption}
-                      />
+                      <img style={{ objectFit: 'contain' }} src={image.url} alt={image.caption} />
                     </div>
                   </div>
                 </ImageContainer>
@@ -53,7 +46,7 @@ const ImagesGallery = ({ images }) => {
         </SRLWrapper>
       </div>
     </SimpleReactLightbox>
-  );
-};
+  )
+}
 
-export default ImagesGallery;
+export default ImagesGallery

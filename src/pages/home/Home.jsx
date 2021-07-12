@@ -1,51 +1,45 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react'
 
-import HomeContact from "../../components/home-contact/HomeContact";
-import HomeLink from "../../components/home-link/HomeLink";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
+import HomeGallery from '../../components/home-gallery/HomeGallery'
 
-import data from "../../data/data.json";
+import data from '../../data/data.json'
 
-import "./Home.scss";
+import './Home.scss'
 
 const findContent = (type, refId) => {
-  const foundContent = data[type].find((d) => d.id === refId);
+  const foundContent = data[type].find((d) => d.id === refId)
 
-  return foundContent;
-};
+  return foundContent
+}
 
 const Home = () => {
-  const links = data.homeLinks;
+  const images = data.homeLinks
+    .map((link) => {
+      const content = findContent(link.type, link.refId)
+      if (content) {
+        return {
+          title: content.name,
+          href: content.path,
+          url: link.imageUrl,
+        }
+      }
+      return undefined
+    })
+    .filter(Boolean)
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+    window.scrollTo(0, 0)
+  }, [])
 
   return (
     <div className="home">
-      <div className="gallery">
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2 }}>
-          <Masonry>
-            {links.flatMap((link, index) => {
-              const content = findContent(link.type, link.refId);
-              if (content) {
-                return (
-                  <HomeLink
-                    link={link}
-                    key={index}
-                    label={content.name}
-                    path={content.path}
-                    imageUrl={link.imageUrl}
-                  />
-                );
-              } else return [];
-            })}
-          </Masonry>
-        </ResponsiveMasonry>
-      </div>
-      <HomeContact />
+      {/* {images?.length && <Gallery images={images} />}
+      <div className="home-contact">
+        <a href="mailTo:lousentis@lousentis-interiors.com">{contactMail}</a>
+      </div> */}
+      <HomeGallery />
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
