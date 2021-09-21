@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import './App.css'
@@ -10,9 +10,12 @@ import Home from './pages/home/Home.jsx'
 import { Toolbar, AppBar } from '@material-ui/core'
 import Navbar from './components/navbar/Navbar'
 import Information from './pages/information/Information'
-import Todo from './pages/todo/Todo'
+import Projects from './pages/projects/Projects'
 
 const App = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return (
     <div className={'App'}>
       <HideOnScroll>
@@ -32,7 +35,7 @@ const App = () => {
           {/* {data['realisations'].map((realisation) => {
             return <Route path={realisation.path} render={() => <Project realisation={realisation} />} />
           })} */}
-          <Route exact path="/projets" render={() => <Todo />} />
+          <Route exact path="/projets" render={() => <Projects />} />
           <Route exact path="/information" render={() => <Information />} />
         </Switch>
       </div>

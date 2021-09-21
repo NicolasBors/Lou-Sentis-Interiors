@@ -1,26 +1,36 @@
-import React from "react";
-import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
-import Thumbnail from "../../components/thumbnail/Thumbnail";
+import React from 'react'
+import { SRLWrapper } from 'simple-react-lightbox'
+import './Gallery.scss'
+import GalleryImage from './GalleryImage'
 
 const Gallery = ({ images }) => {
-  return (
-    <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2 }}>
-      <Masonry>
-        {images
-          .filter((i) => !!i.url)
-          .map((image, index) => {
-            return (
-              <Thumbnail
-                key={index}
-                title={image.title}
-                href={image.href}
-                imageUrl={image.url}
-              />
-            );
-          })}
-      </Masonry>
-    </ResponsiveMasonry>
-  );
-};
+  // if (!images?.length) {
+  //   return <></>
+  // }
 
-export default Gallery;
+  const options = {
+    settings: {
+      autoplaySpeed: 5000,
+      transitionSpeed: 900,
+    },
+    // couleurs et polices du thème ?
+    // caption: {
+    //   captionColor: theme.darkTextColor,
+    //   captionFontFamily: theme.bodyFont,
+    // },
+  }
+  const customCaptions = images.map(({ id, label }) => ({ id, caption: label }))
+
+  return (
+    <SRLWrapper options={options} customCaptions={customCaptions}>
+      <div className="Gallery">
+        {images.map((image) => (
+          // img component
+          <GalleryImage {...image} />
+        ))}
+      </div>
+    </SRLWrapper>
+  )
+}
+
+export default Gallery

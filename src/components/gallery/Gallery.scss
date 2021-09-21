@@ -1,0 +1,8 @@
+.Gallery {
+  border-left: 4px solid black;
+  border-right: 4px solid black;
+
+  @media all and (max-width: 576px) {
+    border: none;
+  }
+}

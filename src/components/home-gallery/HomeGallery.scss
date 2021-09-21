@@ -83,7 +83,10 @@
       flex-direction: column;
       justify-content: center;
       background-color: white;
-      padding: 0.5rem;
+
+      .home-image-container {
+        padding: 0.5rem;
+      }
     }
     .bloc:not(.has-img)::after {
       padding-top: 50%;
@@ -109,17 +112,21 @@
     .mid-grid,
     .bottom-grid {
       // grid-template-columns: repeat(3, 0fr) repeat(16, 1fr) repeat(5, 0fr);
-
-      :nth-child(4),
-      :nth-child(5),
-      :nth-child(6) {
-        border-left: none !important;
-      }
-
+      :nth-child(1),
+      :nth-child(2),
+      :nth-child(3),
       :nth-child(10),
       :nth-child(11),
       :nth-child(12) {
         border-right: none !important;
+      }
+
+      :nth-child(4),
+      :nth-child(5),
+      :nth-child(6),
+      :nth-child(13),
+      :nth-child(14) {
+        border-left: none !important;
       }
     }
   }

@@ -10,10 +10,10 @@ const HideOnScroll = ({ children, window }) => {
   const trigger = useScrollTrigger({ target: window ? window() : undefined })
   const location = useLocation()
 
-  const isProjectsPage = location.pathname.startsWith('/projets')
+  const isHomePage = location.pathname === '/'
 
   return (
-    <Slide appear={false} direction="down" in={isProjectsPage ? !trigger : true}>
+    <Slide appear={false} direction="down" in={isHomePage ? true : !trigger}>
       {children}
     </Slide>
   )
