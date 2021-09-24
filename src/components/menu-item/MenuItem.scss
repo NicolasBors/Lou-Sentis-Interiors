@@ -1,0 +1,33 @@
+.MenuItem {
+  color: black;
+  margin: 5px;
+  position: relative;
+  .menu-item {
+    cursor: pointer;
+  }
+  .bold-item {
+    font-weight: bold;
+  }
+
+  .projects-container {
+    display: none;
+    flex-direction: column;
+    width: fit-content;
+    margin-top: 5px;
+    background-color: white;
+    z-index: 10;
+    height: fit-content;
+
+    .menu-subitem {
+      margin-top: 5px;
+      word-break: break-word;
+    }
+  }
+
+  &:hover > .projects-container {
+    display: flex;
+  }
+  &:hover ~ .information-hide {
+    display: none;
+  }
+}
