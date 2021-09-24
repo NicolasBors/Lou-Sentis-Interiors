@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
-import louCardWB from '../../assets/logos/LOGO BLANC.png'
+import louCardWB from '../../assets/logos/LOGO.png'
 
 const Logo = () => {
   const history = useHistory()
@@ -9,7 +9,7 @@ const Logo = () => {
   const classes = {
     logoContainerAfer: {
       position: 'fixed',
-      left: '50%',
+      left: '37.5%',
       top: 100,
       transform: 'translate(-50%, -50%)',
     },
@@ -17,7 +17,6 @@ const Logo = () => {
       height: 120,
       overflow: 'hidden',
       cursor: 'pointer',
-      filter: 'invert(1)',
     },
   }
 

@@ -4,9 +4,9 @@ import './Gallery.scss'
 import GalleryImage from './GalleryImage'
 
 const Gallery = ({ images }) => {
-  // if (!images?.length) {
-  //   return <></>
-  // }
+  if (!images?.length) {
+    return <></>
+  }
 
   const options = {
     settings: {
@@ -24,10 +24,11 @@ const Gallery = ({ images }) => {
   return (
     <SRLWrapper options={options} customCaptions={customCaptions}>
       <div className="Gallery">
-        {images.map((image) => (
-          // img component
-          <GalleryImage {...image} />
-        ))}
+        <div className="gallery-container">
+          {images.map((image) => (
+            <GalleryImage key={image.id} {...image} />
+          ))}
+        </div>
       </div>
     </SRLWrapper>
   )

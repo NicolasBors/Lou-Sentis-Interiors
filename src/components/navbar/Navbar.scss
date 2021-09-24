@@ -6,29 +6,11 @@
   top: 0;
   background-color: white;
 
-  .navbar-left {
-    grid-column: 1/10;
-    border-right: solid 2px black;
-  }
-  .navbar-right {
-    grid-column: 10/25;
-    border-left: solid 2px black;
-
-    .menu {
-      width: 100%;
-      padding: 0.5rem 0 0.5rem 1rem;
-      display: flex;
-      flex-direction: column;
-
-      .menu-item {
-        color: black;
-        margin: 5px;
-        cursor: pointer;
-      }
-
-      .bold-item {
-        font-weight: bold;
-      }
-    }
+  .menu {
+    width: 100%;
+    padding: 0.5rem 0 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
   }
 }

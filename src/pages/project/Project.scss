@@ -1,23 +1,34 @@
 .Project {
-  width: 45%;
-  margin: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-width: 200px;
+  .project-head-container {
+    margin-bottom: 25px;
+  }
 
   .head {
-    text-align: center;
-    margin-bottom: 2rem;
+    padding: 0.5rem 0 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
     white-space: pre-line;
+    width: 37vw;
+
+    h1 {
+      font-size: 16px;
+      margin: 5px;
+    }
+
+    span {
+      margin: 5px;
+    }
   }
 
   @media all and (max-width: 768px) {
-    width: 65%;
+    .head {
+      width: 40.5vw;
+    }
   }
 
   @media all and (max-width: 576px) {
-    width: 85%;
-    border: none;
+    .head {
+      width: 48.5vw;
+    }
   }
 }

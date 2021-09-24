@@ -1,5 +1,5 @@
 const APP_ROUTES = {
-  PROJETS: { label: 'PROJETS', href: '/projets' },
+  PROJETS: { label: 'PROJETS', href: '/' },
   INFORMATION: {
     label: 'INFORMATION',
     href: '/information',

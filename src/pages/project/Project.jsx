@@ -10,9 +10,14 @@ const Project = ({ name, description = '', images = [] }) => {
 
   return (
     <div className="Project">
-      <div className="head">
-        <h1>{name}</h1>
-        <span>{description}</span>
+      <div className="project-head-container grid-base-layout">
+        <div className="grid-left-container" />
+        <div className="grid-right-container">
+          <div className="head">
+            <h1>{name.toLocaleUpperCase()}</h1>
+            <span>{description}</span>
+          </div>
+        </div>
       </div>
       <Gallery images={images} />
     </div>

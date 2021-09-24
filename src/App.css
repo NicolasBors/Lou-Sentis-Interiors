@@ -23,6 +23,21 @@
   margin: auto;
 }
 
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.grid-left-container {
+  grid-column: 1/10;
+  border-right: solid 2px black;
+}
+
+.grid-right-container {
+  grid-column: 10/25;
+  border-left: solid 2px black;
+}
+
 @media (max-width: 992px) {
   .grid-base-layout {
     grid-template-columns: repeat(3, 0fr) repeat(16, 1fr) repeat(5, 0fr);

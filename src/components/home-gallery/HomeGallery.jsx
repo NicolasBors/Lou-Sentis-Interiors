@@ -1,6 +1,6 @@
 import React from 'react'
-import { shuffleArray } from '../../utils/Array'
 import Image from '../image/Image'
+import { Link } from 'react-router-dom'
 import './HomeGallery.scss'
 
 const HomeImage = (props) => {
@@ -12,27 +12,33 @@ const HomeImage = (props) => {
 }
 
 const Blocs = ({ blocs }) =>
-  blocs.map(({ url, id, label }) => (
+  blocs.map(({ url, id, label, href }) => (
     <div className={`bloc ${url ? 'has-img' : ''}`} key={id}>
-      {url ? <HomeImage alt={label || 'Image'} src={url} /> : <></>}
+      {url ? (
+        <Link to={href} title={label}>
+          <HomeImage alt={label || 'Image'} src={url} />
+        </Link>
+      ) : (
+        <></>
+      )}
     </div>
   ))
 
-const HomeGallery = ({ homePage }) => {
-  if (!homePage?.topImages?.length && !homePage?.middleImages?.length && !homePage?.bottomImages?.length) {
-    return <></>
+const HomeGallery = ({ topImagesMap, middleImagesMap, bottomImagesMap, screen }) => {
+  const buildBlocsContents = (imagesMap, screen) => {
+    const emptyObjectsArray = new Array(14).fill({})
+
+    return emptyObjectsArray.reduce((acc, cur, index) => {
+      const position = index.toString()
+      const imageByPosition = imagesMap[screen][position]
+
+      return acc.concat([imageByPosition || cur])
+    }, [])
   }
 
-  const buildBlocsContents = (images) => {
-    const imagesByPosition = images?.filter((_, index) => index <= 13)
-    const emptyBlocksLength = 14 - imagesByPosition.length
-
-    return shuffleArray(imagesByPosition.concat(new Array(emptyBlocksLength).fill({})))
-  }
-
-  const topBlocs = buildBlocsContents(homePage.topImages)
-  const midBlocs = buildBlocsContents(homePage.middleImages)
-  const bottomBlocs = buildBlocsContents(homePage.bottomImages)
+  const topBlocs = buildBlocsContents(topImagesMap, screen)
+  const midBlocs = buildBlocsContents(middleImagesMap, screen)
+  const bottomBlocs = buildBlocsContents(bottomImagesMap, screen)
 
   return (
     <div className="HomeGallery">
