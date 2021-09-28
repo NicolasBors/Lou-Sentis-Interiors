@@ -1,11 +1,7 @@
 import React from 'react'
-import { useHistory, useLocation } from 'react-router-dom'
 import louCardWB from '../../assets/logos/LOGO.png'
 
 const Logo = () => {
-  const history = useHistory()
-  const location = useLocation()
-
   const classes = {
     logoContainerAfer: {
       position: 'fixed',
@@ -20,12 +16,10 @@ const Logo = () => {
     },
   }
 
-  const onLogoClick = () => (location.pathname === '/' ? undefined : history.push('/'))
-
   return (
     <div id="logoId" style={classes.logoContainerAfer}>
       <figure>
-        <img style={classes.logoAfter} src={louCardWB} alt="logo" onClick={onLogoClick} />
+        <img style={classes.logoAfter} src={louCardWB} alt="logo" />
       </figure>
     </div>
   )
